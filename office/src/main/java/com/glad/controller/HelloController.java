@@ -16,22 +16,23 @@ import com.glad.model.HelloModel;
 @SessionAttributes("helloModel")
 public class HelloController {
 
-	@ModelAttribute("loginModel")
-	public HelloModel createLoginModel() {
-		HelloModel loginModel = new HelloModel();
-		return loginModel;
+	@ModelAttribute("helloModel")
+	public HelloModel createHelloModel() {
+		HelloModel helloModel = new HelloModel();
+		return helloModel;
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String initModel(@ModelAttribute("helloModel") HelloModel loginModel) {
-		System.out.println("aaaa");
+	public String initModel(@ModelAttribute("helloModel") HelloModel helloModel) {
+		System.out.println(helloModel.getMessage());
+		System.out.println("defaut method");
 		return "hello";
 	}
 
-	@RequestMapping(value = { "/init", "complete" }, method = RequestMethod.GET)
-	public String helloWorld(ModelMap map, HelloModel helloModel,
-			HttpServletRequest request) {
-		System.out.println("aaaaa");
+	@RequestMapping(value = { "/init" }, method = RequestMethod.GET)
+	public String helloWorld(ModelMap map, @ModelAttribute HelloModel helloModel, HttpServletRequest request) {
+		System.out.println("init method");
+
 		helloModel.setMessage("abc");
 		return "hello";
 	}
