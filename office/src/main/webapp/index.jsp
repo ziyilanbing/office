@@ -1,3 +1,8 @@
-<script language="javascript" type="text/javascript">
-	window.location.href = "http://localhost:8080/office/hello/init";
-</script>
+<html>
+	<head>
+		<title>success!</title>
+		<meta http-equiv="refresh" content="0;url=hello/init"> 
+	</head>
+	<body>
+	</body>
+</html>

@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.glad.framework.base.BaseController;
 import com.glad.model.HelloModel;
 
 @Controller
 @RequestMapping("/hello")
 @SessionAttributes("helloModel")
-public class HelloController {
+public class HelloController extends BaseController {
 
 	@ModelAttribute("helloModel")
 	public HelloModel createHelloModel() {
@@ -25,6 +26,7 @@ public class HelloController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String initModel(@ModelAttribute("helloModel") HelloModel helloModel) {
 		System.out.println(helloModel.getMessage());
+		System.out.println(this.getScreenId());
 		System.out.println("defaut method");
 		return "hello";
 	}
@@ -32,8 +34,14 @@ public class HelloController {
 	@RequestMapping(value = { "/init" }, method = RequestMethod.GET)
 	public String helloWorld(ModelMap map, @ModelAttribute HelloModel helloModel, HttpServletRequest request) {
 		System.out.println("init method");
-
+		helloModel.setUsername("test");
+		helloModel.setPassword("test");
 		helloModel.setMessage("abc");
 		return "hello";
+	}
+
+	@RequestMapping(value = { "/submit" }, method = RequestMethod.POST)
+	public String helloWorldaaa(@ModelAttribute HelloModel helloModel, HttpServletRequest request) {
+		return "show";
 	}
 }
