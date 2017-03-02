@@ -1,6 +1,7 @@
 package com.glad.model;
 
 public class HelloModel {
+
 	private String message;
 	private String username;
 

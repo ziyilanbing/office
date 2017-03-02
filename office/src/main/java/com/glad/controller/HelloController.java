@@ -16,19 +16,18 @@ import com.glad.model.HelloModel;
 @RequestMapping("/hello")
 @SessionAttributes("helloModel")
 public class HelloController extends BaseController {
-
-	@ModelAttribute("helloModel")
-	public HelloModel createHelloModel() {
-		HelloModel helloModel = new HelloModel();
-		return helloModel;
-	}
+	//
+	// @ModelAttribute("helloModel")
+	// public HelloModel createHelloModel() {
+	// HelloModel helloModel = new HelloModel();
+	// return helloModel;
+	// }
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String initModel(@ModelAttribute("helloModel") HelloModel helloModel) {
-		System.out.println(helloModel.getMessage());
+	public String initModel(ModelMap map) {
 		System.out.println(this.getScreenId());
 		System.out.println("defaut method");
-		return "hello";
+		return "login";
 	}
 
 	@RequestMapping(value = { "/init" }, method = RequestMethod.GET)
