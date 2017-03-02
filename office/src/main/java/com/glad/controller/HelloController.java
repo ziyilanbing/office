@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.glad.framework.base.BaseController;
-import com.glad.model.HelloModel;
+import com.glad.model.LoginModel;
 
 @Controller
-@RequestMapping("/hello")
-@SessionAttributes("helloModel")
+@RequestMapping("/login")
+@SessionAttributes("loginModel")
 public class HelloController extends BaseController {
-	//
-	// @ModelAttribute("helloModel")
-	// public HelloModel createHelloModel() {
-	// HelloModel helloModel = new HelloModel();
-	// return helloModel;
-	// }
+
+	@ModelAttribute("loginModel")
+	public LoginModel createloginModel() {
+		LoginModel loginModel = new LoginModel();
+		return loginModel;
+	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String initModel(ModelMap map) {
@@ -31,16 +31,16 @@ public class HelloController extends BaseController {
 	}
 
 	@RequestMapping(value = { "/init" }, method = RequestMethod.GET)
-	public String helloWorld(ModelMap map, @ModelAttribute HelloModel helloModel, HttpServletRequest request) {
+	public String helloWorld(ModelMap map, @ModelAttribute LoginModel loginModel, HttpServletRequest request) {
 		System.out.println("init method");
-		helloModel.setUsername("test");
-		helloModel.setPassword("test");
-		helloModel.setMessage("abc");
+		loginModel.setUsername("test");
+		loginModel.setPassword("test");
+		loginModel.setMessage("abc");
 		return "hello";
 	}
 
 	@RequestMapping(value = { "/submit" }, method = RequestMethod.POST)
-	public String helloWorldaaa(@ModelAttribute HelloModel helloModel, HttpServletRequest request) {
+	public String helloWorldaaa(@ModelAttribute LoginModel loginModel, HttpServletRequest request) {
 		return "show";
 	}
 }

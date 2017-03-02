@@ -13,7 +13,7 @@
 	src="resources/scripts/libs/require/require.js"></script>
 </head>
 <body>
-	<form:form modelAttribute="helloModel" action="submit?aaa=bbb" id="form" method="POST">
+	<form:form modelAttribute="helloModel" action="submit" id="form" method="POST">
 		<table class="my-login-table" id="loginTable">
 			<tr>
 				<td>用户名</td>

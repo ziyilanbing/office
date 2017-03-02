@@ -1,9 +1,27 @@
 package com.glad.model;
 
-public class HelloModel {
+public class LoginModel {
 
 	private String message;
 	private String username;
+	private String password;
+	private boolean remember;
+
+	public boolean isRemember() {
+		return remember;
+	}
+
+	public void setRemember(boolean remember) {
+		this.remember = remember;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
 	public String getUsername() {
 		return username;
@@ -19,16 +37,6 @@ public class HelloModel {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	private String password;
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
 	}
 
 }
