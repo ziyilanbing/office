@@ -10,5 +10,5 @@
 	<context:component-scan base-package="com.glad.model" />
 
 	<!-- <import resource="/WEB-INF/spring/spring-mybatis.xml" /> -->
-	<import resource="/WEB-INF/spring/controller.xml" />
+	<import resource="./controller.xml" />
 </beans>

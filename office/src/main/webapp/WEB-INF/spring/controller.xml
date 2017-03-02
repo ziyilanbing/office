@@ -13,8 +13,6 @@
         ">
 
 	<mvc:annotation-driven />
-	<!-- <mvc:annotation-driven validator="springBeanValidator"> -->
-	<!-- <bean id="configurationLoader" class="org." -->
 
 	<bean id="requestAroundAdvice" class="com.glad.aspect.RequestAroundAdvice" />
 	<bean id="requestAroundAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
