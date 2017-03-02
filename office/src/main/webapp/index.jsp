@@ -1,8 +1,6 @@
 <html>
 	<head>
 		<title>success!</title>
-		<meta http-equiv="refresh" content="0;url=hello/init"> 
+		<meta http-equiv="refresh" content="0;url=hello"> 
 	</head>
-	<body>
-	</body>
 </html>
