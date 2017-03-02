@@ -6,10 +6,9 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
-	<mvc:resources mapping="/JavaScript/**" location="/static_resources/javascript/" />
-	<mvc:resources mapping="/styles/**" location="/static_resources/css/" />
-	<mvc:resources mapping="/images/**" location="/static_resources/images/" />
-	<mvc:default-servlet-handler />
-	
+	<context:component-scan base-package="com.glad.controller" />
+	<context:component-scan base-package="com.glad.model" />
+
 	<!-- <import resource="/WEB-INF/spring/spring-mybatis.xml" /> -->
+	<import resource="/WEB-INF/spring/controller.xml" />
 </beans>
