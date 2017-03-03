@@ -1,7 +1,5 @@
 package com.glad.framework.exp;
 
-import com.glad.framework.Module;
-
 public class AppErrorException extends BaseException {
 	private static final long serialVersionUID = 3641035922703182059L;
 
@@ -18,8 +16,8 @@ public class AppErrorException extends BaseException {
 	 * @param errorFieldName
 	 *            error item
 	 */
-	public AppErrorException(Module module, String key, Object[] args, String errorFieldName) {
-		super(module, key, args);
+	public AppErrorException(String key, Object[] args, String errorFieldName) {
+		super(key, args);
 		this.errorFieldName = errorFieldName;
 	}
 
