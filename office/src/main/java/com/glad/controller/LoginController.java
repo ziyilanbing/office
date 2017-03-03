@@ -15,7 +15,7 @@ import com.glad.model.LoginModel;
 @Controller
 @RequestMapping("/login")
 @SessionAttributes("loginModel")
-public class HelloController extends BaseController {
+public class LoginController extends BaseController {
 
 	@ModelAttribute("loginModel")
 	public LoginModel createloginModel() {
@@ -23,24 +23,16 @@ public class HelloController extends BaseController {
 		return loginModel;
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String initModel(ModelMap map) {
-		System.out.println(this.getScreenId());
-		System.out.println("defaut method");
-		return "login";
-	}
-
 	@RequestMapping(value = { "/init" }, method = RequestMethod.GET)
 	public String helloWorld(ModelMap map, @ModelAttribute LoginModel loginModel, HttpServletRequest request) {
 		System.out.println("init method");
-		loginModel.setUsername("test");
-		loginModel.setPassword("test");
-		loginModel.setMessage("abc");
+
 		return "login";
 	}
 
 	@RequestMapping(value = { "/submit" }, method = RequestMethod.POST)
 	public String helloWorldaaa(@ModelAttribute LoginModel loginModel, HttpServletRequest request) {
+
 		return "top";
 	}
 }

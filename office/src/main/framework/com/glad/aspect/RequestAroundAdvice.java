@@ -5,7 +5,7 @@ import org.aopalliance.intercept.MethodInvocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.glad.controller.HelloController;
+import com.glad.controller.LoginController;
 
 public class RequestAroundAdvice implements MethodInterceptor {
 
@@ -39,7 +39,7 @@ public class RequestAroundAdvice implements MethodInterceptor {
 	}
 
 	private static String getRedirectUrlByLoginState(MethodInvocation invocation, Class<?> controllerType) {
-		if (controllerType == HelloController.class) {
+		if (controllerType == LoginController.class) {
 
 		}
 		// sessionTimeOut

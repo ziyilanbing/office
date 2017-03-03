@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>success!</title>
-		<meta http-equiv="refresh" content="0;url=login"> 
+		<title>Success!</title>
+		<meta http-equiv="refresh" content="0;url=login/init"> 
 	</head>
 </html>
