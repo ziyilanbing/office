@@ -36,11 +36,11 @@ public class HelloController extends BaseController {
 		loginModel.setUsername("test");
 		loginModel.setPassword("test");
 		loginModel.setMessage("abc");
-		return "hello";
+		return "login";
 	}
 
 	@RequestMapping(value = { "/submit" }, method = RequestMethod.POST)
 	public String helloWorldaaa(@ModelAttribute LoginModel loginModel, HttpServletRequest request) {
-		return "show";
+		return "top";
 	}
 }

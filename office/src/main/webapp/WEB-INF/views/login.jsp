@@ -1,4 +1,4 @@
-<%@ include file="./include/header.jsp"%>
+<%@ include file="./include/taglib.jsp"%>
 <!DOCTYPE html>
 <html lang="zh">
 
@@ -10,25 +10,15 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin 2 - Bootstrap Admin Theme</title>
+<title>Bootstrap Admin Theme Login - SB Admin 2</title>
 
-<!-- Bootstrap Core CSS -->
-<link href="../WEB-INF/static/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<!-- MetisMenu CSS -->
-<link href="../WEB-INF/static/vendor/metisMenu/metisMenu.min.css"
-	rel="stylesheet">
-<!-- Custom CSS -->
-<link href="../WEB-INF/static/css/sb-admin-2.css" rel="stylesheet">
-<!-- Custom Fonts -->
-<link href="../WEB-INF/static/vendor/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
+<%@ include file="./include/head.jsp"%>
 
 </head>
 
 <body>
 
-	<form:form modelAttribute="loginModel" action="submit" id="form"
+	<form:form modelAttribute="loginModel" action="login/submit" id="form"
 		method="POST">
 		<div class="container">
 			<div class="row">
@@ -41,7 +31,7 @@
 							<fieldset>
 								<div class="form-group">
 									<form:input path="username" class="form-control" type="text"
-										placeholder="E-mail" />
+										placeholder="username" />
 								</div>
 								<div class="form-group">
 									<form:input class="form-control" placeholder="Password"
@@ -61,18 +51,6 @@
 			</div>
 		</div>
 	</form:form>
-	<!-- jQuery -->
-	<script src="../WEB-INF/static/vendor/jquery/jquery.min.js"></script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="../WEB-INF/static/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-	<!-- Metis Menu Plugin JavaScript -->
-	<script src="../WEB-INF/static/vendor/metisMenu/metisMenu.min.js"></script>
-
-	<!-- Custom Theme JavaScript -->
-	<script src="../WEB-INF/static/js/sb-admin-2.js"></script>
-
 </body>
 
 </html>

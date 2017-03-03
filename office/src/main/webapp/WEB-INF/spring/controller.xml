@@ -12,18 +12,17 @@
         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
         ">
 
-	<mvc:annotation-driven />
-
 	<bean id="requestAroundAdvice" class="com.glad.aspect.RequestAroundAdvice" />
+	
 	<bean id="requestAroundAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
-		<constructor-arg name="pointcut" ref="requestAroundPointCut"></constructor-arg>
+		<constructor-arg name="pointcut" ref="requestAroundPointcut"></constructor-arg>
 		<constructor-arg name="advice" ref="requestAroundAdvice"></constructor-arg>
 	</bean>
 	<aop:config>
 		<aop:aspect ref="requestAroundAdvisor">
 			<aop:pointcut
 				expression="@annotation(org.springframework.web.bind.annotation.RequestMapping)"
-				id="requestAroundPointCut" />
+				id="requestAroundPointcut" />
 		</aop:aspect>
 	</aop:config>
 </beans>
