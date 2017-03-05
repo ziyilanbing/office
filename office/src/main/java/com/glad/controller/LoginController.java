@@ -13,7 +13,7 @@ import com.glad.framework.base.BaseController;
 import com.glad.model.LoginModel;
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/login/**")
 @SessionAttributes("loginModel")
 public class LoginController extends BaseController {
 
@@ -24,14 +24,24 @@ public class LoginController extends BaseController {
 	}
 
 	@RequestMapping(value = { "/init" }, method = RequestMethod.GET)
-	public String helloWorld(ModelMap map, @ModelAttribute LoginModel loginModel, HttpServletRequest request) {
+	public String init(ModelMap map, @ModelAttribute LoginModel loginModel,
+			HttpServletRequest request) {
+		System.out.println("init method");
+
+		return "login";
+	}
+
+	@RequestMapping(value = { "/init" }, method = RequestMethod.GET)
+	public String initLogin(ModelMap map,
+			@ModelAttribute LoginModel loginModel, HttpServletRequest request) {
 		System.out.println("init method");
 
 		return "login";
 	}
 
 	@RequestMapping(value = { "/submit" }, method = RequestMethod.POST)
-	public String helloWorldaaa(@ModelAttribute LoginModel loginModel, HttpServletRequest request) {
+	public String submitLogin(@ModelAttribute LoginModel loginModel,
+			HttpServletRequest request) {
 
 		return "top";
 	}
