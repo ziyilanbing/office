@@ -14,10 +14,34 @@
 
 	<mvc:annotation-driven />
 
-	<!-- <import resource="/WEB-INF/spring/spring-mybatis.xml" /> -->
-	<!-- <import resource="./controller.xml" /> -->
-
 	<context:property-placeholder location="classpath:mysql.properties" />
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- <property name="maxActive" value="10" /> -->
+		<!-- <property name="maxIdle" value="5" /> -->
+	</bean>
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:mybatis/mybatisConfig.xml" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.glad.dao" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+
+	<bean id="txManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="txManager" />
 
 	<!-- <bean id="dataSource" class="org.apache.ibatis.datasource.pooled.PooledDataSource" -->
 	<!-- destroy-method="forceCloseAll"> -->
@@ -41,4 +65,9 @@
 	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> -->
 	<!-- <property name="basePackage" value="com.jayung.curriculum.mapper" /> -->
 	<!-- </bean> -->
+
+
+	<!-- <import resource="/WEB-INF/spring/spring-mybatis.xml" /> -->
+	<!-- <import resource="./controller.xml" /> -->
+
 </beans>
