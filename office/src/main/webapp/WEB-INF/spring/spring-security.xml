@@ -36,43 +36,5 @@
 			user-service-ref="myUserDetailsService" />
 	</sec:authentication-manager>
 
-	<!-- <sec:http use-expressions="true"> -->
-	<!-- <sec:intercept-url pattern="/index.jsp" -->
-	<!-- access="hasRole('ROLE_ADMIN,ROLE_USER')" /> -->
-	<!-- <sec:intercept-url pattern="/login*" access="hasRole('ROLE_USER')" 
-		/> -->
-	<!-- <sec:form-login login-page="/index.jsp" -->
-	<!-- authentication-failure-url="/login/error" default-target-url="/login.jsp" 
-		/> -->
-	<!-- <sec:session-management> -->
-	<!-- <sec:concurrency-control max-sessions="1" -->
-	<!-- error-if-maximum-exceeded="true" /> -->
-	<!-- </sec:session-management> -->
-
-	<!-- <sec:remember-me data-source-ref="dataSource" /> -->
-	<!-- <sec:logout invalidate-session="true" logout-success-url="/" /> -->
-	<!-- </sec:http> -->
-
-	<!-- <bean id="dataSource" -->
-	<!-- class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
-	<!-- <property name="driverClassName" value="${jdbcDriverClassName}" /> -->
-	<!-- <property name="url" value="${jdbcUrl}" /> -->
-	<!-- <property name="username" value="${jdbcUsername}" /> -->
-	<!-- <property name="password" value="${jdbcPassword}" /> -->
-	<!-- </bean> -->
-
-	<!-- <bean id="userDetailsService" -->
-	<!-- class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl"> -->
-	<!-- <property name="dataSource" ref="dataSource" /> -->
-	<!-- </bean> -->
-
-	<!-- <sec:authentication-manager> -->
-	<!-- <sec:authentication-provider> -->
-	<!-- <sec:user-service> -->
-	<!-- <sec:user name="admin" password="admin" authorities="ROLE_ADMIN" /> -->
-	<!-- <sec:user name="tom" password="123456" authorities="ROLE_USER" /> -->
-	<!-- </sec:user-service> -->
-	<!-- </sec:authentication-provider> -->
-	<!-- </sec:authentication-manager> -->
 
 </beans>

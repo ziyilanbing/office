@@ -27,12 +27,12 @@
 	</bean>
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="configLocation" value="classpath:mybatis/mybatisConfig.xml" />
+		<property name="configLocation" value="classpath:mybatisConfig.xml" />
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.glad.dao" />
+		<property name="basePackage" value="com.glad.dao.xml" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 
@@ -42,32 +42,5 @@
 	</bean>
 
 	<tx:annotation-driven transaction-manager="txManager" />
-
-	<!-- <bean id="dataSource" class="org.apache.ibatis.datasource.pooled.PooledDataSource" -->
-	<!-- destroy-method="forceCloseAll"> -->
-	<!-- <property name="driver" value="${jdbcDriverClassName}" /> -->
-	<!-- <property name="url" value="${jdbcUrl}" /> -->
-	<!-- <property name="username" value="${jdbcUsername}" /> -->
-	<!-- <property name="password" value="${jdbcPassword}" /> -->
-	<!-- </bean> -->
-
-	<!-- <bean id="transactionManager" -->
-	<!-- class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> -->
-	<!-- <property name="dataSource" ref="dataSource" /> -->
-	<!-- </bean> -->
-
-	<!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> -->
-	<!-- <property name="dataSource" ref="dataSource" /> -->
-	<!-- <property name="typeAliasesPackage" value="com.jayung.curriculum.domain" 
-		/> -->
-	<!-- </bean> -->
-
-	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> -->
-	<!-- <property name="basePackage" value="com.jayung.curriculum.mapper" /> -->
-	<!-- </bean> -->
-
-
-	<!-- <import resource="/WEB-INF/spring/spring-mybatis.xml" /> -->
-	<!-- <import resource="./controller.xml" /> -->
 
 </beans>
