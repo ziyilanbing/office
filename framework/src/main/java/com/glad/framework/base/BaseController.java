@@ -13,6 +13,8 @@ public class BaseController extends AbstractController {
 
 	public String getScreenId() {
 		screenId = this.getClass().getName().replaceAll("Controller$", "");
+		logger.info("getScreenId info ");
+		logger.warn("getScreenId warn ");
 		return screenId;
 	}
 

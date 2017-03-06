@@ -23,26 +23,19 @@ public class LoginController extends BaseController {
 		return loginModel;
 	}
 
-	@RequestMapping(value = { "/init" }, method = RequestMethod.GET)
-	public String init(ModelMap map, @ModelAttribute LoginModel loginModel,
-			HttpServletRequest request) {
+	// init
+	@RequestMapping(value = { "/", "/init**" }, method = RequestMethod.GET)
+	public String initLogin(ModelMap map, @ModelAttribute LoginModel loginModel, HttpServletRequest request) {
 		System.out.println("init method");
-
-		return "login";
-	}
-
-	@RequestMapping(value = { "/init" }, method = RequestMethod.GET)
-	public String initLogin(ModelMap map,
-			@ModelAttribute LoginModel loginModel, HttpServletRequest request) {
-		System.out.println("init method");
-
+		logger.info("logger.info");
+		logger.info(this.getScreenId());
 		return "login";
 	}
 
 	@RequestMapping(value = { "/submit" }, method = RequestMethod.POST)
-	public String submitLogin(@ModelAttribute LoginModel loginModel,
-			HttpServletRequest request) {
+	public String submitLogin(@ModelAttribute LoginModel loginModel, HttpServletRequest request) {
 
+		System.out.println("Username" + loginModel.getUsername());
 		return "top";
 	}
 }
