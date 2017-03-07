@@ -2,6 +2,8 @@ package com.glad.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +18,9 @@ import com.glad.model.LoginModel;
 @RequestMapping("/login/**")
 @SessionAttributes("loginModel")
 public class LoginController extends BaseController {
+
+	@Autowired
+	private SecurityContextLogoutHandler securityContextLogoutHandle;
 
 	@ModelAttribute("loginModel")
 	public LoginModel createloginModel() {
