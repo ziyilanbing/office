@@ -18,8 +18,8 @@
 
 <body>
 
-	<form:form modelAttribute="loginModel" action="REPLACE_BY_SCRIPT" id="form"
-		method="POST">
+	<form:form modelAttribute="loginModel" action="REPLACE_BY_SCRIPT"
+		id="form" method="POST">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4">
@@ -27,6 +27,11 @@
 						<div class="panel-heading">
 							<h3 class="panel-title">Please Sign In</h3>
 						</div>
+						<c:if test='${authenticationFailureResult != null}'>
+							<div class="alert alert-danger">
+								<p>Invalid user name and password.</p>
+							</div>
+						</c:if>
 						<div class="panel-body">
 							<fieldset>
 								<div class="form-group">
@@ -42,8 +47,11 @@
 										value="Remember Me" />Remember Me
 									</label>
 								</div>
+								<input type="hidden" name="${_csrf.parameterName}"
+									value="${_csrf.token}" />
 								<!-- Change this to a button or input when using this as a form -->
-								<button class="btn btn-lg btn-success btn-block" type="submit" formaction="submit">Login</button>
+								<button class="btn btn-lg btn-success btn-block" type="submit"
+									formaction="submit">Login</button>
 							</fieldset>
 						</div>
 					</div>
