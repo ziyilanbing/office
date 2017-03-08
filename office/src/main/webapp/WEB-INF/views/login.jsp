@@ -43,7 +43,7 @@
 										path="password" type="password" value="" />
 								</div>
 								<div class="checkbox">
-									<label> <input name="remember" type="checkbox"
+									<label> <input id="remember" name="remember-me" type="checkbox"
 										value="Remember Me" />Remember Me
 									</label>
 								</div>

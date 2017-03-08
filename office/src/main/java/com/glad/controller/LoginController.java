@@ -1,8 +1,12 @@
 package com.glad.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -31,16 +35,40 @@ public class LoginController extends BaseController {
 	// init
 	@RequestMapping(value = { "/", "/init**" }, method = RequestMethod.GET)
 	public String initLogin(ModelMap map, @ModelAttribute LoginModel loginModel, HttpServletRequest request) {
-		System.out.println("init method");
-		logger.info("logger.info");
-		logger.info(this.getScreenId());
+		System.out.println("init method" + this.getScreenId());
 		return "login";
 	}
 
 	@RequestMapping(value = { "/submit" }, method = RequestMethod.POST)
 	public String submitLogin(@ModelAttribute LoginModel loginModel, HttpServletRequest request) {
 
-		System.out.println("Username" + loginModel.getUsername());
+		System.out.println("submitLogin");
 		return "top";
+	}
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (auth != null) {
+			securityContextLogoutHandle.logout(request, response, auth);
+		}
+		return "redirect:/login";
+	}
+
+	@RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
+	public String accessDeniedPage(ModelMap model) {
+
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String userName = principal instanceof UserDetails ? ((UserDetails) principal).getUsername()
+				: principal.toString();
+		model.addAttribute("user", userName);
+		return "accessDenied";
+	}
+
+	@RequestMapping(value = "/authenticationFailure", method = RequestMethod.GET)
+	public String authenticationFailure(HttpServletRequest request) {
+		System.out.println("authenticationFailure");
+		request.setAttribute("authenticationFailureResult", "failure");
+		return "login";
 	}
 }
