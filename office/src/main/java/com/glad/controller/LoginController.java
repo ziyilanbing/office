@@ -33,16 +33,19 @@ public class LoginController extends BaseController {
 	}
 
 	// init
-	@RequestMapping(value = { "/", "/init**" }, method = RequestMethod.GET)
-	public String initLogin(ModelMap map, @ModelAttribute LoginModel loginModel, HttpServletRequest request) {
+	@RequestMapping(value = { "/init" }, method = RequestMethod.GET)
+	public String initLogin(ModelMap model, @ModelAttribute LoginModel loginModel, HttpServletRequest request) {
 		System.out.println("init method" + this.getScreenId());
 		return "login";
 	}
 
-	@RequestMapping(value = { "/submit" }, method = RequestMethod.POST)
-	public String submitLogin(@ModelAttribute LoginModel loginModel, HttpServletRequest request) {
-
-		System.out.println("submitLogin");
+	@RequestMapping(value = { "/", "top" }, method = RequestMethod.GET)
+	public String initTop(ModelMap model, @ModelAttribute LoginModel loginModel, HttpServletRequest request) {
+		System.out.println("init top" + this.getScreenId());
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String userName = principal instanceof UserDetails ? ((UserDetails) principal).getUsername()
+				: principal.toString();
+		model.addAttribute("user", userName);
 		return "top";
 	}
 
@@ -65,6 +68,12 @@ public class LoginController extends BaseController {
 		return "accessDenied";
 	}
 
+	/**
+	 * login Failure
+	 * 
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "/authenticationFailure", method = RequestMethod.GET)
 	public String authenticationFailure(HttpServletRequest request) {
 		System.out.println("authenticationFailure");

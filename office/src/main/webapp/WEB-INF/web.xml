@@ -40,10 +40,10 @@
 	</listener>
 
 	<!-- Log4j -->
-	<!-- <context-param> -->
-	<!-- <param-name>log4jConfigLocation</param-name> -->
-	<!-- <param-value>classpath:/logback.xml</param-value> -->
-	<!-- </context-param> -->
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>classpath:/logback.xml</param-value>
+	</context-param>
 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
