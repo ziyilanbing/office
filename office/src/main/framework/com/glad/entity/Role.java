@@ -2,15 +2,13 @@ package com.glad.entity;
 
 import java.io.Serializable;
 
-import com.glad.util.RoleType;
-
 public class Role implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private int id;
 
-	private RoleType roleType;
+	private String roleType;
 
 	public int getId() {
 		return id;
@@ -20,11 +18,11 @@ public class Role implements Serializable {
 		this.id = id;
 	}
 
-	public RoleType getRoleType() {
+	public String getRoleType() {
 		return roleType;
 	}
 
-	public void setRoleType(RoleType roleType) {
+	public void setRoleType(String roleType) {
 		this.roleType = roleType;
 	}
 }

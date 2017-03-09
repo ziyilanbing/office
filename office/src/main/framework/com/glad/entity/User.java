@@ -3,15 +3,13 @@ package com.glad.entity;
 import java.io.Serializable;
 import java.util.List;
 
-import com.glad.util.State;
-
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private int id;
 
-	private String ssoId;
+	private String userName;
 
 	private String password;
 
@@ -21,7 +19,7 @@ public class User implements Serializable {
 
 	private String email;
 
-	private State state;
+	private String state;
 
 	private List<Role> roleList;
 
@@ -33,12 +31,12 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public String getSsoId() {
-		return ssoId;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setSsoId(String ssoId) {
-		this.ssoId = ssoId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getPassword() {
@@ -73,11 +71,11 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public State getState() {
+	public String getState() {
 		return state;
 	}
 
-	public void setState(State state) {
+	public void setState(String state) {
 		this.state = state;
 	}
 

@@ -23,20 +23,20 @@ public class MyUserDetailsServiceImpl implements UserDetailsService {
 	private UserService userService;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userService.findBySsoId(username);
+	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+		User user = userService.findByUserName(userName);
 		System.out.println("User : " + user);
 		if (user == null) {
 			System.out.println("User not found");
 			throw new UsernameNotFoundException("Username not found");
 		}
-		boolean enabled = user.getState().equals(State.Active);
+		boolean enabled = user.getState().equals(State.ACTIVE.getName());
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		for (Role role : user.getRoleList()) {
 			System.out.println("role : " + role);
 			authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getRoleType()));
 		}
-		return new org.springframework.security.core.userdetails.User(user.getSsoId(), user.getPassword(), enabled,
+		return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(), enabled,
 				true, true, true, authorities);
 	}
 }

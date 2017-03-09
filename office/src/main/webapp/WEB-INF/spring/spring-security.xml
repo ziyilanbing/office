@@ -26,7 +26,7 @@
 		<sec:intercept-url pattern="/dba/**" access="hasRole('ROLE_DBA')" />
 		<sec:access-denied-handler error-page="/accessDenied" />
 		<sec:form-login login-page="/login"
-			default-target-url="/top" login-processing-url="/login/submit"
+			default-target-url="/login/top" login-processing-url="/login/submit"
 			authentication-failure-url="/login/authenticationFailure"
 			username-parameter="username" password-parameter="password" />
 		<sec:remember-me remember-me-parameter="remember-me"

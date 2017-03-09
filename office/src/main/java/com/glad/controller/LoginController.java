@@ -18,6 +18,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.glad.framework.base.BaseController;
 import com.glad.model.LoginModel;
 
+/**
+ * login page action control
+ * 
+ * @author zhongqs
+ */
 @Controller
 @RequestMapping("/login/**")
 @SessionAttributes("loginModel")

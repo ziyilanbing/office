@@ -6,5 +6,5 @@ public interface UserService {
 
 	public User findById(int id);
 
-	public User findBySsoId(String ssoId);
+	public User findByUserName(String userName);
 }
