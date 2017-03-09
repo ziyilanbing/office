@@ -27,13 +27,13 @@
 						<div class="panel-heading">
 							<h3 class="panel-title">Please Sign In</h3>
 						</div>
-						<c:if test='${authenticationFailureResult != null}'>
-							<div class="alert alert-danger">
-								<p>Invalid user name and password.</p>
-							</div>
-						</c:if>
 						<div class="panel-body">
 							<fieldset>
+								<c:if test='${authenticationFailureResult != null}'>
+									<div class="alert alert-danger">
+										<p>Invalid user name and password.</p>
+									</div>
+								</c:if>
 								<div class="form-group">
 									<form:input path="username" class="form-control" type="text"
 										placeholder="username" />
@@ -43,15 +43,15 @@
 										path="password" type="password" value="" />
 								</div>
 								<div class="checkbox">
-									<label> <input id="remember" name="remember-me" type="checkbox"
-										value="Remember Me" />Remember Me
+									<label> <input id="remember" name="remember-me"
+										type="checkbox" value="Remember Me" />Remember Me
 									</label>
 								</div>
 								<input type="hidden" name="${_csrf.parameterName}"
 									value="${_csrf.token}" />
 								<!-- Change this to a button or input when using this as a form -->
 								<button class="btn btn-lg btn-success btn-block" type="submit"
-									formaction="submit">Login</button>
+									formaction="login">Login</button>
 							</fieldset>
 						</div>
 					</div>

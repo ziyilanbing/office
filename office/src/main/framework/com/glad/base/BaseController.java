@@ -1,5 +1,6 @@
-package com.glad.framework.base;
+package com.glad.base;
 
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +13,7 @@ public class BaseController extends AbstractController {
 	protected Logger logger = LoggerFactory.getLogger(BaseController.class);
 
 	public String getScreenId() {
-		screenId = this.getClass().getName().replaceAll("Controller$", "");
+		screenId = StringUtils.substringAfterLast(this.getClass().getName(), ".").replaceAll("Controller$", "");
 		logger.info("getScreenId info ");
 		logger.warn("getScreenId warn ");
 		return screenId;
@@ -22,4 +23,5 @@ public class BaseController extends AbstractController {
 		String controllerName = this.getClass().getName();
 		return controllerName.replaceAll("Controller$", "");
 	}
+
 }
