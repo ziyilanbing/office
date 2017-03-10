@@ -31,6 +31,12 @@
 			</exclusions>
 		</dependency>
 
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.7.21</version>
+		</dependency>
+		
 		<!-- Junit -->
 		<dependency>
 			<groupId>junit</groupId>

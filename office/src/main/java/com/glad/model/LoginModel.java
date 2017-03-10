@@ -1,6 +1,8 @@
 package com.glad.model;
 
-public class LoginModel {
+import com.glad.framework.component.AbstractModel;
+
+public class LoginModel extends AbstractModel {
 
 	private String message;
 	private String username;

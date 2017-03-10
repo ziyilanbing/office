@@ -1,6 +1,6 @@
 package com.glad.framework.component;
 
-import org.apache.commons.logging.Log;
+import org.slf4j.Logger;
 
 import com.glad.framework.exp.AppErrorException;
 import com.glad.framework.exp.AppFailedException;
@@ -8,7 +8,7 @@ import com.glad.framework.exp.AppWarnException;
 
 public abstract class AbstractController {
 
-	public String handleException(Log log, Exception exception, String warnScreenName) throws Exception {
+	public String handleException(Logger logger, Exception exception, String warnScreenName) throws Exception {
 		try {
 			throw exception;
 		} catch (AppWarnException e) {

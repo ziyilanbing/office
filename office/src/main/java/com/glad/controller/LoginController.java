@@ -25,29 +25,22 @@ import com.glad.model.LoginModel;
  */
 @Controller
 @SessionAttributes("loginModel")
-public class LoginController extends BaseController {
+public class LoginController extends BaseController<LoginModel> {
 
 	@Autowired
 	private SecurityContextLogoutHandler securityContextLogoutHandle;
 
 	@ModelAttribute("loginModel")
-	public LoginModel createloginModel() {
+	public LoginModel createLoginModel() {
 		LoginModel loginModel = new LoginModel();
 		return loginModel;
 	}
 
-	/**
-	 * init login page
-	 * 
-	 * @param model
-	 * @param loginModel
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping(value = { "/", "/init" }, method = RequestMethod.GET)
-	public String initLogin(ModelMap model, @ModelAttribute LoginModel loginModel, HttpServletRequest request) {
-		System.out.println("init method" + this.getScreenId());
-		return "login";
+	@Override
+	public void doInit(ModelMap model, LoginModel commandForm) {
+
+		System.out.println("init method " + this.getScreenId());
+		commandForm.setRedirectScreenId("login");
 	}
 
 	/**

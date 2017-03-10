@@ -18,7 +18,7 @@
 
 <body>
 
-	<form:form modelAttribute="loginModel" action="login/submit" id="form"
+	<form:form modelAttribute="topModel" action="REPLACE_BY_SCRIPT" id="form"
 		method="POST">
 
 		<div id="wrapper">
@@ -235,7 +235,7 @@
 									<li><a href="flot.html">Flot Charts</a></li>
 									<li><a href="morris.html">Morris.js Charts</a></li>
 								</ul> <!-- /.nav-second-level --></li>
-							<li><a href="tables.html"><i class="fa fa-table fa-fw"></i>
+							<li><a href="<c:url value='/tables' />"><i class="fa fa-table fa-fw"></i>
 									Tables</a></li>
 							<li><a href="forms.html"><i class="fa fa-edit fa-fw"></i>
 									Forms</a></li>

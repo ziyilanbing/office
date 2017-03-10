@@ -1,18 +1,15 @@
 package com.glad.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.glad.base.BaseController;
-import com.glad.model.LoginModel;
+import com.glad.model.TopModel;
 
 /**
  * 
@@ -21,23 +18,22 @@ import com.glad.model.LoginModel;
  */
 @Controller
 @RequestMapping("/top/**")
-@SessionAttributes("loginModel")
-public class TopController extends BaseController {
+@SessionAttributes("topModel")
+public class TopController extends BaseController<TopModel> {
 
-	@ModelAttribute("loginModel")
-	public LoginModel createloginModel() {
-		LoginModel loginModel = new LoginModel();
-		return loginModel;
+	@ModelAttribute("topModel")
+	public TopModel createTopModel() {
+		TopModel topModel = new TopModel();
+		return topModel;
 	}
 
-	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
-	public String initTop(ModelMap model, HttpServletRequest request) {
-		System.out.println("init top ScreenId : " + this.getScreenId());
+	@Override
+	public void doInit(ModelMap model, TopModel commandForm) {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String userName = principal instanceof UserDetails ? ((UserDetails) principal).getUsername()
 				: principal.toString();
 		model.addAttribute("user", userName);
-		return "top";
+		commandForm.setRedirectScreenId("top");
 	}
 
 }
