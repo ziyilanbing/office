@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.glad.dao.user.UserDao;
+import com.glad.dao.UserDao;
 import com.glad.entity.User;
 import com.glad.service.UserService;
 
