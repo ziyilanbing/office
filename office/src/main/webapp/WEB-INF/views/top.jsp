@@ -33,7 +33,7 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+					<a class="navbar-brand" href="index.html">G L A D   O F F I C E Admin v2.0</a>
 				</div>
 				<!-- /.navbar-header -->
 

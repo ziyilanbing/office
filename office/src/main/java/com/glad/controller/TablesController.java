@@ -27,6 +27,7 @@ public class TablesController extends BaseController<TablesModel> {
 
 	@Override
 	public void doInit(ModelMap model, TablesModel commandForm) {
+
 		commandForm.setRedirectScreenId("tables");
 	}
 
