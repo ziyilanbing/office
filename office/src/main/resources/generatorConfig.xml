@@ -4,7 +4,7 @@
 
 	<classPathEntry
 		location="C:\Dev\.m2\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
-		
+
 	<!-- MyBatis3Simple : igone XxxxxByExample -->
 	<context id="context" targetRuntime="MyBatis3Simple">
 		<!-- 生成的Java文件的编码 -->
@@ -15,15 +15,15 @@
 		<!-- 格式化XML代码 -->
 		<property name="xmlFormatter"
 			value="org.mybatis.generator.api.dom.DefaultXmlFormatter" />
-		<!-- beginningDelimiter和endingDelimiter：指明数据库的用于标记数据库对象名的符号，MYSQL默认是`反引号； -->
+		<!-- beginningDelimiter endingDelimiter MYSQL ` -->
 		<property name="beginningDelimiter" value="`" />
 		<property name="endingDelimiter" value="`" />
 
-		<!-- 配置链接数据库 -->
+		<!-- database -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
 			connectionURL="jdbc:mysql://localhost:3306/office" userId="root"
 			password="123456" />
-	
+
 		<javaModelGenerator targetPackage="com.glad.dao"
 			targetProject="C:\Users\dev\git\office\office\src\main\java">
 			<!-- 设置一个根对象， 如果设置了这个根对象，那么生成的keyClass或者recordClass会继承这个类；在Table的rootClass属性中可以覆盖该选项 
