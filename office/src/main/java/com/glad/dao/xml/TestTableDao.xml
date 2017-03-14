@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- TABLE:user -->
+
+<mapper namespace="com.glad.dao.TestTableDao">
+	<resultMap type="com.glad.entity.TestTable" id="selectTestTableMap">
+		<result column="KEY_A" property="keyA" />
+		<result column="KEY_B" property="keyB" />
+		<result column="COL_A" property="colA" />
+		<result column="COL_B" property="colB" />
+		<result column="COL_C" property="colC" />
+	</resultMap>
+
+	<select id="getEntityByKey" parameterType="com.glad.entity.TestTable" resultMap="selectTestTableMap">
+		SELECT *
+		FROM TEST_TABLE
+		WHERE
+		KEY_A = #{keyA}
+		AND
+		KEY_B = #{keyB}
+	</select>
+	
+	<insert id="createEntity" parameterType="com.glad.entity.TestTable">
+		INSERT INTO TEST_TABLE VALUES (
+			#{keyA},
+			#{keyB},
+			#{colA},
+			#{colB},
+			#{colC}
+		) 
+	</insert>
+	
+	<update id="updateEntity" parameterType="com.glad.entity.TestTable">
+		UPDATE TEST_TABLE
+		SET COL_A=#{colA}, COL_B=#{colB}, COL_C=#{colC}
+		WHERE
+			KEY_A = #{keyA}
+			AND
+			KEY_B = #{keyB}
+	</update>
+	
+	<select id="deleteEntity" parameterType="com.glad.entity.TestTable">
+		DELETE FROM TEST_TABLE
+		WHERE
+			KEY_A = #{keyA}
+			AND
+			KEY_B = #{keyB}
+	</select>
+
+</mapper>
+
+

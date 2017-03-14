@@ -27,13 +27,14 @@
 		</layout>
 	</appender>
 
-	<logger name="org.springframework" level="info" additivity="false">
-		<appender-ref ref="stdout" />
+	<logger name="org.springframework" level="debug" additivity="false">
+		<appender-ref ref="logfile" />
 	</logger>
 
-	<root value="info">
+	<root level="info">
 		<appender-ref ref="stdout" />
 	</root>
+	
 	<root level="debug">
 		<appender-ref ref="logfile" />
 	</root>
