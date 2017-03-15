@@ -39,7 +39,6 @@ public class TopController extends BaseController<TopModel> {
 		String userName = principal instanceof UserDetails ? ((UserDetails) principal).getUsername()
 				: principal.toString();
 		model.addAttribute("user", userName);
-		commandForm.setRedirectScreenId("top");
 	}
 
 	@RequestMapping("/top/**/insert")

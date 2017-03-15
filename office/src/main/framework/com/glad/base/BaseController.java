@@ -13,16 +13,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.glad.framework.component.AbstractController;
 import com.glad.framework.component.AbstractModel;
 
-public class BaseController<T extends AbstractModel> extends AbstractController {
+public abstract class BaseController<T extends AbstractModel> extends AbstractController {
 
 	private String screenId;
 
 	protected Logger logger = LoggerFactory.getLogger(BaseController.class);
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String getScreenId() {
 		screenId = StringUtils.substringAfterLast(this.getClass().getName(), ".").replaceAll("Controller$", "");
-		logger.info("getScreenId info ");
-		logger.warn("getScreenId warn ");
+
 		return screenId;
 	}
 
@@ -49,7 +52,7 @@ public class BaseController<T extends AbstractModel> extends AbstractController 
 			// getScreenId()
 			handleException(logger, e, getScreenId());
 		}
-		return commandForm.getRedirectScreenId();
+		return getDefaultView();
 	}
 
 	public void doInit(ModelMap model, T commandForm) {

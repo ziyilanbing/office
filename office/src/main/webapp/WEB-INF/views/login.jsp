@@ -51,7 +51,7 @@
 									value="${_csrf.token}" />
 								<!-- Change this to a button or input when using this as a form -->
 								<button class="btn btn-lg btn-success btn-block" type="submit"
-									formaction="login">Login</button>
+									formaction="submit">Login</button>
 							</fieldset>
 						</div>
 					</div>

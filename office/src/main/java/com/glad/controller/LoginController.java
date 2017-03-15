@@ -1,10 +1,8 @@
 package com.glad.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -24,6 +22,7 @@ import com.glad.model.LoginModel;
  * @author zhongqs
  */
 @Controller
+@RequestMapping("/login/**")
 @SessionAttributes("loginModel")
 public class LoginController extends BaseController<LoginModel> {
 
@@ -40,23 +39,6 @@ public class LoginController extends BaseController<LoginModel> {
 	public void doInit(ModelMap model, LoginModel commandForm) {
 
 		System.out.println("init method " + this.getScreenId());
-		commandForm.setRedirectScreenId("login");
-	}
-
-	/**
-	 * logout
-	 * 
-	 * @param request
-	 * @param response
-	 * @return
-	 */
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		if (auth != null) {
-			securityContextLogoutHandle.logout(request, response, auth);
-		}
-		return "redirect:/init";
 	}
 
 	@RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
