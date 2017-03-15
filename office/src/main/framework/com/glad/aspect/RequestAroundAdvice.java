@@ -5,6 +5,7 @@ import org.aopalliance.intercept.MethodInvocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ui.Model;
+import org.springframework.validation.support.BindingAwareModelMap;
 
 import com.glad.controller.LoginController;
 
@@ -21,31 +22,26 @@ public class RequestAroundAdvice implements MethodInterceptor {
 
 		logger.info("RequestAroundAdvice implements MethodInterceptor ");
 
-		Class<?> controllerType = invocation.getMethod().getDeclaringClass();
-
-		String redirectUrl = getRedirectUrlByLoginState(invocation, controllerType);
-
-		if (redirectUrl != null) {
-			return redirectUrl;
-		}
+		// Class<?> controllerType = invocation.getMethod().getDeclaringClass();
+		//
+		// String redirectUrl = getRedirectUrlByLoginState(invocation,
+		// controllerType);
+		//
+		// if (redirectUrl != null) {
+		// return redirectUrl;
+		// }
 
 		// Model currentModel = getCurrentModel(invocation);
 		//
 		// if (currentModel == null) {
 		// throw new IllegalArgumentException("'Model' must exist.");
 		// }
-
-		Object controller = invocation.getThis();
-
-		String servletPath = getServletPath();
+		//
+		// Object controller = invocation.getThis();
+		//
+		// String servletPath = getServletPath();
 		// val rootPath = get
 		return invocation.proceed();
-	}
-
-	private Model getCurrentModel(MethodInvocation invocation) {
-
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	private String getServletPath() {
@@ -61,9 +57,21 @@ public class RequestAroundAdvice implements MethodInterceptor {
 		// else if (false) {
 		// logger.info("sessionTimeOut");
 		// }
-		// else {
-		// }
+		else {
+			Model curModel = getCurrentModel(invocation);
+			curModel.asMap().clear();
 
+		}
+
+		return null;
+	}
+
+	private static Model getCurrentModel(MethodInvocation invocation) {
+		for (Object arg : invocation.getArguments()) {
+			if (arg instanceof BindingAwareModelMap) {
+				return (Model) arg;
+			}
+		}
 		return null;
 	}
 
