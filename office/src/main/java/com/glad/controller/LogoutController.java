@@ -57,17 +57,4 @@ public class LogoutController extends AbstractController {
 		return "accessDenied";
 	}
 
-	/**
-	 * login Failure
-	 * 
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping(value = "/authenticationFailure", method = RequestMethod.GET)
-	public String authenticationFailure(HttpServletRequest request) {
-		request.setAttribute("authenticationFailureResult", "failure");
-		logger.info("login failed");
-		return getRedirectRequest(LoginController.class);
-	}
-
 }
