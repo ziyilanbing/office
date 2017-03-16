@@ -32,5 +32,9 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<!-- MethodInterceptor -->
 	<import resource="./controller.xml" />
+	<!-- logging -->
+	<import resource="./trace.xml" />
+
 </beans>
