@@ -12,19 +12,6 @@ public abstract class AbstractModel {
 	 */
 	private String screenName;
 
-	/**
-	 * Redirect Screen Name
-	 */
-	private String redirectScreenId;
-
-	public String getRedirectScreenId() {
-		return redirectScreenId;
-	}
-
-	public void setRedirectScreenId(String redirectScreenId) {
-		this.redirectScreenId = redirectScreenId;
-	}
-
 	public String getScreenId() {
 		return screenId;
 	}

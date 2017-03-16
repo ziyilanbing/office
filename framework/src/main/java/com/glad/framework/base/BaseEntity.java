@@ -5,6 +5,11 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author zhongqs
+ * @date 2017年3月16日
+ */
 public class BaseEntity {
 
 	/**

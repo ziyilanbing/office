@@ -29,11 +29,6 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 		return screenId;
 	}
 
-	public String getReict(Object obj) {
-		String controllerName = this.getClass().getName();
-		return controllerName.replaceAll("Controller$", "");
-	}
-
 	/**
 	 * init login page
 	 * 
@@ -55,7 +50,6 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 		return getDefaultView();
 	}
 
-	public void doInit(ModelMap model, T commandForm) {
-	}
+	public abstract void doInit(ModelMap model, T commandForm);
 
 }

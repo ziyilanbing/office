@@ -20,7 +20,7 @@ import com.glad.service.TestTableService;
  * @date 2017年3月9日
  */
 @Controller
-@RequestMapping("/top/**")
+@RequestMapping("/top")
 @SessionAttributes("topModel")
 public class TopController extends BaseController<TopModel> {
 

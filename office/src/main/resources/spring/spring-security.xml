@@ -27,7 +27,7 @@
 		<sec:access-denied-handler error-page="/accessDenied" />
 		<sec:form-login login-page="/login"
 			default-target-url="/top/init" login-processing-url="/login/submit"
-			authentication-failure-url="/login/authenticationFailure"
+			authentication-failure-url="/authenticationFailure"
 			username-parameter="username" password-parameter="password" />
 		<sec:remember-me remember-me-parameter="remember-me"
 			remember-me-cookie="remember-me" token-validity-seconds="3600"
