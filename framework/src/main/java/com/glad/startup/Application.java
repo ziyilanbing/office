@@ -36,4 +36,18 @@ public class Application {
 
 	}
 
+	public static void destroy() {
+		if (instance != null) {
+			instance.cleanup();
+			instance = null;
+		}
+	}
+
+	/**
+	 * cleanup application
+	 */
+	private void cleanup() {
+
+	}
+
 }
