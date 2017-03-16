@@ -1,7 +1,7 @@
 package com.glad.dao;
 
+import com.glad.base.BaseDao;
 import com.glad.entity.User;
-import com.glad.framework.base.BaseDao;
 
 /**
  * user

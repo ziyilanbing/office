@@ -1,4 +1,4 @@
-package com.glad.framework.component;
+package com.glad.component;
 
 public abstract class AbstractService {
 

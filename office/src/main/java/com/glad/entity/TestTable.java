@@ -2,7 +2,7 @@ package com.glad.entity;
 
 import java.io.Serializable;
 
-import com.glad.framework.base.BaseEntity;
+import com.glad.base.BaseEntity;
 
 public class TestTable extends BaseEntity implements Serializable {
 

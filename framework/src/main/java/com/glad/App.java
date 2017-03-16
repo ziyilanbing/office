@@ -1,4 +1,4 @@
-package com.glad.framework;
+package com.glad;
 
 /**
  * Hello world!

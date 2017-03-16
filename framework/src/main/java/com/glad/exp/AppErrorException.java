@@ -1,8 +1,7 @@
-package com.glad.framework.exp;
+package com.glad.exp;
 
-public class AppWarnException extends BaseException {
-
-	private static final long serialVersionUID = -3322198173300185785L;
+public class AppErrorException extends BaseException {
+	private static final long serialVersionUID = 3641035922703182059L;
 
 	private String errorFieldName;
 
@@ -17,7 +16,7 @@ public class AppWarnException extends BaseException {
 	 * @param errorFieldName
 	 *            error item
 	 */
-	public AppWarnException(String key, Object[] args, String errorFieldName) {
+	public AppErrorException(String key, Object[] args, String errorFieldName) {
 		super(key, args);
 		this.errorFieldName = errorFieldName;
 	}

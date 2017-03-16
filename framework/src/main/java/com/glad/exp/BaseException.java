@@ -1,4 +1,4 @@
-package com.glad.framework.exp;
+package com.glad.exp;
 
 public class BaseException extends Exception {
 	// private Module module;

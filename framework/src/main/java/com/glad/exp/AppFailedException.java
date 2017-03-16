@@ -1,4 +1,4 @@
-package com.glad.framework.exp;
+package com.glad.exp;
 
 public class AppFailedException extends BaseException {
 	private static final long serialVersionUID = -366356600804451825L;

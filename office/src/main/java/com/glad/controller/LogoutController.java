@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.glad.base.BaseController;
-import com.glad.framework.component.AbstractController;
+import com.glad.component.AbstractController;
 
 /**
  * login page action control

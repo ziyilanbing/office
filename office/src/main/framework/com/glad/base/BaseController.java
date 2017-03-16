@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.glad.framework.component.AbstractController;
-import com.glad.framework.component.AbstractModel;
+import com.glad.component.AbstractController;
+import com.glad.component.AbstractModel;
 
 public abstract class BaseController<T extends AbstractModel> extends AbstractController {
 

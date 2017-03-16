@@ -1,4 +1,4 @@
-package com.glad.framework.base;
+package com.glad.base;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

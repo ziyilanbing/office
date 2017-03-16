@@ -1,4 +1,4 @@
-package com.glad.framework.base;
+package com.glad.base;
 
 import java.io.Serializable;
 

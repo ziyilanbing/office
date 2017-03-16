@@ -1,4 +1,4 @@
-package com.glad.framework.component;
+package com.glad.component;
 
 import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,9 +6,9 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
-import com.glad.framework.exp.AppErrorException;
-import com.glad.framework.exp.AppFailedException;
-import com.glad.framework.exp.AppWarnException;
+import com.glad.exp.AppErrorException;
+import com.glad.exp.AppFailedException;
+import com.glad.exp.AppWarnException;
 
 /**
  * 

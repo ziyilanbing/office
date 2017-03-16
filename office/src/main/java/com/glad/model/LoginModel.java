@@ -1,6 +1,6 @@
 package com.glad.model;
 
-import com.glad.framework.component.AbstractModel;
+import com.glad.component.AbstractModel;
 
 public class LoginModel extends AbstractModel {
 
