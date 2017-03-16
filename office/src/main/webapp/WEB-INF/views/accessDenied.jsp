@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Bootstrap Admin Theme Login - SB Admin 2</title>
+<title>not authorized to access </title>
 
 <%@ include file="./include/head.jsp"%>
 </head>
