@@ -1,5 +1,6 @@
 package com.glad.base;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -10,7 +11,12 @@ import java.util.List;
  * @author zhongqs
  * @date 2017年3月16日
  */
-public class BaseEntity {
+public class BaseEntity implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1420004154945290394L;
 
 	/**
 	 * create time

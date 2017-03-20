@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.glad.aspectj.AbstractAdvice;
+import com.glad.component.AbstractModel;
 
 public final class TraceAdvice extends AbstractAdvice {
 
@@ -48,7 +49,10 @@ public final class TraceAdvice extends AbstractAdvice {
 			result = "<void>";
 		}
 
-		logger.trace(String.format("TraceAdvice  %s.%s | Return=[%s <%s>]", classname, methodName, result, returnType));
+		if (result instanceof AbstractModel)
+			result = ((AbstractModel) result).fetchFieldValue();
+
+		logger.trace(String.format("TraceAdvice  %s.%s | Return={%s <%s>}", classname, methodName, result, returnType));
 	}
 
 	@Override
@@ -58,7 +62,7 @@ public final class TraceAdvice extends AbstractAdvice {
 		MethodSignature methodInfo = (MethodSignature) joinPoint.getSignature();
 		String methodName = methodInfo.getName();
 
-		logger.warn(String.format("TraceAdvice  %s.%s | Throws=[%s <%s>]", classname, methodName, ex.getMessage(),
+		logger.warn(String.format("TraceAdvice  %s.%s | Throws={%s <%s>}", classname, methodName, ex.getMessage(),
 				ex.getClass().getSimpleName()));
 	}
 

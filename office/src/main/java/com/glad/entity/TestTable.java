@@ -1,10 +1,13 @@
 package com.glad.entity;
 
-import java.io.Serializable;
-
 import com.glad.base.BaseEntity;
 
-public class TestTable extends BaseEntity implements Serializable {
+public class TestTable extends BaseEntity {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3802834696014578523L;
 
 	private String keyA;
 
@@ -15,8 +18,6 @@ public class TestTable extends BaseEntity implements Serializable {
 	private String colB;
 
 	private String colC;
-
-	private static final long serialVersionUID = 1L;
 
 	public String getKeyA() {
 		return keyA;
