@@ -9,9 +9,14 @@ public class FieldBase {
 
 	public String fetchFieldValue() {
 
-		List<String> rtn = new ArrayList<String>();
+		List<String> list = new ArrayList<String>();
 		Class<?> cls = this.getClass();
+		fetchVarVal(list, cls);
 
+		return list.toString();
+	}
+
+	public List<String> fetchVarVal(List<String> list, Class<?> cls) {
 		Field[] fields = cls.getDeclaredFields();
 		Method[] methods = cls.getDeclaredMethods();
 		for (Field f : fields) {
@@ -20,7 +25,7 @@ public class FieldBase {
 			for (Method m : methods) {
 				if (methodName.equals(m.getName())) {
 					try {
-						rtn.add(fieldName + " = " + m.invoke(this));
+						list.add(fieldName + " = " + m.invoke(this));
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -28,8 +33,10 @@ public class FieldBase {
 				}
 			}
 		}
-
-		return rtn.toString();
+		if ((cls = (Class<?>) cls.getGenericSuperclass()) != null) {
+			fetchVarVal(list, cls);
+		}
+		return list;
 	}
 
 }

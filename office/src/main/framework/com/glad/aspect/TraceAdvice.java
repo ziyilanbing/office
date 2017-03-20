@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.glad.aspectj.AbstractAdvice;
-import com.glad.component.AbstractModel;
+import com.glad.component.FieldBase;
 
 public final class TraceAdvice extends AbstractAdvice {
 
@@ -49,8 +49,8 @@ public final class TraceAdvice extends AbstractAdvice {
 			result = "<void>";
 		}
 
-		if (result instanceof AbstractModel)
-			result = ((AbstractModel) result).fetchFieldValue();
+		if (result instanceof FieldBase)
+			result = ((FieldBase) result).fetchFieldValue();
 
 		logger.trace(String.format("TraceAdvice  %s.%s | Return={%s <%s>}", classname, methodName, result, returnType));
 	}

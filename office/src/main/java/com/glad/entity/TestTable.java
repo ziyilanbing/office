@@ -1,8 +1,8 @@
 package com.glad.entity;
 
-import com.glad.base.BaseEntity;
+import com.glad.component.AbstractDto;
 
-public class TestTable extends BaseEntity {
+public class TestTable extends AbstractDto {
 
 	/**
 	 * 
