@@ -36,5 +36,7 @@
 	<import resource="./controller.xml" />
 	<!-- logging -->
 	<import resource="./trace.xml" />
+	<!-- message -->
+	<import resource="./message.xml" />
 
 </beans>
