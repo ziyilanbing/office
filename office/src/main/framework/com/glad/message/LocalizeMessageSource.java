@@ -7,7 +7,9 @@ import java.util.regex.Pattern;
 import org.springframework.context.MessageSource;
 
 public class LocalizeMessageSource {
+
 	private final MessageSource source;
+
 	private final Locale locale;
 
 	public LocalizeMessageSource(MessageSource source) {
