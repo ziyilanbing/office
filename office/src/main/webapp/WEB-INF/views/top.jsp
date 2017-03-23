@@ -2,8 +2,8 @@
 
 <body>
 
-	<form:form modelAttribute="topModel" action="REPLACE_BY_SCRIPT" id="form"
-		method="POST">
+	<form:form modelAttribute="topModel" action="REPLACE_BY_SCRIPT"
+		id="form" method="POST">
 
 		<div id="wrapper">
 
@@ -17,7 +17,8 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.html">G L A D   O F F I C E Admin v2.0</a>
+					<a class="navbar-brand" href="index.html">G L A D O F F I C E
+						Admin v2.0</a>
 				</div>
 				<!-- /.navbar-header -->
 
@@ -191,8 +192,8 @@
 							<li><a href="#"><i class="fa fa-gear fa-fw"></i>
 									Settings</a></li>
 							<li class="divider"></li>
-							<li><a href="<c:url value='/logout' />"><i class="fa fa-sign-out fa-fw"></i>
-									Logout</a></li>
+							<li><a href="<c:url value='/logout' />"><i
+									class="fa fa-sign-out fa-fw"></i> Logout</a></li>
 						</ul> <!-- /.dropdown-user --></li>
 					<!-- /.dropdown -->
 				</ul>
@@ -219,8 +220,8 @@
 									<li><a href="flot.html">Flot Charts</a></li>
 									<li><a href="morris.html">Morris.js Charts</a></li>
 								</ul> <!-- /.nav-second-level --></li>
-							<li><a href="<c:url value='/tables' />"><i class="fa fa-table fa-fw"></i>
-									Tables</a></li>
+							<li><a href="<c:url value='/tables' />"><i
+									class="fa fa-table fa-fw"></i> Tables</a></li>
 							<li><a href="forms.html"><i class="fa fa-edit fa-fw"></i>
 									Forms</a></li>
 							<li><a href="#"><i class="fa fa-wrench fa-fw"></i> UI
@@ -252,6 +253,9 @@
 									<li><a href="blank.html">Blank Page</a></li>
 									<li><a href="login.html">Login Page</a></li>
 								</ul> <!-- /.nav-second-level --></li>
+								<!-- new add -->
+							<li><a href="#"><i class="fa fa-files-o fa-fw"></i> <spring:message
+										code="message1" /><span class="fa arrow"></span></a></li>
 						</ul>
 					</div>
 					<!-- /.sidebar-collapse -->

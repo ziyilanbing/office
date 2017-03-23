@@ -13,7 +13,6 @@
 						</div>
 						<div class="panel-body">
 							<fieldset>
-							<spring:message code="message1" />
 								<c:if test='${authenticationFailureResult != null}'>
 									<div class="alert alert-danger">
 										<p>Invalid user name and password.</p>

@@ -46,7 +46,7 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 	 * @return Redirect Screen Id
 	 * @throws Exception
 	 */
-	@RequestMapping(value = { "/", "/init" }, method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = { "", "/", "/init" }, method = { RequestMethod.GET, RequestMethod.POST })
 	public String initLogin(ModelMap model, @ModelAttribute T commandForm, HttpServletRequest request)
 			throws Exception {
 		try {

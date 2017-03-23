@@ -49,11 +49,16 @@ public abstract class AbstractController {
 				.currentRequestAttributes();
 		String servletPath = requestAttributes.getRequest().getServletPath();
 
-		// replace 'init' 'submit'
+		// /top/
+		if (servletPath.endsWith("/")) {
+			return servletPath.substring(0, servletPath.indexOf("/", servletPath.indexOf("/") + 1));
+		}
+		// /top/init
 		if (servletPath.substring(1).contains("/")) {
+			// replace 'init' 'submit'
 			return servletPath.replaceAll("\\/\\w+$", "");
 		}
-
+		// /top
 		return servletPath;
 	}
 
