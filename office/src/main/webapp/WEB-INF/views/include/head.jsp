@@ -1,3 +1,20 @@
+<%@ include file="./taglib.jsp"%>
+
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>
+	<spring:message code="${title}" htmlEscape="false" />
+</title>
+
 <!-- Bootstrap Core CSS -->
 <link
 	href="<c:url value="/static/vendor/bootstrap/css/bootstrap.min.css"/>"
@@ -33,3 +50,5 @@
 <script src="<c:url value='/static/data/morris-data.js'/>"></script>
 <!-- Custom Theme JavaScript -->
 <script src="<c:url value='/static/js/sb-admin-2.js'/>"></script>
+
+</head>

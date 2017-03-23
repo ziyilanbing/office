@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.glad.annotation.ScreenId;
 import com.glad.base.BaseController;
 import com.glad.model.LoginModel;
 
@@ -20,6 +21,7 @@ import com.glad.model.LoginModel;
 @Controller
 @RequestMapping("/login")
 @SessionAttributes("loginModel")
+@ScreenId("glad.office.Login")
 public class LoginController extends BaseController<LoginModel> {
 
 	@ModelAttribute("loginModel")

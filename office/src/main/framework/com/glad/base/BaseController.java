@@ -2,31 +2,39 @@ package com.glad.base;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.glad.annotation.ScreenId;
 import com.glad.component.AbstractController;
 import com.glad.component.AbstractModel;
+import com.glad.message.LocalizeMessageSource;
 
 public abstract class BaseController<T extends AbstractModel> extends AbstractController {
 
-	private String screenId;
-
 	protected Logger logger = LoggerFactory.getLogger(BaseController.class);
+
+	@Autowired
+	protected LocalizeMessageSource messageSource;
 
 	/**
 	 * 
 	 * @return
 	 */
-	public String getScreenId() {
-		screenId = StringUtils.substringAfterLast(this.getClass().getName(), ".").replaceAll("Controller$", "");
+	public void setScreenInfo(ModelMap model, T commandForm) {
+		String screenId = this.getClass().getAnnotation(ScreenId.class).value();
+		String screenName = messageSource.getMessage(screenId);
 
-		return screenId;
+		commandForm.setScreenId(screenId);
+		commandForm.setScreenName(screenName);
+		model.addAttribute("title", screenId);
+
+		logger.info("ScreenId : " + commandForm.getScreenId() + ", ScreenName : " + commandForm.getScreenName());
 	}
 
 	/**
@@ -42,10 +50,12 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 	public String initLogin(ModelMap model, @ModelAttribute T commandForm, HttpServletRequest request)
 			throws Exception {
 		try {
+			setScreenInfo(model, commandForm);
+
 			doInit(model, commandForm);
 		} catch (Exception e) {
 			// getScreenId()
-			handleException(logger, e, getScreenId());
+			handleException(logger, e, null);
 		}
 		return getDefaultView();
 	}

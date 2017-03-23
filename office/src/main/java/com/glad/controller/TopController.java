@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.glad.annotation.ScreenId;
 import com.glad.base.BaseController;
 import com.glad.entity.TestTable;
 import com.glad.model.TopModel;
@@ -22,6 +23,7 @@ import com.glad.service.TestTableService;
 @Controller
 @RequestMapping("/top")
 @SessionAttributes("topModel")
+@ScreenId("glad.office.Top")
 public class TopController extends BaseController<TopModel> {
 
 	@Autowired

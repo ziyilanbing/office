@@ -1,20 +1,4 @@
-<%@ include file="./include/taglib.jsp"%>
-<!DOCTYPE html>
-<html lang="zh">
-
-<head>
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<title>Bootstrap Admin Theme Login - SB Admin 2</title>
-
 <%@ include file="./include/head.jsp"%>
-
-</head>
 
 <body>
 
@@ -29,6 +13,7 @@
 						</div>
 						<div class="panel-body">
 							<fieldset>
+							<spring:message code="message1" />
 								<c:if test='${authenticationFailureResult != null}'>
 									<div class="alert alert-danger">
 										<p>Invalid user name and password.</p>
