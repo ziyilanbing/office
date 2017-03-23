@@ -254,7 +254,7 @@
 									<li><a href="login.html">Login Page</a></li>
 								</ul> <!-- /.nav-second-level --></li>
 								<!-- new add -->
-							<li><a href="#"><i class="fa fa-files-o fa-fw"></i> <spring:message
+							<li><a href="<c:url value='/top/exception' />"><i class="fa fa-files-o fa-fw"></i> <spring:message
 										code="message1" /><span class="fa arrow"></span></a></li>
 						</ul>
 					</div>
