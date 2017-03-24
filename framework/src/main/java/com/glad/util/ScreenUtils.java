@@ -26,6 +26,7 @@ public class ScreenUtils {
 		if (StringUtils.isNotEmpty(errorField)) {
 			result.rejectValue(errorField, "dumy_key", cause.getLocalizedMessage());
 		}
+
 		model.putAll(result.getModel());
 	}
 }

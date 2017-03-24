@@ -6,8 +6,12 @@ import java.util.ResourceBundle;
 public class BaseException extends Exception {
 
 	private String key;
+
 	// private Object[] args;
+
 	private static final long serialVersionUID = 1962548119973635013L;
+
+	private static final String BUNDLENAME = "com.glad.ErrorResources";
 
 	public BaseException(String key, Object[] args) {
 		super();
@@ -16,8 +20,7 @@ public class BaseException extends Exception {
 
 	public String getLocalizedMessage() {
 
-		String bundleName = "com.glad.ErrorResources";
-		ResourceBundle bundle = ResourceBundle.getBundle(bundleName, Locale.CHINESE,
+		ResourceBundle bundle = ResourceBundle.getBundle(BUNDLENAME, Locale.CHINESE,
 				ResourceBundle.Control.getNoFallbackControl(ResourceBundle.Control.FORMAT_DEFAULT));
 
 		return bundle.getString(getKey());

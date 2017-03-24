@@ -53,7 +53,7 @@ public class TopController extends BaseController<TopModel> {
 			throws Exception {
 		try {
 
-			throw new AppWarnException("E00001", null, Constant.TEST);
+			throw new AppWarnException("OFE0001MW", new String[] { "parm1", "parm2" }, Constant.TEST);
 
 		} catch (Exception e) {
 			handleException(model, result, e);
