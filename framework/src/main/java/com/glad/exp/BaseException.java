@@ -1,5 +1,6 @@
 package com.glad.exp;
 
+import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -19,17 +20,22 @@ public class BaseException extends Exception {
 		this.args = args;
 	}
 
+	private String getKey() {
+		return key;
+	}
+
+	private Object[] getArgs() {
+		return args;
+	}
+
 	public String getLocalizedMessage() {
 
 		ResourceBundle bundle = ResourceBundle.getBundle(BUNDLENAME, Locale.CHINESE,
 				ResourceBundle.Control.getNoFallbackControl(ResourceBundle.Control.FORMAT_DEFAULT));
 
-		return bundle.getString(getKey());
+		MessageFormat format = new MessageFormat(bundle.getString(getKey()));
 
-	}
-
-	private String getKey() {
-		return key;
+		return format.format(getArgs());
 	}
 
 }
