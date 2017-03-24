@@ -3,6 +3,7 @@ package com.glad.util;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 
 import com.glad.exp.AppErrorException;
 import com.glad.exp.AppWarnException;
@@ -23,10 +24,14 @@ public class ScreenUtils {
 			errorField = null;
 		}
 
+		// TODO
+
 		if (StringUtils.isNotEmpty(errorField)) {
 			result.rejectValue(errorField, "dumy_key", cause.getLocalizedMessage());
 		}
 
 		model.putAll(result.getModel());
+
+		result.addError(new FieldError(errorField, "dumy_key", cause.getLocalizedMessage()));
 	}
 }

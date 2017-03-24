@@ -7,7 +7,7 @@ public class BaseException extends Exception {
 
 	private String key;
 
-	// private Object[] args;
+	private Object[] args;
 
 	private static final long serialVersionUID = 1962548119973635013L;
 
@@ -16,6 +16,7 @@ public class BaseException extends Exception {
 	public BaseException(String key, Object[] args) {
 		super();
 		this.key = key;
+		this.args = args;
 	}
 
 	public String getLocalizedMessage() {
@@ -30,4 +31,5 @@ public class BaseException extends Exception {
 	private String getKey() {
 		return key;
 	}
+
 }
