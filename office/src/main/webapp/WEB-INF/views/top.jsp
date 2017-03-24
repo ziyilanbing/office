@@ -253,9 +253,11 @@
 									<li><a href="blank.html">Blank Page</a></li>
 									<li><a href="login.html">Login Page</a></li>
 								</ul> <!-- /.nav-second-level --></li>
-								<!-- new add -->
-							<li><a href="<c:url value='/top/exception' />"><i class="fa fa-files-o fa-fw"></i> <spring:message
+							<!-- new add -->
+							<li><a href="<c:url value='/top/exception' />"><i
+									class="fa fa-files-o fa-fw"></i> <spring:message
 										code="message1" /><span class="fa arrow"></span></a></li>
+							<li><form:input path="testError" type="text" /></li>
 						</ul>
 					</div>
 					<!-- /.sidebar-collapse -->

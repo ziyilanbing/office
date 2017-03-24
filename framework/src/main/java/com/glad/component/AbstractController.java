@@ -1,6 +1,7 @@
 package com.glad.component;
 
-import org.slf4j.Logger;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -9,6 +10,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import com.glad.exp.AppErrorException;
 import com.glad.exp.AppFailedException;
 import com.glad.exp.AppWarnException;
+import com.glad.util.ScreenUtils;
 
 /**
  * 
@@ -19,11 +21,12 @@ public abstract class AbstractController {
 
 	public static String PAGE_INIT_URL = "/init";
 
-	public String handleException(Logger logger, Exception exception, String warnScreenName) throws Exception {
+	public void handleException(ModelMap model, BindingResult result, Exception exception) throws Exception {
 		try {
 			throw exception;
 		} catch (AppWarnException e) {
 			// screen message out
+			ScreenUtils.setErrorMessage(model, result, (AppWarnException) exception);
 			// log out
 
 		} catch (AppErrorException e) {
@@ -35,7 +38,7 @@ public abstract class AbstractController {
 		} catch (Exception e) {
 			throw e;
 		}
-		return warnScreenName;
+
 	};
 
 	/**

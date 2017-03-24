@@ -5,15 +5,20 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.glad.annotation.ScreenId;
 import com.glad.base.BaseController;
 import com.glad.entity.TestTable;
+import com.glad.exp.AppWarnException;
+import com.glad.exp.BaseException;
 import com.glad.model.TopModel;
 import com.glad.service.TestTableService;
+import com.glad.util.Constant;
 
 /**
  * 
@@ -36,11 +41,24 @@ public class TopController extends BaseController<TopModel> {
 	}
 
 	@Override
-	public void doInit(ModelMap model, TopModel commandForm) {
+	public void doInit(ModelMap model, TopModel commandForm) throws BaseException {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String userName = principal instanceof UserDetails ? ((UserDetails) principal).getUsername()
 				: principal.toString();
 		model.addAttribute("user", userName);
+	}
+
+	@RequestMapping(value = "/exception", method = RequestMethod.GET)
+	public String exceptionTest(ModelMap model, @ModelAttribute TopModel commandForm, BindingResult result)
+			throws Exception {
+		try {
+
+			throw new AppWarnException("E00001", null, Constant.TEST);
+
+		} catch (Exception e) {
+			handleException(model, result, e);
+		}
+		return this.getDefaultView();
 	}
 
 	@RequestMapping("/top/**/insert")
