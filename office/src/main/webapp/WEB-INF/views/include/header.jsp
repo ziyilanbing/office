@@ -8,7 +8,7 @@
 			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
 			<span class="icon-bar"></span> <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="index.html">G L A D O F F I C E
+		<a class="navbar-brand" href="<c:url value='/top/init' />">G L A D O F F I C E
 			Admin </a>
 	</div>
 	<!-- /.navbar-header -->
@@ -210,9 +210,9 @@
 						<li><a href="flot.html">Flot Charts</a></li>
 						<li><a href="morris.html">Morris.js Charts</a></li>
 					</ul> <!-- /.nav-second-level --></li>
-				<li><a href="<c:url value='/tables' />"><i
+				<li><a href="<c:url value='/tables/init' />"><i
 						class="fa fa-table fa-fw"></i> Tables</a></li>
-				<li><a href="forms.html"><i class="fa fa-edit fa-fw"></i>
+				<li><a href="<c:url value='/forms/init' />"><i class="fa fa-edit fa-fw"></i>
 						Forms</a></li>
 				<li><a href="#"><i class="fa fa-wrench fa-fw"></i> UI
 						Elements<span class="fa arrow"></span></a>

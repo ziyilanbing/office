@@ -27,18 +27,12 @@ import com.glad.util.Constant;
  */
 @Controller
 @RequestMapping("/top")
-@SessionAttributes("topModel")
+@SessionAttributes("commandForm")
 @ScreenId("glad.office.Top")
 public class TopController extends BaseController<TopModel> {
 
 	@Autowired
 	private TestTableService testTableService;
-
-	@ModelAttribute("topModel")
-	public TopModel createTopModel() {
-		TopModel topModel = new TopModel();
-		return topModel;
-	}
 
 	@Override
 	public void doInit(ModelMap model, TopModel commandForm) throws BaseException {

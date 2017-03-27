@@ -31,7 +31,9 @@ public class LoginController extends BaseController<LoginModel> {
 	}
 
 	@Override
-	public void doInit(ModelMap model, LoginModel commandForm) {
+	public void doInit(ModelMap model, LoginModel loginModel) {
+		System.out.println(loginModel.getScreenId());
+		System.out.println(loginModel.getUsername());
 
 	}
 
