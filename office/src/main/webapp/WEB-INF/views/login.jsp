@@ -13,7 +13,7 @@
 						</div>
 						<div class="panel-body">
 							<fieldset>
-								<c:if test='${authenticationFailureResult != null}'>
+								<c:if test="${!empty authenticationFailureResult}">
 									<div class="alert alert-danger">
 										<p>Invalid user name and password.</p>
 									</div>

@@ -34,7 +34,6 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 
 		commandForm.setScreenId(screenId);
 		commandForm.setScreenName(screenName);
-		model.addAttribute("title", screenId);
 
 		logger.info("ScreenId : " + commandForm.getScreenId() + ", ScreenName : " + commandForm.getScreenName());
 	}
