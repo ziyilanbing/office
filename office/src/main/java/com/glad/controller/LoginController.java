@@ -44,9 +44,11 @@ public class LoginController extends BaseController<LoginModel> {
 	 * @return
 	 */
 	@RequestMapping(value = "/authenticationFailure", method = RequestMethod.GET)
-	public String authenticationFailure(HttpServletRequest request) {
-		request.setAttribute("authenticationFailureResult", "failure");
-		logger.info("login failed");
+	public String authenticationFailure(ModelMap model, LoginModel loginModel, HttpServletRequest request) {
+
+		model.addAttribute("title", "glad.office.Login");
+		model.addAttribute("authenticationFailureResult", "failure");
+
 		return "login";
 	}
 
