@@ -1,12 +1,11 @@
 package com.glad.model;
 
-import javax.validation.constraints.NotNull;
-
+import com.glad.annotation.NotNullOrEmpty;
 import com.glad.component.AbstractModel;
 
 public class ValidateModel extends AbstractModel {
 
-	@NotNull
+	@NotNullOrEmpty
 	private String textInput;
 
 	public String getTextInput() {

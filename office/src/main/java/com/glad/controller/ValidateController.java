@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.glad.annotation.ScreenId;
 import com.glad.base.BaseController;
 import com.glad.exp.BaseException;
 import com.glad.model.ValidateModel;
@@ -22,6 +23,7 @@ import com.glad.model.ValidateModel;
 @Controller
 @RequestMapping(value = "/validate/")
 @SessionAttributes("validateModel")
+@ScreenId("glad.office.validate")
 public class ValidateController extends BaseController<ValidateModel> {
 
 	@ModelAttribute("validateModel")

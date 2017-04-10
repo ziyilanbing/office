@@ -26,7 +26,7 @@ public class LocalizeMessageSource {
 		return this.getMessage(code, args);
 	}
 
-	private String getMessage(String code, Object... args) {
+	public final String getMessage(String code, Object... args) {
 		String message = this.source.getMessage(code, args, this.locale);
 		Pattern pattern = Pattern.compile("(\\$\\{.+?\\})");
 		Matcher matcher;

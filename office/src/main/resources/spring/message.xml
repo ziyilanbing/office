@@ -32,4 +32,6 @@
 		<constructor-arg name="source" ref="messageSource"></constructor-arg>
 		<constructor-arg name="locale" ref="locale"></constructor-arg>
 	</bean>
+	
+	<bean class="com.glad.validation.FormValidator" />
 </beans>
