@@ -1,7 +1,10 @@
 package com.glad.controller;
 
 import java.lang.reflect.Field;
+import java.security.Principal;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -35,7 +38,15 @@ public class FormsController extends BaseController<FormsModel> {
 	@Override
 	public void doInit(ModelMap model, FormsModel formsModel) throws BaseException {
 
-		System.out.println(formsModel.getTextInput());
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if (principal instanceof UserDetails) {
+			((UserDetails) principal).getUsername();
+		}
+		if (principal instanceof Principal) {
+			((Principal) principal).getName();
+		}
+
+		String.valueOf(principal);
 
 	}
 
