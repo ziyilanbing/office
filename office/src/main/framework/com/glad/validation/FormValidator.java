@@ -4,14 +4,16 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 
+import javax.validation.constraints.NotNull;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.glad.annotation.NotNullOrEmpty;
-import com.glad.annotation.NullOrEmpty;
+import com.glad.annotation.NotBlank;
+import com.glad.annotation.NotEmpty;
 import com.glad.aspect.RequestAroundAdvice;
 import com.glad.component.AbstractModel;
 import com.glad.message.LocalizeMessageSource;
@@ -44,27 +46,37 @@ public class FormValidator implements Validator {
 					e.printStackTrace();
 					continue;
 				}
-				if (annotation instanceof NullOrEmpty) {
-					String errorCode = "testcode";
-					if (!nullOrEmptyImp(val))
-						errors.rejectValue(fied.getName(), errorCode, localizeMessageSource.getMessage(errorCode));
-				}
-				if (annotation instanceof NotNullOrEmpty) {
+				if (annotation instanceof NotNull) {
 					String errorCode = "testcode";
 					String m = localizeMessageSource.getMessage(errorCode);
-					if (!notNullOrEmptyImp(val))
+					if (!notNull(val))
 						errors.rejectValue(fied.getName(), errorCode, m);
+				}
+				if (annotation instanceof NotEmpty) {
+					String errorCode = "testcode";
+					String m = localizeMessageSource.getMessage(errorCode);
+					if (!notEmpty(val))
+						errors.rejectValue(fied.getName(), errorCode, m);
+				}
+				if (annotation instanceof NotBlank) {
+					String errorCode = "testcode";
+					if (!notBlank(val))
+						errors.rejectValue(fied.getName(), errorCode, localizeMessageSource.getMessage(errorCode));
 				}
 			}
 		}
 	}
 
-	private boolean nullOrEmptyImp(String val) {
+	private boolean notNull(String val) {
+		return val == null;
+	}
+
+	private boolean notEmpty(String val) {
 		return val == null || "".equals(val);
 	}
 
-	private boolean notNullOrEmptyImp(String val) {
-		return !nullOrEmptyImp(val);
+	private boolean notBlank(String val) {
+		return val == null || "".equals(val.trim());
 	}
 
 }

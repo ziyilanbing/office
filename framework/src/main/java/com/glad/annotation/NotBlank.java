@@ -18,9 +18,9 @@ import javax.validation.Payload;
 @Retention(RUNTIME)
 @Documented
 @Constraint(validatedBy = {})
-public @interface NullOrEmpty {
+public @interface NotBlank {
 
-	String message() default "{javax.validation.constraints.Null.message}";
+	String message() default "{com.glad.annotation.NotBlank.message}";
 
 	Class<?>[] groups() default {};
 
@@ -31,6 +31,6 @@ public @interface NullOrEmpty {
 	@Documented
 	@interface List {
 
-		NullOrEmpty[] value();
+		NotBlank[] value();
 	}
 }

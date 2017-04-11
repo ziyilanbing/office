@@ -1,7 +1,8 @@
 package com.glad.controller;
 
-import java.lang.reflect.Field;
 import java.security.Principal;
+
+import javax.validation.Valid;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -31,13 +32,13 @@ public class FormsController extends BaseController<FormsModel> {
 
 	@ModelAttribute("formsModel")
 	public FormsModel createFormsModel() {
-		FormsModel formsModel = new FormsModel();
-		return formsModel;
+		return new FormsModel();
 	}
 
 	@Override
 	public void doInit(ModelMap model, FormsModel formsModel) throws BaseException {
 
+		// 权限信息取得
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		if (principal instanceof UserDetails) {
 			((UserDetails) principal).getUsername();
@@ -48,17 +49,20 @@ public class FormsController extends BaseController<FormsModel> {
 
 		String.valueOf(principal);
 
+		// 初期值设定
+		formsModel.setTextInput("1");
+
 	}
 
 	@RequestMapping(value = "/input", method = { RequestMethod.GET, RequestMethod.POST })
-	public String exceptionTest(ModelMap model, @ModelAttribute FormsModel formsModel, BindingResult result)
+	public String exceptionTest(ModelMap model, @Valid @ModelAttribute FormsModel formsModel, BindingResult result)
 			throws Exception {
+
+		logger.info(formsModel.fetchFieldValue());
+
 		try {
-
-			System.out.println(formsModel.getTextInput());
-
-			for (Field Field : formsModel.getClass().getFields()) {
-
+			if (result.hasErrors()) {
+				result.getAllErrors();
 			}
 		} catch (Exception e) {
 			handleException(model, result, e);

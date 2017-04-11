@@ -1,11 +1,24 @@
 package com.glad.model;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.glad.annotation.NotBlank;
+import com.glad.annotation.NotEmpty;
 import com.glad.component.AbstractModel;
 
 public class FormsModel extends AbstractModel {
 
+	@NotNull
+	@NotEmpty
+	@NotBlank
+	@Size(min = 5, max = 10)
 	private String textInput;
 
+	@Min(3)
+	@Max(6)
 	private String textInputwithPlaceholder;
 
 	private String textarea;
