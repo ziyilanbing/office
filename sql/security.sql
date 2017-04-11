@@ -13,8 +13,6 @@ File Encoding         : 65001
 Date: 2017-02-21 20:47:45
 */
 
-CREATE SCHEMA `office` DEFAULT CHARACTER SET utf8 ;
-
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
