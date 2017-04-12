@@ -1,11 +1,7 @@
 package com.glad.controller;
 
-import java.security.Principal;
-
 import javax.validation.Valid;
 
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -37,17 +33,6 @@ public class FormsController extends BaseController<FormsModel> {
 
 	@Override
 	public void doInit(ModelMap model, FormsModel formsModel) throws BaseException {
-
-		// 权限信息取得
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		if (principal instanceof UserDetails) {
-			((UserDetails) principal).getUsername();
-		}
-		if (principal instanceof Principal) {
-			((Principal) principal).getName();
-		}
-
-		String.valueOf(principal);
 
 		// 初期值设定
 		formsModel.setTextInput("1");
