@@ -24,10 +24,11 @@
 										action="REPLACE_BY_SCRIPT" id="form" method="POST">
 										<div class="form-group">
 											<label>Text Input</label>
-											<form:input class="form-control" path="textInput"
+											<form:input cssClass="form-control" cssErrorClass="form-control has-errors" path="textInput"
 												id="textInput" />
 											<p class="help-block">Example block-level help text here.</p>
 										</div>
+											<label>${value}</label>
 										<div class="form-group">
 											<label>Text Input with Placeholder</label>
 											<form:input class="form-control"
