@@ -53,6 +53,10 @@ public class FormsController extends BaseController<FormsModel> {
 		formsModel.setTextInput("1");
 		formsModel.setTextInputwithPlaceholder("22");
 		formsModel.setTextarea("333");
+		formsModel.setCheckbox1("1");
+		formsModel.setCheckbox2("1");
+		formsModel.setCheckbox3("1");
+		formsModel.setRadioButtons("2");
 
 	}
 

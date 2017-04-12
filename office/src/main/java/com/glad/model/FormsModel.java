@@ -29,6 +29,8 @@ public class FormsModel extends AbstractModel {
 
 	private String checkbox3;
 
+	private String checkboxes;
+
 	private String radioButtons;
 
 	private String selects;
@@ -81,6 +83,14 @@ public class FormsModel extends AbstractModel {
 
 	public void setCheckbox3(String checkbox3) {
 		this.checkbox3 = checkbox3;
+	}
+
+	public String getCheckboxes() {
+		return checkboxes;
+	}
+
+	public void setCheckboxes(String checkboxes) {
+		this.checkboxes = checkboxes;
 	}
 
 	public String getRadioButtons() {
