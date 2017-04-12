@@ -56,7 +56,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `SSO_ID` varchar(20) COLLATE utf8_bin NOT NULL,
-  `PASSWORD` varchar(20) COLLATE utf8_bin NOT NULL,
+  `PASSWORD` varchar(100) COLLATE utf8_bin NOT NULL,
   `FIRST_NAME` varchar(20) COLLATE utf8_bin NOT NULL,
   `LAST_NAME` varchar(20) COLLATE utf8_bin NOT NULL,
   `EMAIL` varchar(20) COLLATE utf8_bin NOT NULL,
@@ -67,9 +67,9 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'jack', 'jack123', 'jack', 'nie', 'jack@qq.com', 'Active');
-INSERT INTO `user` VALUES ('2', 'admin', 'admin123', 'admin', 'nie', 'admin@qq.com', 'Active');
-INSERT INTO `user` VALUES ('3', 'dba', 'dba123', 'dba', 'nie', 'dba@qq.com', 'Active');
+INSERT INTO `user` VALUES ('1', 'jack', 'Jz0XxZh3K2MJtAEvDhL3zA==', 'jack', 'nie', 'jack@qq.com', 'Active');
+INSERT INTO `user` VALUES ('2', 'admin', 'Ucpd/waMOTiZIzJRRQ2V4g==', 'admin', 'nie', 'admin@qq.com', 'Active');
+INSERT INTO `user` VALUES ('3', 'dba', 'xgRU1Vr3ekiTkPTDgMFu9g==', 'dba', 'nie', 'dba@qq.com', 'Active');
 
 -- ----------------------------
 -- Table structure for `user_role_rel`
