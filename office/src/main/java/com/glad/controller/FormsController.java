@@ -51,6 +51,8 @@ public class FormsController extends BaseController<FormsModel> {
 
 		// 初期值设定
 		formsModel.setTextInput("1");
+		formsModel.setTextInputwithPlaceholder("22");
+		formsModel.setTextarea("333");
 
 	}
 
@@ -59,11 +61,13 @@ public class FormsController extends BaseController<FormsModel> {
 			throws Exception {
 
 		logger.info(formsModel.fetchFieldValue());
+		if (result.hasErrors()) {
+			return this.getDefaultView();
+		}
 
 		try {
-			if (result.hasErrors()) {
-				result.getAllErrors();
-			}
+			// 業務處理
+
 		} catch (Exception e) {
 			handleException(model, result, e);
 		}
