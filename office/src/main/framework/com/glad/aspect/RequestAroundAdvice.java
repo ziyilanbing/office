@@ -28,7 +28,7 @@ public class RequestAroundAdvice implements MethodInterceptor {
 
 		logger.info("RequestAroundAdvice implements MethodInterceptor ");
 
-		Class<?> controllerType = invocation.getMethod().getDeclaringClass().getDeclaringClass();
+		Class<?> controllerType = invocation.getThis().getClass();
 
 		String redirectUrl = getRedirectUrlByLoginState(invocation, controllerType);
 
@@ -38,11 +38,8 @@ public class RequestAroundAdvice implements MethodInterceptor {
 
 		Model currentModel = getCurrentModel(invocation);
 
-		// TODO TEST
-		if (controllerType != null && controllerType != LogoutController.class) {
-			if (currentModel == null) {
-				throw new IllegalArgumentException("'Model' must exist.");
-			}
+		if (currentModel == null) {
+			throw new IllegalArgumentException("'Model' must exist.");
 		}
 
 		String title = invocation.getThis().getClass().getAnnotation(ScreenId.class).value();
@@ -59,7 +56,6 @@ public class RequestAroundAdvice implements MethodInterceptor {
 	}
 
 	private static String getRedirectUrlByLoginState(MethodInvocation invocation, Class<?> controllerType) {
-
 		if (controllerType == LoginController.class) {
 
 		}
