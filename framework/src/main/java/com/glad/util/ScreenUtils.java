@@ -10,6 +10,9 @@ import com.glad.exp.AppWarnException;
 import com.glad.exp.BaseException;
 
 public class ScreenUtils {
+
+	private static String DATA_KEY = "value";
+
 	public static void setErrorMessage(ModelMap model, BindingResult result, BaseException cause) {
 		String errorField;
 		try {
@@ -32,6 +35,7 @@ public class ScreenUtils {
 		}
 
 		model.putAll(result.getModel());
+		model.put(DATA_KEY, result.getFieldErrors());
 
 		result.addError(new FieldError(errorField, "dumy_key", cause.getLocalizedMessage()));
 	}

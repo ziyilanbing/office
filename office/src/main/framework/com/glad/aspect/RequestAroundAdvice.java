@@ -4,11 +4,16 @@ import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.support.BindingAwareModelMap;
 
 import com.glad.annotation.ScreenId;
+import com.glad.component.AbstractController;
 import com.glad.controller.LoginController;
+import com.glad.controller.LogoutController;
 
 public class RequestAroundAdvice implements MethodInterceptor {
 
@@ -23,19 +28,21 @@ public class RequestAroundAdvice implements MethodInterceptor {
 
 		logger.info("RequestAroundAdvice implements MethodInterceptor ");
 
-		// Class<?> controllerType = invocation.getMethod().getDeclaringClass();
-		//
-		// String redirectUrl = getRedirectUrlByLoginState(invocation,
-		// controllerType);
-		//
-		// if (redirectUrl != null) {
-		// return redirectUrl;
-		// }
+		Class<?> controllerType = invocation.getMethod().getDeclaringClass().getDeclaringClass();
+
+		String redirectUrl = getRedirectUrlByLoginState(invocation, controllerType);
+
+		if (redirectUrl != null) {
+			return redirectUrl;
+		}
 
 		Model currentModel = getCurrentModel(invocation);
 
-		if (currentModel == null) {
-			throw new IllegalArgumentException("'Model' must exist.");
+		// TODO TEST
+		if (controllerType != null && controllerType != LogoutController.class) {
+			if (currentModel == null) {
+				throw new IllegalArgumentException("'Model' must exist.");
+			}
 		}
 
 		String title = invocation.getThis().getClass().getAnnotation(ScreenId.class).value();
@@ -52,6 +59,7 @@ public class RequestAroundAdvice implements MethodInterceptor {
 	}
 
 	private static String getRedirectUrlByLoginState(MethodInvocation invocation, Class<?> controllerType) {
+
 		if (controllerType == LoginController.class) {
 
 		}
@@ -60,11 +68,17 @@ public class RequestAroundAdvice implements MethodInterceptor {
 		// logger.info("sessionTimeOut");
 		// }
 		else {
-			Model curModel = getCurrentModel(invocation);
-			curModel.asMap().clear();
+			// 权限信息取得
+			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
+			if (auth instanceof AnonymousAuthenticationToken) {
+				logger.warn("AnonymousUser Need Login");
+				Model curModel = getCurrentModel(invocation);
+				curModel.asMap().clear();
+				return AbstractController.getRedirectRequest(LoginController.class);
+
+			}
 		}
-
 		return null;
 	}
 

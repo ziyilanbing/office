@@ -24,10 +24,12 @@
 										action="REPLACE_BY_SCRIPT" id="form" method="POST">
 										<div class="form-group">
 											<label>Text Input</label>
-											<form:input class="form-control" path="textInput"
+											<form:input cssClass="form-control"
+												cssErrorClass="form-control has-errors" path="textInput"
 												id="textInput" />
 											<p class="help-block">Example block-level help text here.</p>
 										</div>
+										<label>${value}</label>
 										<div class="form-group">
 											<label>Text Input with Placeholder</label>
 											<form:input class="form-control"
@@ -43,51 +45,50 @@
 										<div class="form-group">
 											<label>Text area</label>
 											<form:textarea path="textarea" class="form-control" rows="3" />
-											</textarea>
 										</div>
 										<div class="form-group">
 											<label>Checkboxes</label>
 											<div class="checkbox">
-												<label> <input type="checkbox" value="" />Checkbox
+												<label> <form:checkbox path="checkbox1" value="1" />Checkbox1
 													1
 												</label>
 											</div>
 											<div class="checkbox">
-												<label> <input type="checkbox" value="" />Checkbox
+												<label> <form:checkbox path="checkbox2" value="2" />Checkbox2
 													2
 												</label>
 											</div>
 											<div class="checkbox">
-												<label> <input type="checkbox" value="" />Checkbox
+												<label> <form:checkbox path="checkbox3" value="3" />Checkbox3
 													3
 												</label>
 											</div>
 										</div>
 										<div class="form-group">
 											<label>Inline Checkboxes</label> <label
-												class="checkbox-inline"> <input type="checkbox">1
-											</label> <label class="checkbox-inline"> <input
-												type="checkbox">2
-											</label> <label class="checkbox-inline"> <input
-												type="checkbox">3
+												class="checkbox-inline"> <form:checkbox
+													path="checkboxes" value="1" />1
+											</label> <label class="checkbox-inline"> <form:checkbox
+													path="checkboxes" value="2" />2
+											</label> <label class="checkbox-inline"> <form:checkbox
+													path="checkboxes" value="3" />3
 											</label>
 										</div>
 										<div class="form-group">
 											<label>Radio Buttons</label>
 											<div class="radio">
-												<label> <input path="radioButtons" type="radio"
-													name="optionsRadios" id="optionsRadios1" value="option1"
-													checked />Radio 1
+												<label> <form:radiobutton path="radioButtons"
+														id="optionsRadios1" value="1" />Radio 1
 												</label>
 											</div>
 											<div class="radio">
-												<label> <input type="radio" name="optionsRadios"
-													id="optionsRadios2" value="option2" />Radio 2
+												<label> <form:radiobutton path="radioButtons"
+														id="optionsRadios2" value="2" />Radio 2
 												</label>
 											</div>
 											<div class="radio">
-												<label> <input type="radio" name="optionsRadios"
-													id="optionsRadios3" value="option3" />Radio 3
+												<label> <form:radiobutton path="radioButtons"
+														id="optionsRadios3" value="3" />Radio 3
 												</label>
 											</div>
 										</div>
@@ -115,14 +116,15 @@
 											</form:select>
 										</div>
 										<div class="form-group">
-											<label>Multiple Selects</label> <select multiple
+											<label>Multiple Selects</label>
+											<form:select path="multipleSelects" multiple="multiple"
 												class="form-control">
 												<option>1</option>
 												<option>2</option>
 												<option>3</option>
 												<option>4</option>
 												<option>5</option>
-											</select>
+											</form:select>
 										</div>
 										<button type="submit" class="btn btn-default"
 											formaction="input">Submit Button</button>

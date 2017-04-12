@@ -29,11 +29,11 @@ public class LogoutController extends AbstractController {
 	protected Logger logger = LoggerFactory.getLogger(BaseController.class);
 
 	@Autowired
-	private SecurityContextLogoutHandler securityContextLogoutHandle;
+	private SecurityContextLogoutHandler securityContextLogoutHandler;
 
 	/**
 	 * logout
-	 * 
+	 *
 	 * @param request
 	 * @param response
 	 * @return
@@ -42,7 +42,7 @@ public class LogoutController extends AbstractController {
 	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth != null) {
-			securityContextLogoutHandle.logout(request, response, auth);
+			securityContextLogoutHandler.logout(request, response, auth);
 		}
 		logger.info("logout success ! ");
 		return getRedirectRequest(LoginController.class);

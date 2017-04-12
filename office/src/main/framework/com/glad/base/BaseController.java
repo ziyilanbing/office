@@ -59,8 +59,8 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 	 * @throws Exception
 	 */
 	@RequestMapping(value = { "", "/", "/init" }, method = { RequestMethod.GET, RequestMethod.POST })
-	public String initLogin(ModelMap model, @ModelAttribute T commandForm, BindingResult result,
-			HttpServletRequest request) throws Exception {
+	public String init(ModelMap model, @ModelAttribute T commandForm, BindingResult result, HttpServletRequest request)
+			throws Exception {
 		try {
 			setScreenInfo(model, commandForm);
 
