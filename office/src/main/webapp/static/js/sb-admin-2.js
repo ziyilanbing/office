@@ -45,3 +45,11 @@ $(function() {
         }
     }
 });
+
+$(function() {
+    $(document).ready(function(){
+    	$(".has-success").removeClass("has-success").parent().addClass("has-success");
+    	$(".has-warning").removeClass("has-warning").parent().addClass("has-warning");
+    	$(".has-error").removeClass("has-error").parent().addClass("has-error");
+    });
+});

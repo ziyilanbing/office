@@ -1,6 +1,6 @@
 package com.glad.component;
 
-public abstract class AbstractModel extends FieldBase {
+public abstract class AbstractModel {
 
 	/**
 	 * Screen Id

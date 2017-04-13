@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author zhongqs
  * @date 2017年3月16日
  */
-public class AbstractDto extends FieldBase implements Serializable {
+public class AbstractDto implements Serializable {
 
 	/**
 	 * 

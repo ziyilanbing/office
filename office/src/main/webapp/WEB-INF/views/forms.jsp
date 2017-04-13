@@ -25,7 +25,7 @@
 										<div class="form-group">
 											<label>Text Input</label>
 											<form:input cssClass="form-control"
-												cssErrorClass="form-control has-errors" path="textInput"
+												cssErrorClass="form-control has-error" path="textInput"
 												id="textInput" />
 											<p class="help-block">Example block-level help text here.</p>
 										</div>

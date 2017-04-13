@@ -49,7 +49,6 @@ public class FormsController extends BaseController<FormsModel> {
 	public String exceptionTest(ModelMap model, @Valid @ModelAttribute FormsModel formsModel, BindingResult result)
 			throws Exception {
 
-		logger.info(formsModel.fetchFieldValue());
 		try {
 			// 業務處理
 

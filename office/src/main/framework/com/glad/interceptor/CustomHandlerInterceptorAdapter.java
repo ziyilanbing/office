@@ -22,11 +22,11 @@ public class CustomHandlerInterceptorAdapter implements WebRequestInterceptor {
 		for (String key : model.keySet()) {
 
 			Object object = model.get(key);
-			System.out.println(key + "-------------------------" + object);
 
 			if (object instanceof BindingResult) {
 				List<FieldError> fields = ((BindingResult) object).getFieldErrors();
 				if (fields.size() > 0) {
+					String code = fields.get(0).getCode();
 					String message = fields.get(0).getDefaultMessage();
 					model.put(ScreenUtils.DATA_KEY, message);
 					break;
