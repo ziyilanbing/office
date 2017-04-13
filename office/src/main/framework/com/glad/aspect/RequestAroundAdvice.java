@@ -30,6 +30,10 @@ public class RequestAroundAdvice implements MethodInterceptor {
 
 		Class<?> controllerType = invocation.getThis().getClass();
 
+		if (controllerType == LogoutController.class) {
+			return invocation.proceed();
+		}
+
 		String redirectUrl = getRedirectUrlByLoginState(invocation, controllerType);
 
 		if (redirectUrl != null) {
@@ -44,7 +48,6 @@ public class RequestAroundAdvice implements MethodInterceptor {
 
 		String title = invocation.getThis().getClass().getAnnotation(ScreenId.class).value();
 		currentModel.addAttribute("title", title);
-
 		// String servletPath = getServletPath();
 		// val rootPath = get
 		return invocation.proceed();
