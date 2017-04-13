@@ -50,10 +50,6 @@ public class FormsController extends BaseController<FormsModel> {
 			throws Exception {
 
 		logger.info(formsModel.fetchFieldValue());
-		if (result.hasErrors()) {
-			return this.getDefaultView();
-		}
-
 		try {
 			// 業務處理
 

@@ -11,7 +11,7 @@ import com.glad.exp.BaseException;
 
 public class ScreenUtils {
 
-	private static String DATA_KEY = "value";
+	public static final String DATA_KEY = "value";
 
 	public static void setErrorMessage(ModelMap model, BindingResult result, BaseException cause) {
 		String errorField;

@@ -1,12 +1,11 @@
 package com.glad.model;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.glad.annotation.NotBlank;
-import com.glad.annotation.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.glad.component.AbstractModel;
 
 public class FormsModel extends AbstractModel {
@@ -17,24 +16,31 @@ public class FormsModel extends AbstractModel {
 	@Size(min = 5, max = 10)
 	private String textInput;
 
-	@Min(3)
-	@Max(6)
+	@NotNull
 	private String textInputwithPlaceholder;
 
+	@NotNull
 	private String textarea;
 
+	@NotNull
 	private String checkbox1;
 
+	@NotNull
 	private String checkbox2;
 
+	@NotNull
 	private String checkbox3;
 
+	@NotNull
 	private String checkboxes;
 
+	@NotNull
 	private String radioButtons;
 
+	@NotNull
 	private String selects;
 
+	@NotNull
 	private String multipleSelects;
 
 	public String getTextInput() {
