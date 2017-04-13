@@ -34,7 +34,7 @@ public final class TraceAdvice extends AbstractAdvice {
 
 		String arguments = formatArguments(joinPoint.getArgs());
 
-		logger.trace(String.format(" Before  %s.%s(%s)", classname, methodName, arguments));
+		logger.debug(String.format(" Before  %s.%s(%s)", classname, methodName, arguments));
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public final class TraceAdvice extends AbstractAdvice {
 		if (result instanceof FieldBase)
 			result = ((FieldBase) result).fetchFieldValue();
 
-		logger.trace(
+		logger.debug(
 				String.format("AfterReturning  %s.%s | Return=[%s <%s>]", classname, methodName, result, returnType));
 	}
 
