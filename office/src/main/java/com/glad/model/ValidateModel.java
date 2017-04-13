@@ -2,7 +2,8 @@ package com.glad.model;
 
 import javax.validation.constraints.Size;
 
-import com.glad.annotation.NotEmpty;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.glad.component.AbstractModel;
 
 public class ValidateModel extends AbstractModel {
