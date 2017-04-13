@@ -26,6 +26,8 @@ public @interface HalfWidth {
 
 	Class<? extends Payload>[] payload() default {};
 
+	String encode() default "UTF-8";
+
 	@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 	@Retention(RUNTIME)
 	@Documented

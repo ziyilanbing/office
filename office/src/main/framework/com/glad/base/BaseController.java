@@ -7,8 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +16,6 @@ import com.glad.component.AbstractController;
 import com.glad.component.AbstractModel;
 import com.glad.exp.BaseException;
 import com.glad.message.LocalizeMessageSource;
-import com.glad.validation.FormValidator;
 
 public abstract class BaseController<T extends AbstractModel> extends AbstractController {
 
@@ -26,14 +23,6 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 
 	@Autowired
 	protected LocalizeMessageSource messageSource;
-
-	@Autowired
-	private FormValidator formValidator;
-
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		binder.setValidator(formValidator);
-	}
 
 	/**
 	 * 

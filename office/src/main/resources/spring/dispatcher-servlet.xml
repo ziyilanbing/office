@@ -12,7 +12,6 @@
 
 	<context:component-scan base-package="com.glad.controller" />
 	<context:component-scan base-package="com.glad.model" />
-	<context:component-scan base-package="com.glad.validation" />
 
 	<mvc:annotation-driven />
 
