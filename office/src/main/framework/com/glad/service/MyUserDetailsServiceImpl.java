@@ -1,4 +1,4 @@
-package com.glad.service.impl;
+package com.glad.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 import com.glad.aspect.RequestAroundAdvice;
 import com.glad.entity.Role;
 import com.glad.entity.User;
-import com.glad.service.UserService;
 import com.glad.util.State;
 
 @Service("myUserDetailsService")
@@ -31,8 +30,7 @@ public class MyUserDetailsServiceImpl implements UserDetailsService {
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 		User user = userService.findByUserName(userName);
 		if (user == null) {
-			logger.info("UserName : " + userName + " not found !");
-			throw new UsernameNotFoundException("Username not found");
+			throw new UsernameNotFoundException("UserName : " + userName + " not found !");
 		}
 
 		logger.info("UserID : " + user.getId() + ", UserName : " + user.getUserName());
