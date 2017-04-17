@@ -17,8 +17,7 @@
 
 	<http pattern="/static/**" security="none" />
 
-	<http auto-config="true" create-session="always"
-		use-expressions="true">
+	<http auto-config="true" create-session="always" use-expressions="true">
 		<!-- 配置登录页面 -->
 		<form-login login-page="/login" default-target-url="/top/init"
 			login-processing-url="/login/submit" authentication-failure-url="/login/authenticationFailure"
@@ -33,21 +32,43 @@
 				error-if-maximum-exceeded="false" expired-url="/login/init" />
 		</session-management>
 
-		<intercept-url pattern="/"
-			access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER') or hasRole('ROLE_DBA')" />
-		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
-		<intercept-url pattern="/dba/**" access="hasRole('ROLE_DBA')" />
+		<custom-filter ref="officeFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+
+		<!-- <intercept-url pattern="/" -->
+		<!-- access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER') or hasRole('ROLE_DBA')" 
+			/> -->
+		<!-- <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" 
+			/> -->
+		<!-- <intercept-url pattern="/dba/**" access="hasRole('ROLE_DBA')" /> -->
 		<access-denied-handler error-page="/accessDenied" />
 
 	</http>
 
+	<!-- 自定义filter，包含authenticationManager, accessDecisionManager,securityMetadataSource三个属性。 -->
+	<beans:bean id="officeFilter"
+		class="com.glad.security.OfficeFilterSecurityInterceptor">
+		<beans:property name="authenticationManager" ref="authenticationManager" />
+		<beans:property name="accessDecisionManager" ref="customAccessDecisionManager" />
+		<beans:property name="securityMetadataSource" ref="customSecurityMetadataSource" />
+	</beans:bean>
+
+	<!-- 注意能够为authentication-manager 设置alias别名 -->
 	<authentication-manager alias="authenticationManager">
-		<authentication-provider
-			user-service-ref="myUserDetailsService">
+		<authentication-provider user-service-ref="myUserDetailsService">
 			<password-encoder hash="md5" base64="true">
 				<salt-source user-property="username" />
 			</password-encoder>
 		</authentication-provider>
 	</authentication-manager>
 
+	<!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源。 -->
+	<beans:bean id="customAccessDecisionManager"
+		class="com.glad.security.CustomAccessDecisionManager">
+	</beans:bean>
+
+	<!-- 资源源数据定义，将所有的资源和权限对应关系建立起来，即定义某一资源可以被哪些角色去访问。 -->
+	<beans:bean id="customSecurityMetadataSource"
+		class="com.glad.security.CustomInvocationSecurityMetadataSource">
+	</beans:bean>
+	
 </beans:beans>
