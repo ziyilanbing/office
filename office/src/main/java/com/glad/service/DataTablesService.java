@@ -16,7 +16,7 @@ public class DataTablesService {
 	@Autowired
 	private DatatablesMapper datatablesDao;
 
-	public List<Datatables> select(Datatables datatables) {
+	public List<Datatables> selectAll() {
 		return datatablesDao.selectAll();
 	}
 

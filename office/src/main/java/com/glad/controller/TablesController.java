@@ -17,7 +17,7 @@ import com.glad.service.DataTablesService;
 /**
  * 
  * @author zhongqs
- * @date 2017年3月9日
+ * @date 2017骞�3鏈�9鏃�
  */
 @Controller
 @RequestMapping("/tables/**")
@@ -30,9 +30,7 @@ public class TablesController extends BaseController<TablesModel> {
 
 	@Override
 	public void doInit(ModelMap model, TablesModel commandForm) {
-		Datatables datatables = new Datatables();
-		datatables.setId(1);
-		List<Datatables> datatablesList = dataTablesService.select(datatables);
+		List<Datatables> datatablesList = dataTablesService.selectAll();
 		commandForm.setDatatablesList(datatablesList);
 		for (Datatables data : datatablesList) {
 			System.out.println(data.getBrowser());
