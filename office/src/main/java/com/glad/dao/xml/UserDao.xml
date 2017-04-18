@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- TABLE:user -->
+<!-- TABLE:sys_user -->
 
 <mapper namespace="com.glad.dao.UserDao">
 	<resultMap type="com.glad.entity.User" id="selectUserMap">
@@ -21,13 +21,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 
 	<select id="findByUserName" parameterType="string" resultMap="selectUserMap">
-		SELECT USER.ID as
-		USER_ID,SSO_ID,PASSWORD,FIRST_NAME,LAST_NAME,EMAIL,STATE,ROLE.ID as
+		SELECT SYS_USER.ID as
+		USER_ID,SSO_ID,PASSWORD,FIRST_NAME,LAST_NAME,EMAIL,STATE,SYS_ROLE.ID as
 		ROLE_ID,ROLE_TYPE
-		FROM USER INNER JOIN USER_ROLE_REL ON USER.ID =
-		USER_ROLE_REL.USER_ID
-		INNER JOIN ROLE ON ROLE.ID =
-		USER_ROLE_REL.ROLE_ID WHERE SSO_ID =
+		FROM SYS_USER INNER JOIN SYS_USER_ROLE_REL ON SYS_USER.ID =
+		SYS_USER_ROLE_REL.USER_ID
+		INNER JOIN SYS_ROLE ON SYS_ROLE.ID =
+		SYS_USER_ROLE_REL.ROLE_ID WHERE SSO_ID =
 		#{userName}
 	</select>
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glad.dao.DatatablesMapper">
+  <resultMap id="BaseResultMap" type="com.glad.entity.Datatables">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="rendering_engine" jdbcType="VARCHAR" property="renderingEngine" />
+    <result column="browser" jdbcType="VARCHAR" property="browser" />
+    <result column="platforms" jdbcType="VARCHAR" property="platforms" />
+    <result column="engine_version" jdbcType="VARCHAR" property="engineVersion" />
+    <result column="css_grade" jdbcType="VARCHAR" property="cssGrade" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from datatables
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.glad.entity.Datatables">
+    insert into datatables (id, rendering_engine, browser, 
+      platforms, engine_version, css_grade
+      )
+    values (#{id,jdbcType=INTEGER}, #{renderingEngine,jdbcType=VARCHAR}, #{browser,jdbcType=VARCHAR}, 
+      #{platforms,jdbcType=VARCHAR}, #{engineVersion,jdbcType=VARCHAR}, #{cssGrade,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.glad.entity.Datatables">
+    update datatables
+    set rendering_engine = #{renderingEngine,jdbcType=VARCHAR},
+      browser = #{browser,jdbcType=VARCHAR},
+      platforms = #{platforms,jdbcType=VARCHAR},
+      engine_version = #{engineVersion,jdbcType=VARCHAR},
+      css_grade = #{cssGrade,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, rendering_engine, browser, platforms, engine_version, css_grade
+    from datatables
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, rendering_engine, browser, platforms, engine_version, css_grade
+    from datatables
+  </select>
+</mapper>
