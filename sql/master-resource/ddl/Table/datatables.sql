@@ -1,16 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50624
-Source Host           : localhost:3306
-Source Database       : security
-
-Target Server Type    : MYSQL
-Target Server Version : 50624
-File Encoding         : 65001
-
-Date: 2017-03-13 09:15
+Date: 2017-04-18
 Author: zhongqs
 */
 
@@ -33,7 +24,6 @@ CREATE TABLE `office`.`datatables` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
-
 
 -- ----------------------------
 -- Records of persistent_logins
