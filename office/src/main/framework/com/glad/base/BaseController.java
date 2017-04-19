@@ -54,10 +54,15 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 			setScreenInfo(model, commandForm);
 
 			doInit(model, commandForm);
+			setRequest(request);
+
 		} catch (Exception e) {
 			handleException(model, result, e);
 		}
 		return getDefaultView();
+	}
+
+	public void setRequest(HttpServletRequest request) throws OfficeException {
 	}
 
 	public abstract void doInit(ModelMap model, T commandForm) throws OfficeException;

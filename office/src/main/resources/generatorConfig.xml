@@ -50,7 +50,7 @@
 			<!-- <property name="rootInterface" value="" /> -->
 
 		</javaClientGenerator>
-		<table schema="office" tableName="datatables">
+		<table schema="office" tableName="sys_menu">
 			<!-- 指定是否只生成domain类，如果设置为true，只生成domain类，如果还配置了sqlMapGenerator，那么在mapper 
 				XML文件中，只生成resultMap元素 -->
 			<property name="modelOnly" value="false" />

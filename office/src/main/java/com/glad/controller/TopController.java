@@ -1,5 +1,7 @@
 package com.glad.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,12 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.glad.Constants;
 import com.glad.annotation.ScreenId;
 import com.glad.base.BaseController;
 import com.glad.entity.TestTable;
 import com.glad.exp.AppWarnException;
 import com.glad.exp.OfficeException;
+import com.glad.menu.MenuTree;
 import com.glad.model.TopModel;
+import com.glad.service.MenuService;
 import com.glad.service.TestTableService;
 import com.glad.util.Constant;
 
@@ -34,12 +39,24 @@ public class TopController extends BaseController<TopModel> {
 	@Autowired
 	private TestTableService testTableService;
 
+	@Autowired
+	private MenuService menuService;
+
 	@Override
 	public void doInit(ModelMap model, TopModel commandForm) throws OfficeException {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String userName = principal instanceof UserDetails ? ((UserDetails) principal).getUsername()
 				: principal.toString();
 		model.addAttribute("user", userName);
+
+	}
+
+	@Override
+	public void setRequest(HttpServletRequest request) throws OfficeException {
+		// get menuTree
+		MenuTree menuTree = menuService.getMenuTree();
+		request.getSession().setAttribute(Constants.USER_MENU_TREE, menuTree);
+		super.setRequest(request);
 	}
 
 	@RequestMapping(value = "/exception", method = RequestMethod.GET)
