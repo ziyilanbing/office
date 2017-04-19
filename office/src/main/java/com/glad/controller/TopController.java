@@ -54,8 +54,8 @@ public class TopController extends BaseController<TopModel> {
 	@Override
 	public void setRequest(HttpServletRequest request) throws OfficeException {
 		// get menuTree
-		MenuTree menuTree = menuService.getMenuTree();
-		request.getSession().setAttribute(Constants.USER_MENU_TREE, menuTree);
+//		MenuTree menuTree = menuService.getMenuTree();
+//		request.getSession().setAttribute(Constants.USER_MENU_TREE, menuTree);
 		super.setRequest(request);
 	}
 

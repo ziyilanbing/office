@@ -19,8 +19,7 @@
 							<div class="panel-heading">DataTables Advanced Tables</div>
 							<!-- /.panel-heading -->
 							<div class="panel-body">
-								<table width="100%"
-									class="table table-striped table-bordered table-hover"
+								<table class="table table-striped table-bordered table-hover"
 									id="dataTables-example">
 									<thead>
 										<tr>
@@ -41,7 +40,7 @@
 												<td class="center">${datatables.engineVersion}</td>
 												<td class="center">${datatables.cssGrade}</td>
 											</tr>
-										</c:forEach>	
+										</c:forEach>
 									</tbody>
 								</table>
 								<!-- /.table-responsive -->
