@@ -1,6 +1,6 @@
 package com.glad.exp;
 
-public class AppWarnException extends BaseException {
+public class AppWarnException extends OfficeException {
 
 	private static final long serialVersionUID = -3322198173300185785L;
 

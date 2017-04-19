@@ -4,7 +4,7 @@ import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class BaseException extends Exception {
+public class OfficeException extends Exception {
 
 	private String key;
 
@@ -14,7 +14,12 @@ public class BaseException extends Exception {
 
 	private static final String BUNDLENAME = "com.glad.ErrorResources";
 
-	public BaseException(String key, Object[] args) {
+	public OfficeException(String key) {
+		super();
+		this.key = key;
+	}
+
+	public OfficeException(String key, Object[] args) {
 		super();
 		this.key = key;
 		this.args = args;

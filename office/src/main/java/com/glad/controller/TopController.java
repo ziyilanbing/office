@@ -15,7 +15,7 @@ import com.glad.annotation.ScreenId;
 import com.glad.base.BaseController;
 import com.glad.entity.TestTable;
 import com.glad.exp.AppWarnException;
-import com.glad.exp.BaseException;
+import com.glad.exp.OfficeException;
 import com.glad.model.TopModel;
 import com.glad.service.TestTableService;
 import com.glad.util.Constant;
@@ -35,7 +35,7 @@ public class TopController extends BaseController<TopModel> {
 	private TestTableService testTableService;
 
 	@Override
-	public void doInit(ModelMap model, TopModel commandForm) throws BaseException {
+	public void doInit(ModelMap model, TopModel commandForm) throws OfficeException {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String userName = principal instanceof UserDetails ? ((UserDetails) principal).getUsername()
 				: principal.toString();

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.glad.annotation.ScreenId;
 import com.glad.component.AbstractController;
 import com.glad.component.AbstractModel;
-import com.glad.exp.BaseException;
+import com.glad.exp.OfficeException;
 import com.glad.message.LocalizeMessageSource;
 
 public abstract class BaseController<T extends AbstractModel> extends AbstractController {
@@ -60,6 +60,6 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 		return getDefaultView();
 	}
 
-	public abstract void doInit(ModelMap model, T commandForm) throws BaseException;
+	public abstract void doInit(ModelMap model, T commandForm) throws OfficeException;
 
 }

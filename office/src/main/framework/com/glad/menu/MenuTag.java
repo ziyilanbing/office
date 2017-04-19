@@ -1,5 +1,6 @@
-package com.glad.taglib;
+package com.glad.menu;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 
 import org.slf4j.Logger;
@@ -9,9 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.servlet.tags.HtmlEscapeTag;
 
-import com.glad.aspect.TraceAdvice;
-import com.glad.menu.MenuCreator;
-import com.glad.menu.MenuTree;
+import com.glad.Constants;
 
 /**
  * create menu html 1
@@ -24,30 +23,37 @@ public class MenuTag extends HtmlEscapeTag {
 	/**
 	 * slf4j logger
 	 */
-	private static final Logger logger = LoggerFactory.getLogger(TraceAdvice.class);
+	private static final Logger logger = LoggerFactory.getLogger(MenuTag.class);
 
 	@Override
 	protected int doStartTagInternal() throws JspException {
 		logger.info("doStartTagInternal ");
 
+		HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
 		MenuTree menuTree = null;
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-
+		MenuHtmlData menudata = (MenuHtmlData) request.getSession().getAttribute(Constants.USER_MENU_STREAM_KEY);
 		// user check TODO
 		if (!(auth instanceof AnonymousAuthenticationToken)) {
-			menuTree = MenuCreator.createMenuExt(auth.getName());
+
+			String userId = auth.getName();
+			if (menuTree == null || userId != menudata.getName()) {
+				menuTree = MenuCreator.createMenuExt(userId);
+			}
+
+			menudata = new MenuHtmlData(auth.getName(), menuTree);
+			request.getSession().setAttribute(Constants.USER_MENU_STREAM_KEY, menudata);
 
 			try {
-
 				StringBuilder builder = makeHtml(menuTree);
 				pageContext.getOut().print(builder.toString());
 
 			} catch (Exception e) {
 				// getExceptionMessage()
 				String message = "";
-				logger.error("Failed to get the menu data.");
-				throw new JspException();
+				logger.error("Failed to get the menu data." + message);
+				throw new JspException(e);
 			}
 		}
 
@@ -55,7 +61,7 @@ public class MenuTag extends HtmlEscapeTag {
 	}
 
 	private StringBuilder makeHtml(MenuTree menuTree) {
-		// TODO Auto-generated method stub
+		// TODO
 		StringBuilder builder = new StringBuilder("aaaaa");
 
 		return builder;

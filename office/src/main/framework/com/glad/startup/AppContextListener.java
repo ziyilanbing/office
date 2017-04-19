@@ -4,7 +4,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import com.glad.exp.BaseException;
+import com.glad.exp.OfficeException;
 
 /**
  * Hello world!
@@ -20,7 +20,7 @@ public class AppContextListener implements ServletContextListener {
 		String enterpriseId = ctx.getInitParameter("enterpriseId");
 		try {
 			Application.init(new BootstrapConfig());
-		} catch (BaseException e) {
+		} catch (OfficeException e) {
 			throw new IllegalStateException("application init failed");
 		} catch (Exception e) {
 			throw new IllegalStateException("application init failed");

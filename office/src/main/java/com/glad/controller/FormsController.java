@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.glad.annotation.ScreenId;
 import com.glad.base.BaseController;
-import com.glad.exp.BaseException;
+import com.glad.exp.OfficeException;
 import com.glad.model.FormsModel;
 
 /**
@@ -32,7 +32,7 @@ public class FormsController extends BaseController<FormsModel> {
 	}
 
 	@Override
-	public void doInit(ModelMap model, FormsModel formsModel) throws BaseException {
+	public void doInit(ModelMap model, FormsModel formsModel) throws OfficeException {
 
 		// 初期值设定
 		formsModel.setTextInput("1");

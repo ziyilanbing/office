@@ -1,6 +1,6 @@
 package com.glad.exp;
 
-public class AppErrorException extends BaseException {
+public class AppErrorException extends OfficeException {
 	private static final long serialVersionUID = 3641035922703182059L;
 
 	private String errorFieldName;

@@ -3,7 +3,7 @@ package com.glad.startup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.glad.exp.BaseException;
+import com.glad.exp.OfficeException;
 
 /**
  * Hello world!
@@ -17,18 +17,20 @@ public class Application {
 
 	private final BootstrapConfig config;
 
-	protected Application(final BootstrapConfig config) throws BaseException {
+	protected Application(final BootstrapConfig config) throws OfficeException {
 
 		loadProperties();
 		this.config = config;
 	}
 
-	public static synchronized void init(final BootstrapConfig config) throws BaseException {
+	public static synchronized void init(final BootstrapConfig config) throws OfficeException {
 		if (instance == null) {
 			instance = new Application(config);
-
 		}
+	}
 
+	public static Application getInstance() {
+		return instance;
 	}
 
 	private void loadProperties() {

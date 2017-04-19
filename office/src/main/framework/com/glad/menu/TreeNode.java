@@ -65,7 +65,7 @@ public class TreeNode implements Serializable {
 		return m_children.size();
 	}
 
-	private boolean hasChild() {
+	public boolean hasChild() {
 		return (getChildCount() > 0);
 	}
 

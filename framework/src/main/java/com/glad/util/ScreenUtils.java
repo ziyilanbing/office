@@ -7,13 +7,13 @@ import org.springframework.validation.FieldError;
 
 import com.glad.exp.AppErrorException;
 import com.glad.exp.AppWarnException;
-import com.glad.exp.BaseException;
+import com.glad.exp.OfficeException;
 
 public class ScreenUtils {
 
 	public static final String DATA_KEY = "value";
 
-	public static void setErrorMessage(ModelMap model, BindingResult result, BaseException cause) {
+	public static void setErrorMessage(ModelMap model, BindingResult result, OfficeException cause) {
 		String errorField;
 		try {
 			throw cause;

@@ -12,7 +12,7 @@ import com.glad.annotation.ScreenId;
 import com.glad.base.BaseController;
 import com.glad.entity.Datatables;
 import com.glad.model.TablesModel;
-import com.glad.service.DataTablesService;
+import com.glad.service.MenuService;
 
 /**
  * 
@@ -26,7 +26,7 @@ import com.glad.service.DataTablesService;
 public class TablesController extends BaseController<TablesModel> {
 
 	@Autowired
-	private DataTablesService dataTablesService;
+	private MenuService dataTablesService;
 
 	@Override
 	public void doInit(ModelMap model, TablesModel commandForm) {
