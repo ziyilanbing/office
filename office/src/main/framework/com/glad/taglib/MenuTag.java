@@ -62,13 +62,12 @@ public class MenuTag extends HtmlEscapeTag implements ApplicationContextAware {
 				}
 			}
 
-			menudata = new MenuHtmlData(auth.getName(), menuTree);
+			StringBuilder builder = makeHtml(menuTree);
+			menudata = new MenuHtmlData(userId, builder);
 			request.getSession().setAttribute(Constants.USER_MENU_STREAM_KEY, menudata);
 
 			try {
-				StringBuilder builder = makeHtml(menuTree);
 				pageContext.getOut().print(builder.toString());
-
 			} catch (Exception e) {
 				// getExceptionMessage()
 				String message = "";
@@ -96,19 +95,19 @@ public class MenuTag extends HtmlEscapeTag implements ApplicationContextAware {
 	private class MenuHtmlData {
 
 		private String name;
-		private MenuTree menuTree;
+		private StringBuilder menuHtml;
 
-		public MenuHtmlData(String name, MenuTree menuTree) {
+		public MenuHtmlData(String name, StringBuilder menuHtml) {
 			this.name = name;
-			this.menuTree = menuTree;
+			this.menuHtml = menuHtml;
 		}
 
 		public String getName() {
 			return name;
 		}
 
-		public MenuTree getMenuTree() {
-			return menuTree;
+		public StringBuilder getMenuHtml() {
+			return menuHtml;
 		}
 
 	}
