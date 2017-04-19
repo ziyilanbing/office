@@ -1,5 +1,3 @@
-<%@ include file="./taglib.jsp"%>
-
 <!DOCTYPE html>
 <html lang="zh">
 
@@ -35,6 +33,9 @@
 <!-- Custom Fonts -->
 <link
 	href="<c:url value='/static/vendor/font-awesome/css/font-awesome.min.css'/>"
+	rel="stylesheet" type="text/css">
+<link
+	href="<c:url value='/static/vendor/datatables/css/dataTables.bootstrap.min.css'/>"
 	rel="stylesheet" type="text/css">
 
 <!-- jQuery -->
