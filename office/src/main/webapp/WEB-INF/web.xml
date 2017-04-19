@@ -38,17 +38,31 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
+
 	<listener>
 		<listener-class>com.glad.startup.AppContextListener</listener-class>
 	</listener>
-	
+
 	<!-- Log4j -->
 	<context-param>
 		<param-name>log4jConfigLocation</param-name>
 		<param-value>classpath:/logback.xml</param-value>
 	</context-param>
 
+	<jsp-config>
+		<taglib>
+			<taglib-uri>http://www.com.glad.office/tags</taglib-uri>
+			<taglib-location>/views/tlds/office-tags.tld</taglib-location>
+		</taglib>
+
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<el-ignored>false</el-ignored>
+			<page-encoding>UTF-8</page-encoding>
+			<scripting-invalid>true</scripting-invalid>
+			<include-prelude>/WEB-INF/views/include/prelude.jsp</include-prelude>
+		</jsp-property-group>
+	</jsp-config>
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>

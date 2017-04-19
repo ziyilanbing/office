@@ -214,6 +214,8 @@
 						class="fa fa-table fa-fw"></i> Tables</a></li>
 				<li><a href="<c:url value='/forms/init' />"><i class="fa fa-edit fa-fw"></i>
 						Forms</a></li>
+				<li><a href="<c:url value='/top/testMenu' />"><i class="fa fa-edit fa-fw"></i>
+						Menu Test</a></li>
 				<li><a href="#"><i class="fa fa-wrench fa-fw"></i> UI
 						Elements<span class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">

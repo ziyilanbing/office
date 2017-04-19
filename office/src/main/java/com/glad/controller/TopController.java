@@ -55,6 +55,13 @@ public class TopController extends BaseController<TopModel> {
 		return this.getDefaultView();
 	}
 
+	@RequestMapping(value = "/testMenu", method = RequestMethod.GET)
+	public String menuTest(ModelMap model, @ModelAttribute TopModel commandForm, BindingResult result)
+			throws Exception {
+
+		return "testMenu";
+	}
+
 	@RequestMapping("/top/**/insert")
 	public String insert(ModelMap model) {
 		TestTable t = new TestTable();
