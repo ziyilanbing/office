@@ -1,15 +1,18 @@
 package com.glad.base;
 
 import java.io.Serializable;
+import java.util.List;
 
 public interface BaseDao<PK extends Serializable, T> {
 
-	public T getEntityByKey(PK key);
+	T selectByPrimaryKey(PK key);
 
-	public T createEntity(T entity);
+	List<T> selectAll();
 
-	public T updateEntity(T entity);
+	int insert(T entity);
 
-	public void deleteEntity(T entity);
+	int updateEntity(T entity);
+
+	int delete(PK key);
 
 }
