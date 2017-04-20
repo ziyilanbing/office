@@ -15,7 +15,7 @@ public class UserService {
 	private UserDao userDao;
 
 	public User findById(int id) {
-		return userDao.getEntityByKey(id);
+		return userDao.selectByPrimaryKey(id);
 	}
 
 	public User findByUserName(String userName) {
