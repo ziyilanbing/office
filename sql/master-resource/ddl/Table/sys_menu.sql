@@ -15,7 +15,7 @@ CREATE TABLE `office`.`sys_menu` (
   `MENU_NAME` VARCHAR(45) NULL COMMENT '菜单名称',
   `MENU_URL` VARCHAR(45) NULL COMMENT '菜单URL',
   `PARENT_MENU_ID` VARCHAR(10) NULL COMMENT '父层菜单ID',
-  `DISPLAY_ORDER` VARCHAR(2) NULL COMMENT '显示顺序',
+  `DISPLAY_ORDER` VARCHAR(2) NOT NULL COMMENT '显示顺序',
   `CREATE_BY` VARCHAR(10) NULL COMMENT '作成者',
   `CREATE_IP` VARCHAR(20) NULL COMMENT '作成者IP',
   `CREATE_TIME` TIMESTAMP NULL COMMENT '作成时间',
@@ -26,14 +26,13 @@ CREATE TABLE `office`.`sys_menu` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
-INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('1', '00000', 'Glad Office', 'top/init', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
-INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('2', '00000', '工时管理', '#', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
-INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('3', '00000', '工时登记', '####', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
-INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('4', '00000', '工时明细查询', '####', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
-INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('5', '00000', '工时合计查询', '####', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
-INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('6', '00000', '休假管理', '#', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
-INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('7', '00000', '休假申请', '####', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
-INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('8', '00000', '休假修改', '####', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
-INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('9', '00000', '休假查询', '####', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
-INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('10', '00000', '有薪休假统计', '####', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
+INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `PARENT_MENU_ID`,`DISPLAY_ORDER`,`CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('1', '00000', 'Glad Office', 'top/init', '', '1', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
+INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `PARENT_MENU_ID`,`DISPLAY_ORDER`,`CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('2', 'A0100', '工时管理', '#', '00000', '1', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
+INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `PARENT_MENU_ID`,`DISPLAY_ORDER`,`CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('3', 'A0101', '工时登记', '####', 'A0100', '1', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
+INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `PARENT_MENU_ID`,`DISPLAY_ORDER`,`CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('4', 'A0102', '工时明细查询', '####', 'A0100', '2', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
+INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `PARENT_MENU_ID`,`DISPLAY_ORDER`,`CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('5', 'A0103', '工时合计查询', '####', 'A0100', '3', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
+INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `PARENT_MENU_ID`,`DISPLAY_ORDER`,`CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('6', 'A0200', '休假管理', '#', '00000', '1', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
+INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `PARENT_MENU_ID`,`DISPLAY_ORDER`,`CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('7', 'A0201', '休假申请', '####', 'A0200', '1', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
+INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `PARENT_MENU_ID`,`DISPLAY_ORDER`,`CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('8', 'A0202', '休假修改', '####', 'A0200', '2', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
+INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `PARENT_MENU_ID`,`DISPLAY_ORDER`,`CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('9', 'A0203', '休假查询', '####', 'A0200', '3', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');
+INSERT INTO `office`.`sys_menu` (`MENU_PK`, `MENU_ID`, `MENU_NAME`, `MENU_URL`, `PARENT_MENU_ID`,`DISPLAY_ORDER`,`CREATE_BY`, `CREATE_IP`, `CREATE_TIME`, `UPDATE_BY`, `UPDATE_IP`, `UPDATE_TIME`)VALUES ('10', 'A0204', '有薪休假统计', '####', 'A0200', '4', 'admin', '10.10.0.201', '2017/4/18 17:05', 'admin', '10.10.0.201', '2017/4/18 17:05');

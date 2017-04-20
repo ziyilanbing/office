@@ -43,11 +43,11 @@ public class TreeNode implements Serializable {
 		setData(data);
 	}
 
-	private void setData(Object data) {
+	public void setData(Object data) {
 		m_data = data;
 	}
 
-	private Object getData() {
+	public Object getData() {
 		return m_data;
 	}
 
@@ -88,10 +88,11 @@ public class TreeNode implements Serializable {
 	static int depth = 0;
 
 	/**
-	 * @return thr tree structure in string format
+	 * @return the tree structure in string format
 	 */
+	@Override
 	public String toString() {
-		StringBuffer sb = new StringBuffer(1024);
+		StringBuffer sb = new StringBuffer();
 		sb.append(spc.substring(0, depth * 3) + getData().toString());
 		depth++;
 		Iterator itr = getChildIterator();

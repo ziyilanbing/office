@@ -1,14 +1,14 @@
 package com.glad.taglib;
 
+import java.io.Serializable;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,7 +24,7 @@ import com.glad.service.MenuService;
  * @author zhongqs
  * @date 2017年4月17日
  */
-public class MenuTag extends HtmlEscapeTag implements ApplicationContextAware {
+public class MenuTag extends HtmlEscapeTag {
 
 	private static ApplicationContext applicationContext;
 	/**
@@ -42,29 +42,21 @@ public class MenuTag extends HtmlEscapeTag implements ApplicationContextAware {
 		HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
 		MenuTree menuTree = null;
 
-		menuService = (MenuService) applicationContext.getBean("MenuService");
-
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		MenuHtmlData menudata = (MenuHtmlData) request.getSession().getAttribute(Constants.USER_MENU_STREAM_KEY);
-		// user check TODO
+		// user check
 		if (!(auth instanceof AnonymousAuthenticationToken)) {
 
 			String userId = auth.getName();
+			StringBuilder builder = null;
 			if (menudata == null || userId != menudata.getName()) {
-				try {
-					// menuTree = createMenuExt(userId);
-					menuTree = (MenuTree) request.getSession().getAttribute(Constants.USER_MENU_TREE);
-				} catch (Exception e) {
-					// getExceptionMessage()
-					String message = "";
-					logger.error("Failed to get the menu data." + message);
-					throw new JspException(e);
-				}
+				menuTree = (MenuTree) request.getSession().getAttribute(Constants.USER_MENU_TREE);
+				builder = makeHtml(menuTree);
+				menudata = new MenuHtmlData(userId, builder);
+				request.getSession().setAttribute(Constants.USER_MENU_STREAM_KEY, menudata);
+			} else {
+				builder = menudata.getMenuHtml();
 			}
-
-			StringBuilder builder = makeHtml(menuTree);
-			menudata = new MenuHtmlData(userId, builder);
-			request.getSession().setAttribute(Constants.USER_MENU_STREAM_KEY, menudata);
 
 			try {
 				pageContext.getOut().print(builder.toString());
@@ -86,15 +78,15 @@ public class MenuTag extends HtmlEscapeTag implements ApplicationContextAware {
 		return builder;
 	}
 
-	@Override
-	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-		// TODO Auto-generated method stub
-		this.applicationContext = applicationContext;
-	}
+	private class MenuHtmlData implements Serializable {
 
-	private class MenuHtmlData {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -5176003866179150793L;
 
 		private String name;
+
 		private StringBuilder menuHtml;
 
 		public MenuHtmlData(String name, StringBuilder menuHtml) {

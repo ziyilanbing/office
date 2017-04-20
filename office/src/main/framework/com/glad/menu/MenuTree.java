@@ -54,6 +54,7 @@ public class MenuTree implements ITreeModel, Serializable {
 		return (getChildCount(node) == 0);
 	}
 
+	@Override
 	public String toString() {
 		if (m_root != null)
 			return m_root.toString();
