@@ -8,8 +8,8 @@
 			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
 			<span class="icon-bar"></span> <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="<c:url value='/top/init' />">G L A D O F F I C E
-			Admin </a>
+		<a class="navbar-brand" href="<c:url value='/top/init' />">G L A D
+			O F F I C E Admin </a>
 	</div>
 	<!-- /.navbar-header -->
 
@@ -182,8 +182,8 @@
 						Profile</a></li>
 				<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
 				<li class="divider"></li>
-				<li><a href="<c:url value='/logout' />"><i class="fa fa-sign-out fa-fw"></i>
-						Logout</a></li>
+				<li><a href="<c:url value='/logout' />"><i
+						class="fa fa-sign-out fa-fw"></i> Logout</a></li>
 			</ul> <!-- /.dropdown-user --></li>
 		<!-- /.dropdown -->
 	</ul>
@@ -202,20 +202,42 @@
 						</span>
 					</div> <!-- /input-group -->
 				</li>
-				<li><a href="index.html"><i class="fa fa-dashboard fa-fw"></i>
-						Dashboard</a></li>
-				<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
-						Charts<span class="fa arrow"></span></a>
+				<li><a href="#"><i class="fa fa-dashboard fa-fw"></i> 工时管理<span
+						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
-						<li><a href="flot.html">Flot Charts</a></li>
-						<li><a href="morris.html">Morris.js Charts</a></li>
+						<li><a href="#">工时登记</a></li>
+						<li><a href="#">工时明细查询</a></li>
+						<li><a href="#">工时合计查询</a></li>
+					</ul> <!-- /.nav-second-level --></li>
+				<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
+						休假管理<span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level">
+						<li><a href="#">休假申请</a></li>
+						<li><a href="#">休假修改</a></li>
+						<li><a href="#">休假查询</a></li>
+						<li><a href="#">有薪休假统计</a></li>
+					</ul> <!-- /.nav-second-level --></li>
+				<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
+						项目管理<span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level">
+						<li><a href="#">项目建立</a></li>
+						<li><a href="#">项目过程定义</a></li>
+						<li><a href="#">项目阶段定义</a></li>
+						<li><a href="#">项目一览</a></li>
+					</ul> <!-- /.nav-second-level --></li>
+				<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
+						组内干系人管理<span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level">
+						<li><a href="#">组内干系人添加</a></li>
+						<li><a href="#">组内干系人查看</a></li>
+						<li><a href="#">组内干系人修改</a></li>
 					</ul> <!-- /.nav-second-level --></li>
 				<li><a href="<c:url value='/tables/init' />"><i
 						class="fa fa-table fa-fw"></i> Tables</a></li>
-				<li><a href="<c:url value='/forms/init' />"><i class="fa fa-edit fa-fw"></i>
-						Forms</a></li>
-				<li><a href="<c:url value='/top/testMenu' />"><i class="fa fa-edit fa-fw"></i>
-						Menu Test</a></li>
+				<li><a href="<c:url value='/forms/init' />"><i
+						class="fa fa-edit fa-fw"></i> Forms</a></li>
+				<li><a href="<c:url value='/top/testMenu' />"><i
+						class="fa fa-edit fa-fw"></i> Menu Test</a></li>
 				<li><a href="#"><i class="fa fa-wrench fa-fw"></i> UI
 						Elements<span class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
