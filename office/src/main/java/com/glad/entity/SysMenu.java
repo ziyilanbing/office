@@ -3,83 +3,89 @@ package com.glad.entity;
 import com.glad.component.AbstractDto;
 
 public class SysMenu extends AbstractDto {
-    private Integer menuPk;
+	private Integer menuPk;
 
-    private String menuId;
+	private String menuId;
 
-    private String menuName;
+	private String menuName;
 
-    private String menuUrl;
+	private String menuUrl;
 
-    private String parentMenuId;
+	private String parentMenuId;
 
-    private String displayOrder;
+	private String displayOrder;
 
-    private String createIp;
+	private String createIp;
 
-    private String updateIp;
+	private String updateIp;
 
-    public Integer getMenuPk() {
-        return menuPk;
-    }
+	public Integer getMenuPk() {
+		return menuPk;
+	}
 
-    public void setMenuPk(Integer menuPk) {
-        this.menuPk = menuPk;
-    }
+	public void setMenuPk(Integer menuPk) {
+		this.menuPk = menuPk;
+	}
 
-    public String getMenuId() {
-        return menuId;
-    }
+	public String getMenuId() {
+		return menuId;
+	}
 
-    public void setMenuId(String menuId) {
-        this.menuId = menuId;
-    }
+	public void setMenuId(String menuId) {
+		this.menuId = menuId;
+	}
 
-    public String getMenuName() {
-        return menuName;
-    }
+	public String getMenuName() {
+		return menuName;
+	}
 
-    public void setMenuName(String menuName) {
-        this.menuName = menuName;
-    }
+	public void setMenuName(String menuName) {
+		this.menuName = menuName;
+	}
 
-    public String getMenuUrl() {
-        return menuUrl;
-    }
+	public String getMenuUrl() {
+		return menuUrl;
+	}
 
-    public void setMenuUrl(String menuUrl) {
-        this.menuUrl = menuUrl;
-    }
+	public void setMenuUrl(String menuUrl) {
+		this.menuUrl = menuUrl;
+	}
 
-    public String getParentMenuId() {
-        return parentMenuId;
-    }
+	public String getParentMenuId() {
+		return parentMenuId;
+	}
 
-    public void setParentMenuId(String parentMenuId) {
-        this.parentMenuId = parentMenuId;
-    }
+	public void setParentMenuId(String parentMenuId) {
+		this.parentMenuId = parentMenuId;
+	}
 
-    public String getDisplayOrder() {
-        return displayOrder;
-    }
+	public String getDisplayOrder() {
+		return displayOrder;
+	}
 
-    public void setDisplayOrder(String displayOrder) {
-        this.displayOrder = displayOrder;
-    }
+	public void setDisplayOrder(String displayOrder) {
+		this.displayOrder = displayOrder;
+	}
 
-    public String getCreateIp() {
-        return createIp;
-    }
+	public String getCreateIp() {
+		return createIp;
+	}
 
-    public void setCreateIp(String createIp) {
-        this.createIp = createIp;
-    }
+	public void setCreateIp(String createIp) {
+		this.createIp = createIp;
+	}
 
-    public String getUpdateIp() {
-        return updateIp;
-    }
+	public String getUpdateIp() {
+		return updateIp;
+	}
 
-    public void setUpdateIp(String updateIp) {
-        this.updateIp = updateIp;
-    }
+	public void setUpdateIp(String updateIp) {
+		this.updateIp = updateIp;
+	}
+
+	public String toString() {
+		String ret = null;
+		ret = getMenuName() + "(" + getMenuId() + ")\n";
+		return ret;
+	};
 }

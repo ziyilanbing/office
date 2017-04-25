@@ -84,7 +84,7 @@ public class TreeNode implements Serializable {
 		return m_parent;
 	}
 
-	static String spc = "";
+	static String spc = "                                                        ";
 	static int depth = 0;
 
 	/**
