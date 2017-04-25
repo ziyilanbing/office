@@ -59,6 +59,7 @@ public class TopController extends BaseController<TopModel> {
 			menuTree = menuService.getMenuTree();
 			request.getSession().setAttribute(Constants.USER_MENU_TREE, menuTree);
 		}
+		logger.info(menuTree.toString());
 		super.setRequest(request);
 	}
 
