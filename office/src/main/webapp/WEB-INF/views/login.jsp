@@ -20,11 +20,11 @@
 								</c:if>
 								<div class="form-group">
 									<form:input path="username" class="form-control" type="text"
-										placeholder="username" />
+										placeholder="username" value="admin"/>
 								</div>
 								<div class="form-group">
 									<form:input class="form-control" placeholder="Password"
-										path="password" type="password" value="" />
+										path="password" type="password" value="admin123" />
 								</div>
 								<div class="checkbox">
 									<label> <input id="remember" name="remember-me"
