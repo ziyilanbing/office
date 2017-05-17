@@ -13,3 +13,10 @@ CREATE TABLE `sys_role` (
   `ROLE_TYPE` varchar(20) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of sys_role
+-- ----------------------------
+INSERT INTO `sys_role` VALUES ('1', 'USER');
+INSERT INTO `sys_role` VALUES ('2', 'DBA');
+INSERT INTO `sys_role` VALUES ('3', 'ADMIN');

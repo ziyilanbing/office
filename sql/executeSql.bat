@@ -8,11 +8,6 @@ for %%i in (C:\Dev\workspace\office\sql\master-resource\ddl\Table\*.sql) do (
    mysql -u root -p123456 office < %%i
 )
 
-for %%i in (C:\Dev\workspace\office\sql\master-resource\dml\Table\*.sql) do (
-   echo excute %%i
-   mysql -u root -p123456 office < %%i
-)
-
 echo success
 
 pause

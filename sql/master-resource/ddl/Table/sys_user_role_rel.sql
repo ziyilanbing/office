@@ -19,4 +19,10 @@ CREATE TABLE `sys_user_role_rel` (
   CONSTRAINT `userIdFer` FOREIGN KEY (`USER_ID`) REFERENCES `sys_user` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- 
+-- ----------------------------
+-- Records of sys_user_role_rel
+-- ----------------------------
+INSERT INTO `sys_user_role_rel` VALUES ('1', '1');
+INSERT INTO `sys_user_role_rel` VALUES ('3', '2');
+INSERT INTO `sys_user_role_rel` VALUES ('2', '3');
+INSERT INTO `sys_user_role_rel` VALUES ('3', '3');

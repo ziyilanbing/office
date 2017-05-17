@@ -20,3 +20,10 @@ CREATE TABLE `sys_user` (
   `STATE` varchar(20) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of sys_user
+-- ----------------------------
+INSERT INTO `sys_user` VALUES ('1', 'jack', 'Jz0XxZh3K2MJtAEvDhL3zA==', 'jack', 'nie', 'jack@qq.com', 'Active');
+INSERT INTO `sys_user` VALUES ('2', 'admin', 'Ucpd/waMOTiZIzJRRQ2V4g==', 'admin', 'nie', 'admin@qq.com', 'Active');
+INSERT INTO `sys_user` VALUES ('3', 'dba', 'xgRU1Vr3ekiTkPTDgMFu9g==', 'dba', 'nie', 'dba@qq.com', 'Active');
