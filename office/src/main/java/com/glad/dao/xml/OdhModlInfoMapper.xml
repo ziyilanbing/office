@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glad.dao.OdhModlInfoMapper">
+  <resultMap id="BaseResultMap" type="com.glad.entity.OdhModlInfo">
+    <id column="MODEL_ID" jdbcType="VARCHAR" property="modelId" />
+    <result column="PARENT_MODEL_ID" jdbcType="VARCHAR" property="parentModelId" />
+    <result column="MODEL_URL" jdbcType="VARCHAR" property="modelUrl" />
+    <result column="MODEL_NAME" jdbcType="VARCHAR" property="modelName" />
+    <result column="MODEL_INFO" jdbcType="VARCHAR" property="modelInfo" />
+    <result column="LAYER_NO" jdbcType="INTEGER" property="layerNo" />
+    <result column="DISPLAY_ORDER" jdbcType="INTEGER" property="displayOrder" />
+    <result column="LOGIN_NO" jdbcType="CHAR" property="loginNo" />
+    <result column="LOGIN_IP" jdbcType="VARCHAR" property="loginIp" />
+    <result column="REC_INSERT_TIME" jdbcType="TIMESTAMP" property="recInsertTime" />
+    <result column="UPDATE_NO" jdbcType="CHAR" property="updateNo" />
+    <result column="UPDATE_IP" jdbcType="VARCHAR" property="updateIp" />
+    <result column="REC_UPDATE_TIME" jdbcType="TIMESTAMP" property="recUpdateTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from odh_modl_info
+    where MODEL_ID = #{modelId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.glad.entity.OdhModlInfo">
+    insert into odh_modl_info (MODEL_ID, PARENT_MODEL_ID, MODEL_URL, 
+      MODEL_NAME, MODEL_INFO, LAYER_NO, 
+      DISPLAY_ORDER, LOGIN_NO, LOGIN_IP, 
+      REC_INSERT_TIME, UPDATE_NO, UPDATE_IP, 
+      REC_UPDATE_TIME)
+    values (#{modelId,jdbcType=VARCHAR}, #{parentModelId,jdbcType=VARCHAR}, #{modelUrl,jdbcType=VARCHAR}, 
+      #{modelName,jdbcType=VARCHAR}, #{modelInfo,jdbcType=VARCHAR}, #{layerNo,jdbcType=INTEGER}, 
+      #{displayOrder,jdbcType=INTEGER}, #{loginNo,jdbcType=CHAR}, #{loginIp,jdbcType=VARCHAR}, 
+      #{recInsertTime,jdbcType=TIMESTAMP}, #{updateNo,jdbcType=CHAR}, #{updateIp,jdbcType=VARCHAR}, 
+      #{recUpdateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.glad.entity.OdhModlInfo">
+    update odh_modl_info
+    set PARENT_MODEL_ID = #{parentModelId,jdbcType=VARCHAR},
+      MODEL_URL = #{modelUrl,jdbcType=VARCHAR},
+      MODEL_NAME = #{modelName,jdbcType=VARCHAR},
+      MODEL_INFO = #{modelInfo,jdbcType=VARCHAR},
+      LAYER_NO = #{layerNo,jdbcType=INTEGER},
+      DISPLAY_ORDER = #{displayOrder,jdbcType=INTEGER},
+      LOGIN_NO = #{loginNo,jdbcType=CHAR},
+      LOGIN_IP = #{loginIp,jdbcType=VARCHAR},
+      REC_INSERT_TIME = #{recInsertTime,jdbcType=TIMESTAMP},
+      UPDATE_NO = #{updateNo,jdbcType=CHAR},
+      UPDATE_IP = #{updateIp,jdbcType=VARCHAR},
+      REC_UPDATE_TIME = #{recUpdateTime,jdbcType=TIMESTAMP}
+    where MODEL_ID = #{modelId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select MODEL_ID, PARENT_MODEL_ID, MODEL_URL, MODEL_NAME, MODEL_INFO, LAYER_NO, DISPLAY_ORDER, 
+    LOGIN_NO, LOGIN_IP, REC_INSERT_TIME, UPDATE_NO, UPDATE_IP, REC_UPDATE_TIME
+    from odh_modl_info
+    where MODEL_ID = #{modelId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select MODEL_ID, PARENT_MODEL_ID, MODEL_URL, MODEL_NAME, MODEL_INFO, LAYER_NO, DISPLAY_ORDER, 
+    LOGIN_NO, LOGIN_IP, REC_INSERT_TIME, UPDATE_NO, UPDATE_IP, REC_UPDATE_TIME
+    from odh_modl_info
+  </select>
+</mapper>
