@@ -25,6 +25,9 @@ public class CustomHandlerInterceptorAdapter implements WebRequestInterceptor {
 
 	}
 
+	/**
+	 * 单项目check的message设定
+	 */
 	@Override
 	public void postHandle(WebRequest request, ModelMap model) throws Exception {
 
