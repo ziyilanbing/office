@@ -12,8 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.glad.dao.OdhModlInfoMapper;
 import com.glad.dao.SysMenuMapper;
-import com.glad.entity.SysMenu;
+import com.glad.entity.OdhModlInfo;
 import com.glad.exp.OfficeException;
 import com.glad.menu.MenuNodeComparator;
 import com.glad.menu.MenuTree;
@@ -32,6 +33,9 @@ public class MenuService {
 	@Autowired
 	private SysMenuMapper menuDao;
 
+	@Autowired
+	private OdhModlInfoMapper odhModlInfoDao;
+
 	public MenuTree getMenuTree() throws OfficeException {
 
 		MenuTree menuTree = selectMenu();
@@ -41,7 +45,9 @@ public class MenuService {
 
 	private MenuTree selectMenu() throws OfficeException {
 
-		List<SysMenu> menuList = menuDao.selectAll();
+		// List<SysMenu> menuList = menuDao.selectAll();
+
+		List<OdhModlInfo> menuList = odhModlInfoDao.selectAll();
 
 		if (menuList == null || menuList.size() == 0) {
 			logger.error("Menu not found.");
@@ -51,30 +57,30 @@ public class MenuService {
 		TreeNode parentNode = null;
 
 		TreeNode root = null;
-		SysMenu data = null;
+		OdhModlInfo data = null;
 		Map nodeMap = new HashMap();
 		Iterator itr = menuList.iterator();
 		MenuNodeComparator comp = new MenuNodeComparator();
 
 		while (itr.hasNext()) {
-			data = (SysMenu) itr.next();
+			data = (OdhModlInfo) itr.next();
 			currentNode = new TreeNode(data, comp);
-			if (StringUtils.isEmpty(data.getParentMenuId())) {
+			if (StringUtils.isEmpty(data.getParentModelId())) {
 				root = currentNode;
 			} else {
-				parentNode = (TreeNode) nodeMap.get(data.getParentMenuId().toString());
+				parentNode = (TreeNode) nodeMap.get(data.getParentModelId().toString());
 				if (parentNode == null) {
-					logger.debug("parent menu PK = [" + data.getParentMenuId() + "] not found for menu PK = ["
-							+ data.getMenuId() + "]");
+					logger.debug("parent menu PK = [" + data.getParentModelId() + "] not found for menu PK = ["
+							+ data.getModelId() + "]");
 					String args[] = new String[2];
-					args[0] = data.getMenuId();
-					args[1] = data.getParentMenuId();
+					args[0] = data.getModelId();
+					args[1] = data.getParentModelId();
 					throw new OfficeException("error.corrupted.menuList", args);
 				} else {
 					parentNode.addChild(currentNode);
 				}
 			}
-			nodeMap.put(data.getMenuId(), currentNode);
+			nodeMap.put(data.getModelId(), currentNode);
 		}
 
 		return new MenuTree(root);

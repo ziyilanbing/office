@@ -16,7 +16,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.servlet.tags.HtmlEscapeTag;
 
 import com.glad.Constants;
-import com.glad.entity.SysMenu;
+import com.glad.entity.OdhModlInfo;
 import com.glad.menu.MenuTree;
 import com.glad.menu.TreeNode;
 import com.glad.service.MenuService;
@@ -129,13 +129,15 @@ public class MenuTag extends HtmlEscapeTag {
 
 		StringBuilder liHtml = new StringBuilder();
 		liHtml.append("        <li><a href=\"");
-		liHtml.append(((SysMenu) treeNode.getData()).getMenuUrl());
+		// liHtml.append(((SysMenu) treeNode.getData()).getMenuUrl());
+		liHtml.append(((OdhModlInfo) treeNode.getData()).getModelUrl());
 		if (level == 1) {
 			liHtml.append("\"><i class=\"fa fa-sitemap fa-fw\"></i>");
 		} else {
 			liHtml.append("\">");
 		}
-		liHtml.append(((SysMenu) treeNode.getData()).getMenuName());
+		// liHtml.append(((SysMenu) treeNode.getData()).getMenuName());
+		liHtml.append(((OdhModlInfo) treeNode.getData()).getModelName());
 		if (level == 1) {
 			liHtml.append("<span class=\"fa arrow\"></span>");
 		}
