@@ -24,6 +24,6 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'jack', 'Jz0XxZh3K2MJtAEvDhL3zA==', 'jack', 'nie', 'jack@qq.com', 'Active');
-INSERT INTO `sys_user` VALUES ('2', 'admin', 'Ucpd/waMOTiZIzJRRQ2V4g==', 'admin', 'nie', 'admin@qq.com', 'Active');
-INSERT INTO `sys_user` VALUES ('3', 'dba', 'xgRU1Vr3ekiTkPTDgMFu9g==', 'dba', 'nie', 'dba@qq.com', 'Active');
+INSERT INTO `sys_user` VALUES ('1', 'jack', '6b2g3E6UK7Y/QYMJeWS42w==', 'jack', 'nie', 'jack@qq.com', 'Active');
+INSERT INTO `sys_user` VALUES ('2', 'admin', 'w86DRdNZmrikwzfZ+w0Nkw==', 'admin', 'nie', 'admin@qq.com', 'Active');
+INSERT INTO `sys_user` VALUES ('3', 'dba', 'tamEOjo7xHl/eZ8Er5DCZQ==', 'dba', 'nie', 'dba@qq.com', 'Active');
