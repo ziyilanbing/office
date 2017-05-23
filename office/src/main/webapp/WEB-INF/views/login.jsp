@@ -24,7 +24,7 @@
 								</div>
 								<div class="form-group">
 									<form:input class="form-control" placeholder="Password"
-										path="password" type="password" value="admin123" />
+										path="password" type="password" value="1" />
 								</div>
 								<div class="checkbox">
 									<label> <input id="remember" name="remember-me"
