@@ -22,7 +22,7 @@
 
 		<commentGenerator>
 			<!-- 关闭自动生成的注释 -->
-			<property name="suppressAllComments" value="true" />
+			<property name="suppressAllComments" value="false" />
 			<property name="suppressDate" value="true" />
 		</commentGenerator>
 
@@ -50,17 +50,21 @@
 			<!-- <property name="rootInterface" value="" /> -->
 
 		</javaClientGenerator>
-		<table schema="office" tableName="sys_menu">
+		<table schema="office" tableName="odh_user_information">
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false" -->
+			
 			<!-- 指定是否只生成domain类，如果设置为true，只生成domain类，如果还配置了sqlMapGenerator，那么在mapper 
 				XML文件中，只生成resultMap元素 -->
 			<property name="modelOnly" value="false" />
-			<!--  rootXXXXX 属性 -->
+			<!-- rootXXXXX 属性 -->
 			<property name="rootClass" value="com.glad.component.AbstractDto" />
-			<property name="rootInterface" value=""/>
-			<ignoreColumn column="create_time" delimitedColumnName="false"/>
-			<ignoreColumn column="create_by" delimitedColumnName="false"/>
-			<ignoreColumn column="update_time" delimitedColumnName="false"/>
-			<ignoreColumn column="update_by" delimitedColumnName="false"/>
+			<property name="rootInterface" value="" />
+			<ignoreColumn column="create_time" delimitedColumnName="false" />
+			<ignoreColumn column="create_by" delimitedColumnName="false" />
+			<ignoreColumn column="update_time" delimitedColumnName="false" />
+			<ignoreColumn column="update_by" delimitedColumnName="false" />
 		</table>
 	</context>
 </generatorConfiguration>
