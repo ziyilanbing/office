@@ -25,6 +25,12 @@ public class MyBatisGeneratorStartUp {
 			DefaultShellCallback callback = new DefaultShellCallback(overwrite);
 			MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
 			myBatisGenerator.generate(null);
+			System.out.print("SCHEMA : ");
+			System.out.println(config.getContexts().get(0).getTableConfigurations().get(0).getSchema().toUpperCase());
+
+			System.out.print("TABLENAME : ");
+			System.out
+					.println(config.getContexts().get(0).getTableConfigurations().get(0).getTableName().toUpperCase());
 			System.out.println("SUCCESS !!! ");
 		} catch (SQLException e) {
 			e.printStackTrace();
