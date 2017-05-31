@@ -34,7 +34,6 @@ public class MenuTag extends HtmlEscapeTag {
 	 * slf4j logger
 	 */
 	private static final Logger logger = LoggerFactory.getLogger(MenuTag.class);
-	private static String MENU_LEVEL_HTML = "aaaaaaaaaaaaaaaaaaaaa";
 	@Autowired
 	private MenuService menuService;
 
