@@ -53,8 +53,9 @@
 							</div>
 							<a href="#">
 								<div class="panel-footer">
-									<span class="pull-left">详细信息</span> <span class="pull-right"><i
-										class="fa fa-arrow-circle-right"></i></span>
+									<span class="pull-left"><spring:message
+											code="top.details" htmlEscape="false" /></span> <span
+										class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 									<div class="clearfix"></div>
 								</div>
 							</a>
@@ -75,8 +76,9 @@
 							</div>
 							<a href="#">
 								<div class="panel-footer">
-									<span class="pull-left">详细信息</span> <span class="pull-right"><i
-										class="fa fa-arrow-circle-right"></i></span>
+									<span class="pull-left"><spring:message
+											code="top.details" htmlEscape="false" /></span> <span
+										class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 									<div class="clearfix"></div>
 								</div>
 							</a>
@@ -91,16 +93,17 @@
 									</div>
 									<div class="col-xs-9 text-right">
 										<div class="huge">13</div>
-										<div><spring:message code="Top.vetoinformation" htmlEscape="false" /></div>
+										<div>
+											<spring:message code="top.vetoinformation" htmlEscape="false" />
+										</div>
 									</div>
 								</div>
 							</div>
 							<a href="#">
 								<div class="panel-footer">
 									<span class="pull-left"><spring:message
-											code="Top.details" htmlEscape="false" /></span>
-									<span class="pull-right"><i
-										class="fa fa-arrow-circle-right"></i></span>
+											code="top.details" htmlEscape="false" /></span> <span
+										class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 									<div class="clearfix"></div>
 								</div>
 							</a>
