@@ -4,7 +4,64 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 body {
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
   background-color: #f8f8f8;
+}
+/*
+ * Page: Login & Register
+ * ----------------------
+ */
+.login-logo,
+.register-logo {
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 300;
+}
+.login-logo a,
+.register-logo a {
+  color: #444;
+}
+.login-page,
+.register-page {
+  background: #d2d6de;
+}
+.login-box,
+.register-box {
+  width: 360px;
+  margin: 7% auto;
+}
+.login-box-body,
+.register-box-body {
+  background: #fff;
+  padding: 20px;
+  border-top: 0;
+  color: #666;
+}
+.login-box-body .form-control-feedback,
+.register-box-body .form-control-feedback {
+  color: #777;
+}
+.login-box-msg,
+.register-box-msg {
+  margin: 0;
+  text-align: center;
+  padding: 0 20px 20px 20px;
+}
+.social-auth-links {
+  margin: 10px 0;
+}
+/* General Links */
+a {
+  color: #3c8dbc;
+}
+a:hover,
+a:active,
+a:focus {
+  outline: none;
+  text-decoration: none;
+  color: #72afd2;
 }
 #wrapper {
   width: 100%;
@@ -21,6 +78,18 @@ body {
     padding: 0 30px;
     border-left: 1px solid #e7e7e7;
   }
+}
+.topImages {
+  background: url('../img/head.png') no-repeat left;
+}
+.nav > li > a {
+  padding: 8px 15px;
+}
+.navbar {
+  margin-bottom: 0px;
+}
+.nav > li.active > a {
+  border-left: 4px solid #19aa8d;
 }
 .navbar-top-links {
   margin-right: 0;
@@ -111,6 +180,10 @@ body {
   .navbar-top-links .dropdown-alerts {
     margin-left: auto;
   }
+}
+.btn-group-lg > .btn,
+.btn-lg {
+  border-radius: 1px;
 }
 .btn-outline {
   color: inherit;
@@ -431,4 +504,12 @@ table.dataTable thead .sorting:after {
     border-right-width: 14px;
     border-left-width: 0;
   }
+}
+.form-control {
+  padding: 3px 6px;
+  font-size: 12px;
+  line-height: 1.4285;
+}
+.fa-fw {
+  margin-right: 5px;
 }

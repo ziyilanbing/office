@@ -8,8 +8,6 @@ import javax.servlet.jsp.JspException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,27 +17,27 @@ import com.glad.Constants;
 import com.glad.entity.OdhModlInfo;
 import com.glad.menu.MenuTree;
 import com.glad.menu.TreeNode;
-import com.glad.service.MenuService;
 
 /**
- * create menu html 1
+ * create menu html
  * 
  * @author zhongqs
  * @date 2017年4月17日
  */
 public class MenuTag extends HtmlEscapeTag {
 
-	private static ApplicationContext applicationContext;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * slf4j logger
 	 */
 	private static final Logger logger = LoggerFactory.getLogger(MenuTag.class);
-	@Autowired
-	private MenuService menuService;
 
 	@Override
 	protected int doStartTagInternal() throws JspException {
-		logger.info("doStartTagInternal ");
 
 		HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
 		MenuTree menuTree = null;
@@ -108,6 +106,7 @@ public class MenuTag extends HtmlEscapeTag {
 				menuHtml.append("</ul>\r\n");
 				level--;
 			}
+
 			menuHtml.append("</li>\r\n");
 
 		}
@@ -137,7 +136,7 @@ public class MenuTag extends HtmlEscapeTag {
 		}
 		// liHtml.append(((SysMenu) treeNode.getData()).getMenuName());
 		liHtml.append(((OdhModlInfo) treeNode.getData()).getModelName());
-		if (level == 1) {
+		if (treeNode.hasChild()) {
 			liHtml.append("<span class=\"fa arrow\"></span>");
 		}
 		liHtml.append("</a>");
