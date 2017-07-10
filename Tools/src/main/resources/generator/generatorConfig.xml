@@ -3,7 +3,7 @@
 <generatorConfiguration>
 
 	<classPathEntry
-		location="C:\Dev\.m2\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
+		location="C:\Dev\mvn\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
 
 	<!-- MyBatis3Simple : igone XxxxxByExample -->
 	<context id="context" targetRuntime="MyBatis3Simple">
@@ -29,7 +29,7 @@
 
 		<!-- database -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://localhost:3306/office" userId="root"
+			connectionURL="jdbc:mysql://localhost:3306/world" userId="root"
 			password="123456" />
 
 		<javaModelGenerator targetPackage="com.glad.entity"
