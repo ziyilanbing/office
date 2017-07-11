@@ -28,7 +28,7 @@ public class MyBatisGeneratorStartUp {
 			System.out.println(config.getContexts().get(0).getTableConfigurations().get(0).getTableName().toUpperCase());
 			System.out.println("SUCCESS !!! ");
 		} catch (Exception e) {
-			throw new RuntimeException("Éú³ÉModelºÍMapperÊ§°Ü", e);
+			throw new RuntimeException("ç”ŸæˆModelå’ŒMapperå¤±è´¥", e);
 		}
 	}
 }
