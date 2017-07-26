@@ -6,8 +6,7 @@
 	<artifactId>office</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>office Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+	<name>office Webapp</name>
 
 	<properties>
 		<org.springframework-version>4.3.6.RELEASE</org.springframework-version>
