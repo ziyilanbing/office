@@ -1,48 +1,75 @@
-<%@ include file="./include/head.jsp"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>GLAD Office - 宏智科技电子办公系统</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<!-- Bootstrap 3.3.7 -->
+<link rel="stylesheet" href="<c:url value="/static/vendor/bootstrap/css/bootstrap.min.css"/>">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="<c:url value='/static/css/AdminLTE.min.css'/>">
 
-<body>
+</head>
+<body class="hold-transition login-page">
+	<div class="login-box">
+		<div class="login-logo">
+			<a href="../../index.html"><b>GLAD</b>office</a>
+		</div>
+		<!-- /.login-logo -->
+		<div class="login-box-body">
+			<p class="login-box-msg">Sign in to start your session</p>
 
-	<form:form modelAttribute="loginModel" action="REPLACE_BY_SCRIPT"
-		id="form" method="POST">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 col-md-offset-4">
-					<div class="login-panel panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Please Sign In</h3>
-						</div>
-						<div class="panel-body">
-							<fieldset>
-								<c:if test="${!empty authenticationFailureResult}">
-									<div class="alert alert-danger">
-										<p>Invalid user name and password.</p>
-									</div>
-								</c:if>
-								<div class="form-group">
-									<form:input path="username" class="form-control" type="text"
-										placeholder="username" value="admin"/>
-								</div>
-								<div class="form-group">
-									<form:input class="form-control" placeholder="Password"
-										path="password" type="password" value="1" />
-								</div>
-								<div class="checkbox">
+			<form:form modelAttribute="loginModel" action="REPLACE_BY_SCRIPT"
+				id="form" method="POST">
+
+				<div class="form-group has-feedback">
+					<form:input path="username" class="form-control" type="text"
+						placeholder="用户名" value="admin" />
+					<span
+						class="glyphicon glyphicon glyphicon-user form-control-feedback"></span>
+				</div>
+				<div class="form-group has-feedback">
+					<form:input class="form-control" placeholder="密码" path="password"
+						type="password" value="1" />
+					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+				</div>
+				<div class="col-xs-8">
+					<div class="checkbox">
 									<label> <input id="remember" name="remember-me"
 										type="checkbox" value="Remember Me" />Remember Me
 									</label>
 								</div>
-								<input type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}" />
-								<!-- Change this to a button or input when using this as a form -->
-								<button class="btn btn-lg btn-success btn-block" type="submit"
-									formaction="submit">Login</button>
-							</fieldset>
-						</div>
-					</div>
 				</div>
-			</div>
+				<!-- /.col -->
+				<div class="col-xs-4">
+					<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" />
+					<div class="row">
+						<button type="submit" class="btn btn-primary btn-block btn-flat"
+							formaction="submit">登录</button>
+					</div>
+					<!-- /.col -->
+				</div>
+			</form:form>
+			<a href="#">I forgot my password</a><br> <a href="register.html"
+				class="text-center">Register a new membership</a>
 		</div>
-	</form:form>
+	</div>
 </body>
 
+<!-- jQuery -->
+<script src="<c:url value='/static/vendor/jquery/jquery.min.js'/>"></script>
+<!-- Bootstrap Core JavaScript -->
+<script
+	src="<c:url value='/static/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
 </html>

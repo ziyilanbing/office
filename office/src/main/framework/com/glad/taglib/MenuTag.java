@@ -72,19 +72,23 @@ public class MenuTag extends HtmlEscapeTag {
 	}
 
 	/**
-	 * 
 	 * @param menuTree
 	 * @return
 	 */
 	private StringBuilder makeHtml(MenuTree menuTree) {
 		StringBuilder builder = new StringBuilder();
 		// add menu's top [Glad Office]
-		builder.append("<div class=\"navbar-default sidebar\" role=\"navigation\">\r\n");
-		builder.append("  <div class=\"sidebar-nav navbar-collapse\">\r\n");
-		builder.append("    <ul class=\"nav\" id=\"side-menu\">\r\n");
-		builder.append("      <li><a href=\"#\"><i class=\"fa fa-dashboard fa-fw\"></i> Dashboard</a></li>\r\n");
+		// <!-- sidebar: style can be found in sidebar.less -->
+		builder.append("<aside class=\"main-sidebar\">\r\n");
+		builder.append("<section class=\"sidebar\">\r\n");
+		// <!-- sidebar menu: : style can be found in sidebar.less -->
+		builder.append("<ul class=\"sidebar-menu\">\r\n");
+
+		builder.append("<li class=\"header\">Glad Office</li>\r\n");
 
 		builder.append(makeListHtml(menuTree.getRoot(), 1));
+
+		builder.append("</section></aside>\r\n");
 
 		builder.append("this is menu ended");
 
@@ -115,11 +119,7 @@ public class MenuTag extends HtmlEscapeTag {
 
 	private Object ulLevelHtml(int level) {
 		StringBuilder ulLvlHtml = new StringBuilder();
-		if (level == 2) {
-			ulLvlHtml.append("      <ul class=\"nav nav-second-level collapse\">\r\n");
-		} else {
-			ulLvlHtml.append("      <ul class=\"nav nav-third-level collapse\">\r\n");
-		}
+		ulLvlHtml.append("      <ul class=\"treeview-menu\">\r\n");
 		return ulLvlHtml.toString();
 	}
 
