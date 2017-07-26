@@ -21,6 +21,9 @@ public class MyBatisGeneratorStartUp {
 			DefaultShellCallback callback = new DefaultShellCallback(overwrite);
 			MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
 			myBatisGenerator.generate(null);
+			for (String warning : warnings) {
+				System.out.println(warning);
+			}
 			System.out.print("SCHEMA : ");
 			System.out.println(config.getContexts().get(0).getTableConfigurations().get(0).getSchema().toUpperCase());
 
@@ -31,4 +34,5 @@ public class MyBatisGeneratorStartUp {
 			throw new RuntimeException("生成Model和Mapper失败", e);
 		}
 	}
+
 }
