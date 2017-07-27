@@ -246,6 +246,7 @@
 		</header>
 
 		<office:office-menu />
+		
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
@@ -266,7 +267,7 @@
 					<div class="col-md-3 col-sm-6 col-xs-12">
 						<div class="info-box">
 							<span class="info-box-icon bg-aqua"> <i
-								class="fa fa-creative-commons"></i></span>
+								class="fa fa-creative-commons" style="margin-top: 20px;"></i></span>
 
 							<div class="info-box-content">
 								<span class="info-box-text">通知</span> <span
@@ -280,7 +281,7 @@
 					<div class="col-md-3 col-sm-6 col-xs-12">
 						<div class="info-box">
 							<span class="info-box-icon bg-red"><i
-								class="fa fa-google-plus"></i></span>
+								class="fa fa-google-plus" style="margin-top: 20px;"></i></span>
 
 							<div class="info-box-content">
 								<span class="info-box-text">考勤信息</span> <span
@@ -298,7 +299,7 @@
 					<div class="col-md-3 col-sm-6 col-xs-12">
 						<div class="info-box">
 							<span class="info-box-icon bg-green"><i
-								class="ion ion-ios-cart-outline"></i></span>
+								class="fa fa-creative-commons" style="margin-top: 20px;"></i></span>
 
 							<div class="info-box-content">
 								<span class="info-box-text">审批信息</span> <span
@@ -312,7 +313,7 @@
 					<div class="col-md-3 col-sm-6 col-xs-12">
 						<div class="info-box">
 							<span class="info-box-icon bg-yellow"><i
-								class="ion ion-ios-people-outline"></i></span>
+								class="fa fa-creative-commons" style="margin-top: 20px;"></i></span>
 
 							<div class="info-box-content">
 								<span class="info-box-text">否决信息</span> <span

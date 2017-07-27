@@ -81,6 +81,8 @@ public class MenuTag extends HtmlEscapeTag {
 		// <!-- sidebar: style can be found in sidebar.less -->
 		builder.append("<aside class=\"main-sidebar\">\r\n");
 		builder.append("<section class=\"sidebar\">\r\n");
+		builder
+			.append("<div class=\"user-panel\"><div class=\"pull-left image\"><img src=\"../../static/img/user3-160x160.jpg\" class=\"img-circle\" alt=\"User Image\"></div><div class=\"pull-left info\"><p>Alexander Pierce</p><a href=\"#\"><i class=\"fa fa-circle text-success\"></i> Online</a></div></div>");
 		// <!-- sidebar menu: : style can be found in sidebar.less -->
 		builder.append("<ul class=\"sidebar-menu\">\r\n");
 
@@ -126,18 +128,29 @@ public class MenuTag extends HtmlEscapeTag {
 	private String makeLiHtml(TreeNode treeNode, int level) {
 
 		StringBuilder liHtml = new StringBuilder();
-		liHtml.append("        <li><a href=\"");
+		if (treeNode.hasChild()) {
+			liHtml.append("        <li class=\"treeview\"><a href=\"");
+		} else {
+			liHtml.append("        <li><a href=\"");
+		}
 		// liHtml.append(((SysMenu) treeNode.getData()).getMenuUrl());
 		liHtml.append(((OdhModlInfo) treeNode.getData()).getModelUrl());
-		if (level == 1) {
-			liHtml.append("\"><i class=\"fa fa-sitemap fa-fw\"></i>");
+		if (treeNode.hasChild()) {
+			liHtml.append("\"><i class=\"fa fa-sitemap\"></i>");
 		} else {
 			liHtml.append("\">");
 		}
 		// liHtml.append(((SysMenu) treeNode.getData()).getMenuName());
+		if (!treeNode.hasChild()) {
+			liHtml.append("<i class=\"fa fa-circle-o\"></i>");
+		}
+		if (treeNode.hasChild()) {
+			liHtml.append("<span>");
+		}
 		liHtml.append(((OdhModlInfo) treeNode.getData()).getModelName());
 		if (treeNode.hasChild()) {
-			liHtml.append("<span class=\"fa arrow\"></span>");
+			liHtml.append("</span>");
+			liHtml.append("<span class=\"pull-right-container\">\r\n<i class=\"fa fa-angle-left pull-right\"></i>\r\n</span>");
 		}
 		liHtml.append("</a>");
 		return liHtml.toString();
