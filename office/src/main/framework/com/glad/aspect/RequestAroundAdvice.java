@@ -43,7 +43,7 @@ public class RequestAroundAdvice implements MethodInterceptor {
 		Model currentModel = getCurrentModel(invocation);
 
 		if (currentModel == null) {
-			throw new IllegalArgumentException("'Model' must exist.");
+			throw new IllegalArgumentException("RequestAroundAdvice 'Model' must exist.");
 		}
 
 		String title = invocation.getThis().getClass().getAnnotation(ScreenId.class).value();

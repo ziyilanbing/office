@@ -48,7 +48,7 @@ public class CodeGeneratorByXml {
 	private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());
 
 	public static void main(String[] args) {
-		String moduleName = "Test106";
+		String moduleName = "WorkHours";
 		genModelAndMapper();
 		genController(moduleName);
 		genService(moduleName);
