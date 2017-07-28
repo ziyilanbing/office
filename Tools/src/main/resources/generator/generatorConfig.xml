@@ -55,7 +55,7 @@
 			<!-- <property name="rootInterface" value="" /> -->
 		</javaClientGenerator>
 
-		<table schema="zheng" tableName="cms_article">
+		<table schema="office" tableName="odh_wktm_manage">
 			<!-- enableCountByExample="false" enableUpdateByExample="false" -->
 			<!-- enableDeleteByExample="false" enableSelectByExample="false" -->
 			<!-- selectByExampleQueryId="false" -->
