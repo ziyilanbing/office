@@ -516,7 +516,7 @@ a:focus {
   padding: 0;
 }
 .sidebar-menu > li > a {
-  padding: 12px 5px 12px 15px;
+  padding: 8px 5px 8px 15px;
   display: block;
 }
 .sidebar-menu > li > a > .fa,
@@ -696,7 +696,7 @@ a:focus {
   position: absolute;
   right: 10px;
   top: 50%;
-  margin-top: -7px;
+  margin-top: -5px;
 }
 /*
  * Component: Control sidebar. By default, this is the right sidebar.

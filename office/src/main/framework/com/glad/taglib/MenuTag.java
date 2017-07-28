@@ -82,17 +82,12 @@ public class MenuTag extends HtmlEscapeTag {
 		builder.append("<aside class=\"main-sidebar\">\r\n");
 		builder.append("<section class=\"sidebar\">\r\n");
 		builder
-			.append("<div class=\"user-panel\"><div class=\"pull-left image\"><img src=\"../../static/img/user3-160x160.jpg\" class=\"img-circle\" alt=\"User Image\"></div><div class=\"pull-left info\"><p>Alexander Pierce</p><a href=\"#\"><i class=\"fa fa-circle text-success\"></i> Online</a></div></div>");
+			.append("<div class=\"user-panel\"><div class=\"pull-left image\"><img src=\"/office/static/img/user3-128x128.jpg\" class=\"img-circle\" alt=\"User Image\"></div><div class=\"pull-left info\"><p>Alexander Pierce</p><a href=\"#\"><i class=\"fa fa-circle text-success\"></i> Online</a></div></div>");
 		// <!-- sidebar menu: : style can be found in sidebar.less -->
 		builder.append("<ul class=\"sidebar-menu\">\r\n");
-
 		builder.append("<li class=\"header\">Glad Office</li>\r\n");
-
 		builder.append(makeListHtml(menuTree.getRoot(), 1));
-
 		builder.append("</section></aside>\r\n");
-
-		builder.append("this is menu ended");
 
 		return builder;
 	}
