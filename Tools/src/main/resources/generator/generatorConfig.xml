@@ -37,7 +37,7 @@
 		<jdbcConnection driverClass="${jdbc.driver}"
 			connectionURL="${jdbc.url}" userId="${jdbc.username}" password="${jdbc.password}" />
 
-		<javaModelGenerator targetPackage="com.glad.tools.generator.resultant.entity"
+		<javaModelGenerator targetPackage="com.glad.entity"
 			targetProject="C:\Dev\workspace\office\Tools\src\main\java">
 			<!-- 设置一个根对象， 如果设置了这个根对象，那么生成的keyClass或者recordClass会继承这个类；在Table的rootClass属性中可以覆盖该选项 
 				注意：如果在key class或者record class中有root class相同的属性，MBG就不会重新生成这些属性了，包括： 1，属性名相同，类型相同，有相同的getter/setter方法； -->
@@ -48,9 +48,9 @@
 
 		</javaModelGenerator>
 
-		<sqlMapGenerator targetPackage="com.glad.tools.generator.resultant.xml"
+		<sqlMapGenerator targetPackage="com.glad.dao.xml"
 			targetProject="C:\Dev\workspace\office\Tools\src\main\java" />
-		<javaClientGenerator targetPackage="com.glad.tools.generator.resultant.dao"
+		<javaClientGenerator targetPackage="com.glad.dao"
 			targetProject="C:\Dev\workspace\office\Tools\src\main\java" type="XMLMAPPER">
 			<!-- <property name="rootInterface" value="" /> -->
 		</javaClientGenerator>
