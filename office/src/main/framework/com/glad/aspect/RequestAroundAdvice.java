@@ -1,5 +1,8 @@
 package com.glad.aspect;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.slf4j.Logger;
@@ -48,6 +51,12 @@ public class RequestAroundAdvice implements MethodInterceptor {
 
 		String title = invocation.getThis().getClass().getAnnotation(ScreenId.class).value();
 		currentModel.addAttribute("title", title);
+
+		// TODO
+		Date currentTime = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+		currentModel.addAttribute("date", sdf.format(currentTime).toString());
+
 		// String servletPath = getServletPath();
 		// val rootPath = get
 		return invocation.proceed();
