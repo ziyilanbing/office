@@ -2,7 +2,7 @@
 		<header class="main-header">
 
 			<!-- Logo -->
-			<a href="index2.html" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+			<a href='<c:url value="/login/init"/>' class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
 				<span class="logo-mini"><b>GOA</b></span> <!-- logo for regular state and mobile devices -->
 				<span class="logo-lg"><b>GLAD</b>OFFLCE</span>
 			</a>

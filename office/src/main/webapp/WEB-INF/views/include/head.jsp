@@ -10,7 +10,7 @@
 <meta name="author" content="">
 
 <title><spring:message code="${title}" htmlEscape="false" /></title>
-
+<sec:csrfMetaTags/> 
 <!-- Bootstrap Core CSS -->
 <link
 	href="<c:url value="/static/vendor/bootstrap/css/bootstrap.min.css"/>"
@@ -18,6 +18,10 @@
 <!-- Custom Fonts -->
 <link
 	href="<c:url value='/static/vendor/font-awesome/css/font-awesome.min.css'/>"
+	rel="stylesheet" type="text/css">
+<!-- date picker -->
+<link
+	href="<c:url value='/static/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'/>"
 	rel="stylesheet" type="text/css">
 <!-- Theme style -->
 <link rel="stylesheet" href="<c:url value='/static/css/AdminLTE.min.css'/>">
@@ -29,6 +33,10 @@
 <!-- Bootstrap Core JavaScript -->
 <script
 	src="<c:url value='/static/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
+
+<!-- date picker -->
+<script src="<c:url value='/static/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js'/>"></script>
+<script src="<c:url value='/static/vendor/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js'/>" charset="UTF-8"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="<c:url value='/static/js/app.js'/>"></script>
