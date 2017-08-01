@@ -33,8 +33,6 @@
 					</div>
 					<!-- /.col -->
 					<div class="col-xs-4">
-						<input type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" />
 						<button type="submit" class="btn btn-primary btn-block btn-flat"
 							formaction="submit">登录</button>
 						<!-- /.col -->
