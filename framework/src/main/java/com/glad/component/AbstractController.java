@@ -13,7 +13,6 @@ import com.glad.exp.AppWarnException;
 import com.glad.util.ScreenUtils;
 
 /**
- * 
  * @author zhongqs
  * @date 2017年3月16日
  */
@@ -30,7 +29,6 @@ public abstract class AbstractController {
 			// log out
 
 		} catch (AppErrorException e) {
-
 			throw e;
 		} catch (AppFailedException e) {
 
@@ -48,8 +46,7 @@ public abstract class AbstractController {
 	 */
 	public String getDefaultView() {
 
-		ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder
-				.currentRequestAttributes();
+		ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		String servletPath = requestAttributes.getRequest().getServletPath();
 
 		// /top/
@@ -57,8 +54,8 @@ public abstract class AbstractController {
 			return servletPath.substring(0, servletPath.indexOf("/", servletPath.indexOf("/") + 1));
 		}
 		// /top/init
-		if (servletPath.substring(1).contains("/")) {
-			// replace 'init' 'submit'
+		if (servletPath.endsWith("/init") || servletPath.endsWith("/index")) {
+			// replace 'init'
 			return servletPath.replaceAll("\\/\\w+$", "");
 		}
 		// /top
@@ -66,7 +63,6 @@ public abstract class AbstractController {
 	}
 
 	/**
-	 * 
 	 * @param controllerType
 	 * @return redirect: pageid/init
 	 */
@@ -83,8 +79,7 @@ public abstract class AbstractController {
 		}
 
 		// redirect: pageid/init
-		return new StringBuilder(UrlBasedViewResolver.REDIRECT_URL_PREFIX).append(mappedUrl[0]).append(PAGE_INIT_URL)
-				.toString();
+		return new StringBuilder(UrlBasedViewResolver.REDIRECT_URL_PREFIX).append(mappedUrl[0]).append(PAGE_INIT_URL).toString();
 	}
 
 }
