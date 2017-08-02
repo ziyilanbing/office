@@ -38,7 +38,7 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 	}
 
 	/**
-	 * init login page
+	 * init page
 	 * 
 	 * @param model
 	 * @param loginModel
