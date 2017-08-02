@@ -9,7 +9,7 @@
 		location="C:\Dev\mvn\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
 
 	<!-- MyBatis3Simple : igone XxxxxByExample -->
-	<context id="context" targetRuntime="MyBatis3Simple">
+	<context id="context" targetRuntime="MyBatis3">
 		<!-- 生成的Java文件的编码 -->
 		<property name="javaFileEncoding" value="UTF-8" />
 		<!-- 格式化java代码 -->
@@ -31,6 +31,7 @@
 			<!-- 关闭自动生成的注释 -->
 			<property name="suppressAllComments" value="false" />
 			<property name="suppressDate" value="false" />
+			<property name="addRemarkComments" value="true" />
 		</commentGenerator>
 
 		<!-- database -->
@@ -55,13 +56,16 @@
 			<!-- <property name="rootInterface" value="" /> -->
 		</javaClientGenerator>
 
-		<table schema="office" tableName="odh_wktm_manage">
-			<!-- enableCountByExample="false" enableUpdateByExample="false" -->
-			<!-- enableDeleteByExample="false" enableSelectByExample="false" -->
-			<!-- selectByExampleQueryId="false" -->
+		<table schema="office" tableName="odh_wktm_manage"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" selectByExampleQueryId="false"
+			enableInsert="false" enableSelectByExample="false"
+			enableSelectByPrimaryKey="false" enableUpdateByPrimaryKey="false"
+			enableDeleteByPrimaryKey="false">
 			<!-- rootXXXXX 属性 -->
-<!-- 			<property name="rootClass" value="com.glad.component.AbstractDto" /> -->
-<!-- 			<property name="rootInterface" value="com.glad.base.BaseDao" /> -->
+			<!-- <property name="rootClass" value="com.glad.component.AbstractDto" 
+				/> -->
+			<!-- <property name="rootInterface" value="com.glad.base.BaseDao" /> -->
 			<!-- <ignoreColumn column="create_time" delimitedColumnName="false" /> -->
 			<!-- <ignoreColumn column="create_by" delimitedColumnName="false" /> -->
 			<!-- <ignoreColumn column="update_time" delimitedColumnName="false" /> -->
