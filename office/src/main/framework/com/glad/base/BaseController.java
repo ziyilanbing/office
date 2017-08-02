@@ -25,7 +25,6 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 	protected LocalizeMessageSource messageSource;
 
 	/**
-	 * 
 	 * @return
 	 */
 	public void setScreenInfo(ModelMap model, T commandForm) {
@@ -47,9 +46,8 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 	 * @return Redirect Screen Id
 	 * @throws Exception
 	 */
-	@RequestMapping(value = { "", "/", "/init" }, method = { RequestMethod.GET, RequestMethod.POST })
-	public String init(ModelMap model, @ModelAttribute T commandForm, BindingResult result, HttpServletRequest request)
-			throws Exception {
+	@RequestMapping(value = {"/*", "/init"}, method = {RequestMethod.GET})
+	public String init(ModelMap model, @ModelAttribute T commandForm, BindingResult result, HttpServletRequest request) throws Exception {
 		try {
 			setScreenInfo(model, commandForm);
 
