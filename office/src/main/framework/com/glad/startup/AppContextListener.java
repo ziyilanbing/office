@@ -8,7 +8,6 @@ import com.glad.exp.OfficeException;
 
 /**
  * Hello world!
- *
  */
 public class AppContextListener implements ServletContextListener {
 
@@ -17,9 +16,8 @@ public class AppContextListener implements ServletContextListener {
 		System.out.println("AppContextListener contextInitialized ");
 		ServletContext ctx = event.getServletContext();
 
-		String enterpriseId = ctx.getInitParameter("enterpriseId");
 		try {
-			Application.init(new BootstrapConfig());
+			Application.init(new BootstrapConfig(), event);
 		} catch (OfficeException e) {
 			throw new IllegalStateException("application init failed");
 		} catch (Exception e) {

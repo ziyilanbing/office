@@ -1,13 +1,23 @@
 package com.glad.startup;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import com.glad.entity.OdhCodeManage;
 import com.glad.exp.OfficeException;
+import com.glad.service.OdhCodeManageService;
 
 /**
- * Hello world!
- *
+ * Application
  */
 public class Application {
 
@@ -17,15 +27,21 @@ public class Application {
 
 	private final BootstrapConfig config;
 
-	protected Application(final BootstrapConfig config) throws OfficeException {
+	private ApplicationContext context;
 
+	private ServletContext servletContext;
+
+	protected Application(final BootstrapConfig config, ServletContextEvent event) throws OfficeException {
+		servletContext = event.getServletContext();
+		context = WebApplicationContextUtils.getRequiredWebApplicationContext(servletContext);
+		loadCodes();
 		loadProperties();
 		this.config = config;
 	}
 
-	public static synchronized void init(final BootstrapConfig config) throws OfficeException {
+	public static synchronized void init(final BootstrapConfig config, ServletContextEvent event) throws OfficeException {
 		if (instance == null) {
-			instance = new Application(config);
+			instance = new Application(config, event);
 		}
 	}
 
@@ -33,9 +49,28 @@ public class Application {
 		return instance;
 	}
 
+	/**
+	 * 加载属性文件
+	 */
 	private void loadProperties() {
-		// TODO Auto-generated method stub
 
+	}
+
+	/**
+	 * 代码管理表加载到ServletContext的Attribute中
+	 */
+	private void loadCodes() {
+		OdhCodeManageService testCodeService = context.getBean(OdhCodeManageService.class);
+		List<String> attribIdList = testCodeService.selectDistinctAll();
+		for (String attribId : attribIdList) {
+			List<OdhCodeManage> attribValueList = testCodeService.selectByAttribIdOrderOrdinal(attribId);
+			Map<String, String> map = new HashMap<String, String>();
+			for (OdhCodeManage attribValue : attribValueList) {
+				map.put(attribValue.getAttribVal(), attribValue.getAttribExpla());
+			}
+			servletContext.setAttribute(attribId, map);
+			System.out.println(attribId + " //// " + map.toString());
+		}
 	}
 
 	public static void destroy() {
