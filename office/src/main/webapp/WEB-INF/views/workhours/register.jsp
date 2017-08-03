@@ -1,4 +1,3 @@
-<%@ taglib prefix="office" uri="http://www.com.glad.office/tags"%>
 <%@ include file="../include/head.jsp"%>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -6,13 +5,12 @@
 
 		<%@ include file="../include/header.jsp"%>
 
-		<office:office-menu />
-
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>Dashboard</h1>
+				<h1>${COMPANY_TYPE.get('00')}</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
 					<li class="active">Dashboard</li>
