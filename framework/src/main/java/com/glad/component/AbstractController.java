@@ -54,6 +54,29 @@ public abstract class AbstractController {
 			return servletPath.substring(0, servletPath.indexOf("/", servletPath.indexOf("/") + 1));
 		}
 		// /top/init
+		if (servletPath.substring(1).contains("/")) {
+			// replace 'init' 'submit'
+			return servletPath.replaceAll("\\/\\w+$", "");
+		}
+		// /top
+		return servletPath;
+	}
+
+	/**
+	 * Get Default View
+	 * 
+	 * @return
+	 */
+	public String getIndexView() {
+
+		ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		String servletPath = requestAttributes.getRequest().getServletPath();
+
+		// /top/
+		if (servletPath.endsWith("/")) {
+			return servletPath.substring(0, servletPath.indexOf("/", servletPath.indexOf("/") + 1));
+		}
+		// /top/init
 		if (servletPath.endsWith("/init") || servletPath.endsWith("/index")) {
 			// replace 'init'
 			return servletPath.replaceAll("\\/\\w+$", "");

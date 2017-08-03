@@ -57,7 +57,7 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 		} catch (Exception e) {
 			handleException(model, result, e);
 		}
-		return getDefaultView();
+		return getIndexView();
 	}
 
 	public void setRequest(HttpServletRequest request) throws OfficeException {
