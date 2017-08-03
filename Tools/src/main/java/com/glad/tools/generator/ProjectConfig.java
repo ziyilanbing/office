@@ -12,9 +12,9 @@ public final class ProjectConfig {
 	public static final String JDBC_DIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
 
 	// 项目基础包名称
-	public static final String BASE_PACKAGE = "com.glad.tools.generator.resultant";
+	public static final String BASE_PACKAGE = "com.glad";
 	// Model所在包
-	public static final String MODEL_PACKAGE = BASE_PACKAGE + ".model";
+	public static final String MODEL_PACKAGE = BASE_PACKAGE + ".entity";
 	// Mapper所在包
 	public static final String MAPPER_PACKAGE = BASE_PACKAGE + ".dao";
 	// Service所在包
