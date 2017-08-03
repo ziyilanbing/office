@@ -34,4 +34,10 @@ public interface OdhWktmManageMapper {
 	 * ODH_WKTM_MANAGE
 	 */
 	int updateByPrimaryKey(OdhWktmManage record);
+
+	/**
+	 * ODH_WKTM_MANAGE
+	 */
+	List<OdhWktmManage> selectByTime(OdhWktmManage record);
+
 }

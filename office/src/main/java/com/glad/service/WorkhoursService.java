@@ -1,5 +1,7 @@
 package com.glad.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +22,14 @@ public class WorkhoursService {
 
 	public void insert(OdhWktmManage odhWktmManage) {
 		odhWktmManageDao.insert(odhWktmManage);
+	}
+
+	public List<OdhWktmManage> selectAll(OdhWktmManage odhWktmManage) {
+		return odhWktmManageDao.selectAll();
+	}
+
+	public List<OdhWktmManage> selectByTime(OdhWktmManage odhWktmManage) {
+		return odhWktmManageDao.selectByTime(odhWktmManage);
 	}
 
 }

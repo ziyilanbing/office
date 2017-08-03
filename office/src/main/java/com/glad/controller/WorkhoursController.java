@@ -1,6 +1,8 @@
 package com.glad.controller;
 
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -17,7 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.glad.annotation.ScreenId;
+import com.glad.base.BaseController;
 import com.glad.entity.OdhWktmManage;
+import com.glad.exp.OfficeException;
 import com.glad.model.WorkhoursModel;
 import com.glad.service.WorkhoursService;
 
@@ -28,7 +32,7 @@ import com.glad.service.WorkhoursService;
 @RequestMapping("/workhours")
 @SessionAttributes("workhoursModel") // session model
 @ScreenId("glad.office.workhours")
-public class WorkhoursController {
+public class WorkhoursController extends BaseController<WorkhoursModel> {
 
 	@Autowired
 	private WorkhoursService workhoursService;
@@ -43,10 +47,9 @@ public class WorkhoursController {
 		return new WorkhoursModel();
 	}
 
-	@RequestMapping(value = {"/*"}, method = {RequestMethod.GET})
-	public String init(ModelMap model, @ModelAttribute WorkhoursModel workhoursModel) throws Exception {
-		workhoursModel = new WorkhoursModel();
-		return "workhours/register";
+	@Override
+	public void doInit(ModelMap model, WorkhoursModel commandForm) throws OfficeException {
+
 	}
 
 	/**
@@ -65,7 +68,9 @@ public class WorkhoursController {
 		odhWktmManage.setUserNo("00734");
 		odhWktmManage.setRecNo(0001);
 		odhWktmManage.setMemo(workhoursModel.getComment());
-
+		odhWktmManage.setWktmStartYmdhm(new Date(workhoursModel.getStartDate() + workhoursModel.getStartTime()));
+		odhWktmManage.setWktmEndYmdhm(new Date(workhoursModel.getEndDate() + workhoursModel.getEndTime()));
+		// odhWktmManage.setWktmSubtype();
 		workhoursModel.setComment("");
 		workhoursModel.setOdhWktmManageChecked(odhWktmManage);
 
@@ -103,6 +108,16 @@ public class WorkhoursController {
 		workhoursService.insert(workhoursModel.getOdhWktmManageChecked());
 		workhoursModel.setOdhWktmManageChecked(null);
 		return "workhours/register";
+	}
+
+	@RequestMapping(value = {"/search"}, method = {RequestMethod.GET, RequestMethod.POST})
+	public String search(ModelMap model, @ModelAttribute WorkhoursModel workhoursModel, OdhWktmManage odhWktmManage) throws Exception {
+
+		System.out.println(odhWktmManage.getWktmStartYmdhm());
+		System.out.println(odhWktmManage.getWktmEndYmdhm());
+		List<OdhWktmManage> OdhWktmManageList = workhoursService.selectByTime(odhWktmManage);
+		model.addAttribute("OdhWktmManageList", OdhWktmManageList);
+		return "workhours/details";
 	}
 
 }
