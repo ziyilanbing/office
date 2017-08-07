@@ -1,22 +1,34 @@
 package com.glad.model;
 
-import javax.validation.constraints.NotNull;
-
 import com.glad.component.AbstractModel;
 import com.glad.entity.OdhWktmManage;
 
 public class WorkhoursModel extends AbstractModel {
 
-	@NotNull
+	private String wktmStartYmd;
+
+	private String wktmStarthm;
+
+	private String wktmEndYmd;
+
+	private String wktmEndhm;
+
+	/**
+	 * WKTM_TYPE 工时类型
+	 */
+	private String wktmType;
+
+	/**
+	 * WKTM_SUBTYPE 工时子类型
+	 */
+	private String wktmSubtype;
+
+	/**
+	 * PROJECT_STAGE 项目阶段
+	 */
+	private String projectStage;
+
 	private String comment;
-	@NotNull
-	private String startDate;
-	@NotNull
-	private String startTime;
-	@NotNull
-	private String endDate;
-	@NotNull
-	private String endTime;
 
 	private OdhWktmManage odhWktmManageChecked;
 
@@ -28,36 +40,60 @@ public class WorkhoursModel extends AbstractModel {
 		this.comment = comment;
 	}
 
-	public String getStartDate() {
-		return startDate;
+	public String getWktmStartYmd() {
+		return wktmStartYmd;
 	}
 
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
+	public void setWktmStartYmd(String wktmStartYmd) {
+		this.wktmStartYmd = wktmStartYmd;
 	}
 
-	public String getStartTime() {
-		return startTime;
+	public String getWktmStarthm() {
+		return wktmStarthm;
 	}
 
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
+	public void setWktmStarthm(String wktmStarthm) {
+		this.wktmStarthm = wktmStarthm;
 	}
 
-	public String getEndDate() {
-		return endDate;
+	public String getWktmEndYmd() {
+		return wktmEndYmd;
 	}
 
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
+	public void setWktmEndYmd(String wktmEndYmd) {
+		this.wktmEndYmd = wktmEndYmd;
 	}
 
-	public String getEndTime() {
-		return endTime;
+	public String getWktmEndhm() {
+		return wktmEndhm;
 	}
 
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
+	public void setWktmEndhm(String wktmEndhm) {
+		this.wktmEndhm = wktmEndhm;
+	}
+
+	public String getWktmType() {
+		return wktmType;
+	}
+
+	public void setWktmType(String wktmType) {
+		this.wktmType = wktmType;
+	}
+
+	public String getWktmSubtype() {
+		return wktmSubtype;
+	}
+
+	public void setWktmSubtype(String wktmSubtype) {
+		this.wktmSubtype = wktmSubtype;
+	}
+
+	public String getProjectStage() {
+		return projectStage;
+	}
+
+	public void setProjectStage(String projectStage) {
+		this.projectStage = projectStage;
 	}
 
 	public OdhWktmManage getOdhWktmManageChecked() {

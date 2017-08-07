@@ -8,6 +8,8 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -24,6 +26,7 @@ import com.glad.entity.OdhWktmManage;
 import com.glad.exp.OfficeException;
 import com.glad.model.WorkhoursModel;
 import com.glad.service.WorkhoursService;
+import com.glad.utils.DateUtils;
 
 /**
  * Created by CodeGenerator on 2017/07/28.
@@ -64,15 +67,37 @@ public class WorkhoursController extends BaseController<WorkhoursModel> {
 	@RequestMapping(value = {"/confirm"}, method = {RequestMethod.POST})
 	public String confirm(ModelMap model, @Valid @ModelAttribute WorkhoursModel workhoursModel, BindingResult result) throws Exception {
 
-		OdhWktmManage odhWktmManage = new OdhWktmManage();
-		odhWktmManage.setUserNo("00734");
-		odhWktmManage.setRecNo(0001);
-		odhWktmManage.setMemo(workhoursModel.getComment());
-		odhWktmManage.setWktmStartYmdhm(new Date(workhoursModel.getStartDate() + workhoursModel.getStartTime()));
-		odhWktmManage.setWktmEndYmdhm(new Date(workhoursModel.getEndDate() + workhoursModel.getEndTime()));
-		// odhWktmManage.setWktmSubtype();
+		try {
+			workhoursService.check(workhoursModel.getWktmStarthm(), workhoursModel.getWktmEndhm());
+
+			OdhWktmManage odhWktmManage = new OdhWktmManage();
+			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+			odhWktmManage.setUserNo(auth.getName());
+			odhWktmManage.setMemo(workhoursModel.getComment());
+			odhWktmManage.setWktmStartYmdhm(new Date(workhoursModel.getWktmStartYmd() + " " + workhoursModel.getWktmStarthm()));
+			odhWktmManage.setWktmEndYmdhm(new Date(workhoursModel.getWktmEndYmd() + " " + workhoursModel.getWktmEndhm()));
+			odhWktmManage.setWktmTimes(DateUtils.getWorkHours(odhWktmManage.getWktmStartYmdhm(), odhWktmManage.getWktmEndYmdhm()));
+			odhWktmManage.setWktmType(workhoursModel.getWktmType());
+			odhWktmManage.setWktmSubtype(workhoursModel.getWktmSubtype());
+			odhWktmManage.setProjectStage(workhoursModel.getProjectStage());
+			odhWktmManage.setMemo(workhoursModel.getComment());
+			workhoursModel.setOdhWktmManageChecked(odhWktmManage);
+
+		} catch (Exception e) {
+			handleException(model, result, e);
+		}
+		return "workhours/register";
+	}
+
+	@RequestMapping(value = {"/submit"}, method = {RequestMethod.POST})
+	public String submit(ModelMap model, @ModelAttribute WorkhoursModel workhoursModel) throws Exception {
+
+		workhoursService.insert(workhoursModel.getOdhWktmManageChecked());
+
+		workhoursModel.setWktmStarthm("");
+		workhoursModel.setWktmEndhm("");
 		workhoursModel.setComment("");
-		workhoursModel.setOdhWktmManageChecked(odhWktmManage);
+		workhoursModel.setOdhWktmManageChecked(null);
 
 		return "workhours/register";
 	}
@@ -88,11 +113,10 @@ public class WorkhoursController extends BaseController<WorkhoursModel> {
 	 */
 	@RequestMapping("/confirmajax")
 	@ResponseBody
-	public Map<String, Object> confirmAjax(ModelMap model, @RequestBody Map<String, Object> aaa, @ModelAttribute WorkhoursModel workhoursModel)
+	public Map<String, Object> confirmAjax(ModelMap model, @RequestBody OdhWktmManage odhWktmManage, @ModelAttribute WorkhoursModel workhoursModel)
 		throws Exception {
 
 		Map<String, Object> rtnmap = new HashMap<String, Object>();
-		OdhWktmManage odhWktmManage = new OdhWktmManage();
 		odhWktmManage.setUserNo("00734");
 		odhWktmManage.setRecNo(0001);
 		odhWktmManage.setMemo(workhoursModel.getComment());
@@ -100,14 +124,6 @@ public class WorkhoursController extends BaseController<WorkhoursModel> {
 		workhoursModel.setComment("");
 		workhoursModel.setOdhWktmManageChecked(odhWktmManage);
 		return rtnmap;
-	}
-
-	@RequestMapping(value = {"/submit"}, method = {RequestMethod.POST})
-	public String submit(ModelMap model, @ModelAttribute WorkhoursModel workhoursModel) throws Exception {
-
-		workhoursService.insert(workhoursModel.getOdhWktmManageChecked());
-		workhoursModel.setOdhWktmManageChecked(null);
-		return "workhours/register";
 	}
 
 	@RequestMapping(value = {"/search"}, method = {RequestMethod.GET, RequestMethod.POST})
