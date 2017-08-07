@@ -17,6 +17,7 @@ import com.glad.annotation.ScreenId;
 import com.glad.component.AbstractController;
 import com.glad.controller.LoginController;
 import com.glad.controller.LogoutController;
+import com.glad.utils.DateUtils;
 
 public class RequestAroundAdvice implements MethodInterceptor {
 
@@ -46,7 +47,7 @@ public class RequestAroundAdvice implements MethodInterceptor {
 		Model currentModel = getCurrentModel(invocation);
 
 		if (currentModel == null) {
-			throw new IllegalArgumentException("RequestAroundAdvice 'Model' must exist.");
+			throw new IllegalArgumentException("[RequestAroundAdvice] 'Model' must exist.");
 		}
 
 		String title = invocation.getThis().getClass().getAnnotation(ScreenId.class).value();
@@ -55,7 +56,8 @@ public class RequestAroundAdvice implements MethodInterceptor {
 		// TODO
 		Date currentTime = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-		currentModel.addAttribute("date", sdf.format(currentTime).toString());
+		currentModel.addAttribute("today", sdf.format(currentTime).toString());
+		currentModel.addAttribute("firstday", DateUtils.getFirstDayMonth());
 
 		// String servletPath = getServletPath();
 		// val rootPath = get

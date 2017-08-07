@@ -5,12 +5,14 @@
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
 <meta name="description" content="">
 <meta name="author" content="">
 
 <title><spring:message code="${title}" htmlEscape="false" /></title>
-<sec:csrfMetaTags/> 
+<sec:csrfMetaTags />
 <!-- Bootstrap Core CSS -->
 <link
 	href="<c:url value="/static/vendor/bootstrap/css/bootstrap.min.css"/>"
@@ -24,8 +26,10 @@
 	href="<c:url value='/static/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'/>"
 	rel="stylesheet" type="text/css">
 <!-- Theme style -->
-<link rel="stylesheet" href="<c:url value='/static/css/AdminLTE.min.css'/>">
-<link rel="stylesheet" href="<c:url value='/static/css/skin-blue.min.css'/>">
+<link rel="stylesheet"
+	href="<c:url value='/static/css/AdminLTE.min.css'/>">
+<link rel="stylesheet"
+	href="<c:url value='/static/css/skin-blue.min.css'/>">
 
 <!-- jQuery -->
 <script src="<c:url value='/static/vendor/jquery/jquery.min.js'/>"></script>
@@ -35,8 +39,11 @@
 	src="<c:url value='/static/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
 
 <!-- date picker -->
-<script src="<c:url value='/static/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js'/>"></script>
-<script src="<c:url value='/static/vendor/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js'/>" charset="UTF-8"></script>
+<script
+	src="<c:url value='/static/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js'/>"></script>
+<script
+	src="<c:url value='/static/vendor/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js'/>"
+	charset="UTF-8"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="<c:url value='/static/js/app.js'/>"></script>

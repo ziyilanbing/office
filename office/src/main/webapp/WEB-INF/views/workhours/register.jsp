@@ -1,5 +1,5 @@
 <%@ include file="../include/head.jsp"%>
-
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 
@@ -16,7 +16,6 @@
 					<li class="active">Dashboard</li>
 				</ol>
 			</section>
-
 			<!-- Main content -->
 			<section class="content">
 				<form:form action="REPLACE_BY_SCRIPT"
@@ -34,6 +33,9 @@
 								<!-- /.box-header -->
 								<!-- form start -->
 								<div class="box-body">
+									<div class="callout callout-danger">
+										<p id="errorMessage">${value}</p>
+									</div>
 									<div class="row">
 										<div class="col-md-3">
 											<div class="form-group">
@@ -45,7 +47,8 @@
 										<!-- /.col -->
 										<div class="col-md-3">
 											<div class="form-group">
-												<label>工时类型</label> <select class="form-control select2">
+												<label>工时类型</label>
+												<form:select class="form-control select2" path="wktmType">
 													<option selected="selected">项目</option>
 													<option>EPG</option>
 													<option>事务</option>
@@ -56,64 +59,89 @@
 													<option>管理</option>
 													<option>测试</option>
 													<option>其他</option>
-												</select>
+												</form:select>
 											</div>
 											<!-- /.form-group -->
 										</div>
 										<!-- /.col -->
 										<div class="col-md-3">
 											<div class="form-group">
-												<label>子类型</label> <select class="form-control select2">
+												<label>子类型</label>
+												<form:select class="form-control select2" path="wktmSubtype">
 													<option selected="selected">I-STAR_現物取引</option>
-												</select>
+												</form:select>
 											</div>
 											<!-- /.form-group -->
 										</div>
 										<!-- /.col -->
 										<div class="col-md-3">
 											<div class="form-group">
-												<label>项目阶段</label> <select class="form-control select2">
+												<label>项目阶段</label>
+												<form:select class="form-control select2"
+													path="projectStage">
 													<option selected="selected">内部设计</option>
-												</select>
+												</form:select>
 											</div>
 											<!-- /.form-group -->
-
 										</div>
-										<div class="col-md-6">
+										<div class="col-md-3">
 											<div class="form-group">
-												<label>开始时间:</label>
+												<label>开始日期</label>
 												<div class="input-group">
 													<div class="input-group-addon">
 														<i class="fa fa-calendar" for="datepicker"></i>
 													</div>
-													<form:input class="form-control date"
-														path="startDate" id="datepicker" value="${date}" />
-													<div class="input-group-addon">
-														<i class="fa fa-clock-o"></i>
-													</div>
-													<form:input type="text" class="form-control"
-														path="startTime" data-inputmask='"mask": "99:99"'
-														data-mask="true" />
+													<form:input class="form-control date" path="wktmStartYmd"
+														id="datepicker" value="${today}" />
 												</div>
 												<!-- /.input group -->
 											</div>
 											<!-- /.form group -->
 										</div>
 										<!-- /.col -->
-										<div class="col-md-6">
+										<div class="col-md-3">
 											<div class="form-group">
-												<label>结束时间:</label>
+												<label>时间</label>
+												<div class="input-group">
+
+													<div class="input-group-addon">
+														<i class="fa fa-clock-o"></i>
+													</div>
+													<form:input type="text" cssClass="form-control"
+														cssErrorClass="form-control has-error" path="wktmStarthm"
+														data-inputmask="'alias': 'hh:mm'" data-mask="true" />
+
+												</div>
+												<!-- /.input group -->
+											</div>
+											<!-- /.form group -->
+										</div>
+										<!-- /.col -->
+										<div class="col-md-3">
+											<div class="form-group">
+												<label>结束日期</label>
 												<div class="input-group">
 													<div class="input-group-addon">
 														<i class="fa fa-calendar" for="datepicker2"></i>
 													</div>
-													<form:input class="form-control date" path="endDate"
-														id="datepicker2" value="${date}" />
+													<form:input class="form-control date" path="wktmEndYmd"
+														id="datepicker2" value="${today}" />
+												</div>
+												<!-- /.input group -->
+											</div>
+											<!-- /.form group -->
+										</div>
+										<!-- /.col -->
+										<div class="col-md-3">
+											<div class="form-group">
+												<label>时间</label>
+												<div class="input-group">
 													<div class="input-group-addon">
 														<i class="fa fa-clock-o"></i>
 													</div>
-													<form:input type="text" class="form-control" path="endTime"
-														data-inputmask='"mask": "99:99"' data-mask="true" />
+													<form:input type="text" cssClass="form-control"
+														cssErrorClass="form-control has-error" path="wktmEndhm"
+														data-inputmask="'alias': 'hh:mm'" data-mask="true" />
 												</div>
 												<!-- /.input group -->
 											</div>
@@ -172,12 +200,16 @@
 											</tr>
 											<tr>
 												<td>1.</td>
-												<td>项目</td>
-												<td>I-STAR_現物取引</td>
-												<td>内部设计</td>
-												<td>2017-05-18 08:30</td>
-												<td>2017-05-18 08:30</td>
-												<td>8时0分</td>
+												<td>${workhoursModel.odhWktmManageChecked.wktmType}</td>
+												<td>${workhoursModel.odhWktmManageChecked.wktmSubtype}</td>
+												<td>${workhoursModel.odhWktmManageChecked.projectStage}</td>
+												<td><fmt:formatDate
+														value="${workhoursModel.odhWktmManageChecked.wktmStartYmdhm}"
+														pattern="yyyy-MM-dd HH:mm" /></td>
+												<td><fmt:formatDate
+														value="${workhoursModel.odhWktmManageChecked.wktmEndYmdhm}"
+														pattern="yyyy-MM-dd HH:mm" /></td>
+												<td>${workhoursModel.odhWktmManageChecked.wktmTimes}</td>
 												<td>${workhoursModel.odhWktmManageChecked.memo}</td>
 											</tr>
 										</table>
@@ -271,21 +303,29 @@
 				xhr.setRequestHeader('Content-Type', 'application/json');
 			}
 		});
+
+		$(".has-error").each(function() {
+			$(this).closest(".form-group").addClass("has-error");
+			$(this).closest(".form-group").append("<span class=\"help-block\"></span>");
+			$(".help-block").text($("#errorMessage").text());
+		});
 	});
 
 	$(function() {
 		//Money Euro
 		$("[data-mask]").inputmask();
 		//Date picker
-		
+
 		$(".date").each(function() {
-			 $(this).datepicker({
-					format: "yyyy/mm/dd",
-					todayBtn: "linked",
-					language: "zh-CN",
-					autoclose : true
-				});
+			$(this).datepicker({
+				format : "yyyy/mm/dd",
+				todayBtn : "linked",
+				language : "zh-CN",
+				orientation : "bottom auto",
+				autoclose : true
+			});
 		});
+
 	});
 
 	function confirmajax() {

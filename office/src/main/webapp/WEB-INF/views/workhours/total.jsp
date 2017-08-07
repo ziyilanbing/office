@@ -12,7 +12,7 @@
 				<h1>Dashboard</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-					<li class="active">Dashboard</li>
+					<li class="active">Total</li>
 				</ol>
 			</section>
 
@@ -55,19 +55,57 @@
 												<label>查询日期</label>
 												<div class="input-daterange input-group" id="datepicker">
 													<input type="text" class="input-sm form-control"
-														name="wktmStartYmdhm" value="${firstday}" /> <span class="input-group-addon">~</span>
+														name="wktmStartYmdhm" value="${earlierday}" /> <span class="input-group-addon">~</span>
 													<input type="text" class="input-sm form-control" name="wktmEndYmdhm" value="${today}" />
 												</div>
 											</div>
 											<!-- /.form-group -->
 										</div>
-										<div class="col-md-1" style="padding-top:1.6em;">
-										<button type="submit" class="btn btn-info pull-right"
-											formaction="search" role="button">查询</button>
-										</div>
-										<!-- /.col -->
 									</div>
 									<!-- /.row -->
+									<div class="row">
+									<div class="col-md-3">
+											<div class="form-group">
+												<label>工时类型</label> <form:select class="input-sm form-control select2" path="wktmType">
+													<option selected="selected">项目</option>
+													<option>EPG</option>
+													<option>事务</option>
+													<option>IT</option>
+													<option>度量</option>
+													<option>配置</option>
+													<option>品保</option>
+													<option>管理</option>
+													<option>测试</option>
+													<option>其他</option>
+												</form:select>
+											</div>
+											<!-- /.form-group -->
+										</div>
+										<!-- /.col -->
+										<div class="col-md-3">
+											<div class="form-group">
+												<label>子类型</label> <form:select class="input-sm form-control select2"  path="wktmSubtype">
+													<option selected="selected">I-STAR_現物取引</option>
+												</form:select>
+											</div>
+											<!-- /.form-group -->
+										</div>
+										<!-- /.col -->
+										<div class="col-md-5">
+											<div class="form-group">
+												<label>项目阶段</label> <form:select class="input-sm form-control select2"  path="projectStage">
+													<option selected="selected">内部设计</option>
+												</form:select>
+											</div>
+											<!-- /.form-group -->
+										</div>
+										<div class="col-md-1" style="padding-top:1.6em;">
+										<button type="submit" class="btn btn-info pull-right"
+											formaction="searchTotal" role="button">查询</button>
+										</div>
+										<!-- /.col -->
+										
+										</div>
 								</div>
 								<!-- /.box-body -->
 							</div>
@@ -91,21 +129,15 @@
 												<th>工时类型</th>
 												<th>子类型</th>
 												<th>项目阶段</th>
-												<th>开始时间</th>
-												<th>结束时间</th>
 												<th>时间</th>
-												<th>备注</th>
 											</tr>
-											<c:forEach var="a" items="${OdhWktmManageList }">
+											<c:forEach var="a" items="${ }">
 												<tr>
 													<td>${a.recNo }.</td>
 													<td>${a.wktmType }</td>
 													<td>${a.wktmSubtype }</td>
 													<td>${a.projectStage }</td>
-													<td><fmt:formatDate value="${a.wktmStartYmdhm}" pattern="yyyy-MM-dd HH:mm"/></td>
-													<td><fmt:formatDate value="${a.wktmEndYmdhm }" pattern="yyyy-MM-dd HH:mm"/></td>
 													<td>${a.wktmTimes }</td>
-													<td>${a.memo }</td>
 												</tr>
 											</c:forEach>
 										</table>

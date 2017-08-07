@@ -34,8 +34,6 @@ public class CodeGeneratorByXml {
 	private static final String TEMPLATE_FILE_PATH = PROJECT_PATH + "/src/main/resources/generator/template";
 	// java文件路径
 	private static final String JAVA_PATH = "/src/main/java";
-	// Mapper插件基础接口的完全限定名
-	public static final String MAPPER_INTERFACE_REFERENCE = BASE_PACKAGE + ".core.Mapper";
 	// 生成的Service存放路径
 	private static final String PACKAGE_PATH_SERVICE = packageConvertPath(SERVICE_PACKAGE);
 	// 生成的Service实现存放路径
@@ -48,10 +46,10 @@ public class CodeGeneratorByXml {
 	private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());
 
 	public static void main(String[] args) {
-		String moduleName = "WorkHours";
+		// String moduleName = "datatables";
 		genModelAndMapper();
-		genController(moduleName);
-		genService(moduleName);
+		// genController(moduleName);
+		// genService(moduleName);
 	}
 
 	public static void genModelAndMapper() {
