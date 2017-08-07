@@ -1,6 +1,5 @@
 package com.glad.startup;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
@@ -14,10 +13,8 @@ public class AppContextListener implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
 		System.out.println("AppContextListener contextInitialized ");
-		ServletContext ctx = event.getServletContext();
-
 		try {
-			Application.init(new BootstrapConfig(), event);
+			Application.init(event);
 		} catch (OfficeException e) {
 			throw new IllegalStateException("application init failed");
 		} catch (Exception e) {

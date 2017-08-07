@@ -25,28 +25,29 @@ public class Application {
 
 	private static Application instance;
 
-	private final BootstrapConfig config;
-
-	private ApplicationContext context;
+	private static ApplicationContext context;
 
 	private ServletContext servletContext;
 
-	protected Application(final BootstrapConfig config, ServletContextEvent event) throws OfficeException {
+	protected Application(ServletContextEvent event) throws OfficeException {
 		servletContext = event.getServletContext();
 		context = WebApplicationContextUtils.getRequiredWebApplicationContext(servletContext);
 		loadCodes();
 		loadProperties();
-		this.config = config;
 	}
 
-	public static synchronized void init(final BootstrapConfig config, ServletContextEvent event) throws OfficeException {
+	public static synchronized void init(ServletContextEvent event) throws OfficeException {
 		if (instance == null) {
-			instance = new Application(config, event);
+			instance = new Application(event);
 		}
 	}
 
 	public static Application getInstance() {
 		return instance;
+	}
+
+	public static ApplicationContext getApplicationContext() {
+		return context;
 	}
 
 	/**
