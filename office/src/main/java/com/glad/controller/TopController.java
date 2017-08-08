@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.glad.Constants;
-import com.glad.MySession;
 import com.glad.annotation.ScreenId;
 import com.glad.base.BaseController;
+import com.glad.collections.MySession;
 import com.glad.exp.AppWarnException;
 import com.glad.exp.OfficeException;
 import com.glad.menu.MenuTree;
@@ -39,7 +39,7 @@ public class TopController extends BaseController<TopModel> {
 	public void doInit(ModelMap model, TopModel commandForm) throws OfficeException {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String userName = principal instanceof UserDetails ? ((UserDetails) principal).getUsername() : principal.toString();
-		MySession.LoginOperatorName.value(userName);
+		MySession.LoginUserId.value(userName);
 		model.addAttribute("user", userName);
 	}
 
