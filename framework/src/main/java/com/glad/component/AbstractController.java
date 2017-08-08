@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import com.glad.exp.AppErrorException;
 import com.glad.exp.AppFailedException;
 import com.glad.exp.AppWarnException;
-import com.glad.util.ScreenUtils;
+import com.glad.utils.ScreenUtils;
 
 /**
  * @author zhongqs

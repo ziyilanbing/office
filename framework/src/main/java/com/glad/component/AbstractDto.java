@@ -1,68 +1,101 @@
 package com.glad.component;
 
-import java.io.Serializable;
+import java.util.Date;
 
 /**
- * 
  * @author zhongqs
- * @date 2017年3月16日
+ * @date 2017.8.8
  */
-public class AbstractDto implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1420004154945290394L;
+public class AbstractDto {
 
 	/**
 	 * Create Time
 	 */
-	private String createTime;
+	private String loginNo;
 
 	/**
 	 * Create By
 	 */
-	private String createBy;
+	private String loginIp;
 
 	/**
 	 * Update Time
 	 */
-	private String updateTime;
+	private Date recInsertTime;
 
 	/**
-	 * Update By
+	 * DELETE_STATE 删除状态位
 	 */
-	private String updateBy;
+	private String deleteState;
 
-	public String getCreateTime() {
-		return createTime;
+	/**
+	 * UPDATE_NO 更新者工号
+	 */
+	private String updateNo;
+
+	/**
+	 * UPDATE_IP 更新者IP
+	 */
+	private String updateIp;
+
+	/**
+	 * REC_UPDATE_TIME 记录更新时间
+	 */
+	private Date recUpdateTime;
+
+	public String getLoginNo() {
+		return loginNo;
 	}
 
-	public void setCreateTime(String createTime) {
-		this.createTime = createTime;
+	public void setLoginNo(String loginNo) {
+		this.loginNo = loginNo;
 	}
 
-	public String getCreateBy() {
-		return createBy;
+	public String getLoginIp() {
+		return loginIp;
 	}
 
-	public void setCreateBy(String createBy) {
-		this.createBy = createBy;
+	public void setLoginIp(String loginIp) {
+		this.loginIp = loginIp;
 	}
 
-	public String getUpdateTime() {
-		return updateTime;
+	public Date getRecInsertTime() {
+		return recInsertTime;
 	}
 
-	public void setUpdateTime(String updateTime) {
-		this.updateTime = updateTime;
+	public void setRecInsertTime(Date recInsertTime) {
+		this.recInsertTime = recInsertTime;
 	}
 
-	public String getUpdateBy() {
-		return updateBy;
+	public String getDeleteState() {
+		return deleteState;
 	}
 
-	public void setUpdateBy(String updateBy) {
-		this.updateBy = updateBy;
+	public void setDeleteState(String deleteState) {
+		this.deleteState = deleteState;
+	}
+
+	public String getUpdateNo() {
+		return updateNo;
+	}
+
+	public void setUpdateNo(String updateNo) {
+		this.updateNo = updateNo;
+	}
+
+	public String getUpdateIp() {
+		return updateIp;
+	}
+
+	public void setUpdateIp(String updateIp) {
+		this.updateIp = updateIp;
+	}
+
+	public Date getRecUpdateTime() {
+		return recUpdateTime;
+	}
+
+	public void setRecUpdateTime(Date recUpdateTime) {
+		this.recUpdateTime = recUpdateTime;
 	}
 }
