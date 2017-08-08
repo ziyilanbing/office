@@ -1,9 +1,11 @@
 # office
 
+##office
+[AdminLTE](https://github.com/almasaeed2010/AdminLTE) + Spring + Spring MVC + Spring Security + Mybatis
 
-[Start Bootstrap - SB Admin 2](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2)
+##office-db
+Mysql sql
 
-apache shiro
-@RequiresPermissions
+##Tools
+Mybatis generator by xml and by java
 
-https://github.com/lanyuancom/lanyuan.git
