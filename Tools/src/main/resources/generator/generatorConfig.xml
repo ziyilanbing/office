@@ -9,7 +9,7 @@
 		location="C:\Dev\mvn\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
 
 	<!-- MyBatis3Simple : igone XxxxxByExample -->
-	<context id="context" targetRuntime="MyBatis3">
+	<context id="context" targetRuntime="MyBatis3Simple">
 		<!-- 生成的Java文件的编码 -->
 		<property name="javaFileEncoding" value="UTF-8" />
 		<!-- 格式化java代码 -->
@@ -56,20 +56,22 @@
 			<!-- <property name="rootInterface" value="" /> -->
 		</javaClientGenerator>
 
-		<table schema="office" tableName="odh_wktm_manage"
+		<table schema="office" tableName="odh_modl_info"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" selectByExampleQueryId="false"
-			enableInsert="false" enableSelectByExample="false"
-			enableSelectByPrimaryKey="false" enableUpdateByPrimaryKey="false"
-			enableDeleteByPrimaryKey="false">
+			enableInsert="true" enableSelectByExample="true"
+			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			enableDeleteByPrimaryKey="true">
 			<!-- rootXXXXX 属性 -->
-			<!-- <property name="rootClass" value="com.glad.component.AbstractDto" 
-				/> -->
+			<property name="rootClass" value="com.glad.component.AbstractDto" />
 			<!-- <property name="rootInterface" value="com.glad.base.BaseDao" /> -->
-			<!-- <ignoreColumn column="create_time" delimitedColumnName="false" /> -->
-			<!-- <ignoreColumn column="create_by" delimitedColumnName="false" /> -->
-			<!-- <ignoreColumn column="update_time" delimitedColumnName="false" /> -->
-			<!-- <ignoreColumn column="update_by" delimitedColumnName="false" /> -->
+			<ignoreColumn column="login_no" delimitedColumnName="false" />
+			<ignoreColumn column="login_ip" delimitedColumnName="false" />
+			<ignoreColumn column="rec_insert_time" delimitedColumnName="false" />
+			<ignoreColumn column="delete_state" delimitedColumnName="false" />
+			<ignoreColumn column="update_no" delimitedColumnName="false" />
+			<ignoreColumn column="update_ip" delimitedColumnName="false" />
+			<ignoreColumn column="rec_update_time" delimitedColumnName="false" />
 		</table>
 	</context>
 </generatorConfiguration>
