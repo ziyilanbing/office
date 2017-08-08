@@ -11,7 +11,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.context.request.WebRequestInterceptor;
 
 import com.glad.aspect.TraceAdvice;
-import com.glad.util.ScreenUtils;
+import com.glad.utils.ScreenUtils;
 
 public class CustomHandlerInterceptorAdapter implements WebRequestInterceptor {
 
