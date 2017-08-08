@@ -35,7 +35,7 @@ public class OfficeException extends Exception {
 
 	public String getLocalizedMessage() {
 
-		ResourceBundle bundle = ResourceBundle.getBundle(BUNDLENAME, Locale.CHINESE,
+		ResourceBundle bundle = ResourceBundle.getBundle(BUNDLENAME, Locale.CHINA,
 				ResourceBundle.Control.getNoFallbackControl(ResourceBundle.Control.FORMAT_DEFAULT));
 
 		MessageFormat format = new MessageFormat(bundle.getString(getKey()));
