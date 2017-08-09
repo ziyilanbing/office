@@ -46,7 +46,7 @@ public class CustomInvocationSecurityMetadataSource implements FilterInvocationS
 		list.add(cbManager);
 		list.add(cbAnonymous);
 		urlAuthority.put("/login/submit", list);
-		urlAuthority.put("/top/init", list);
+		urlAuthority.put("/dashboard/init", list);
 		urlAuthority.put("/table/init", list);
 		list.remove(2);
 		urlAuthority.put("/Main2.jsp", list);

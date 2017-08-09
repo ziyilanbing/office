@@ -33,9 +33,11 @@
 								<!-- /.box-header -->
 								<!-- form start -->
 								<div class="box-body">
-									<div class="callout callout-danger">
-										<p id="errorMessage">${value}</p>
-									</div>
+									<c:if test="${not empty value}">
+										<div class="callout callout-danger">
+											<p id="errorMessage">${value}</p>
+										</div>
+									</c:if>
 									<div class="row">
 										<div class="col-md-3">
 											<div class="form-group">
@@ -153,7 +155,7 @@
 											<div class="form-group">
 												<label>Textarea</label>
 												<form:textarea class="form-control" rows="3" id="comment"
-													path="comment" placeholder="Enter ..."></form:textarea>
+													path="comment" placeholder="Enter ..." maxlength="50"></form:textarea>
 											</div>
 											<!-- /.form-group -->
 										</div>
@@ -163,10 +165,8 @@
 								</div>
 								<!-- /.box-body -->
 								<div class="box-footer">
-									<button type="submit" class="btn btn-info pull-right"
+									<button type="submit" class="btn btn-primary pull-right"
 										formaction="confirm" role="button">确认</button>
-									<button type="button" class="btn btn-info pull-right"
-										onclick="confirmajax();" role="button">确认&nbsp;ajax</button>
 								</div>
 								<!-- /.box-footer -->
 							</div>
@@ -189,14 +189,14 @@
 									<div class="box-body">
 										<table class="table table-bordered table-hover">
 											<tr>
-												<th>序号</th>
-												<th>工时类型</th>
-												<th>子类型</th>
-												<th>项目阶段</th>
-												<th>开始时间</th>
-												<th>结束时间</th>
-												<th>时间</th>
-												<th>备注</th>
+												<th class="col-md-1">序号</th>
+												<th class="col-md-1">工时类型</th>
+												<th class="col-md-1">子类型</th>
+												<th class="col-md-1">项目阶段</th>
+												<th class="col-md-2">开始时间</th>
+												<th class="col-md-2">结束时间</th>
+												<th class="col-md-1">时间</th>
+												<th class="col-md-3">备注</th>
 											</tr>
 											<tr>
 												<td>1.</td>
@@ -216,11 +216,15 @@
 									</div>
 									<!-- /.box-body -->
 									<div class="box-footer">
-										<button type="submit" class="btn btn-info margin pull-right"
-											formaction="submit">提交</button>
-										<button type="submit" class="btn btn-info margin pull-right">下班</button>
-										<button type="submit" class="btn btn-info margin pull-right">删除</button>
-										<button type="submit" class="btn btn-info margin pull-right">修改</button>
+										<button type="button"
+											class="btn btn-primary margin pull-right" data-toggle="modal"
+											data-target="#exampleModal">提交</button>
+										<button type="submit"
+											class="btn btn-primary margin pull-right">下班</button>
+										<button type="submit"
+											class="btn btn-primary margin pull-right">删除</button>
+										<button type="submit"
+											class="btn btn-primary margin pull-right">修改</button>
 									</div>
 									<!-- /.box-footer -->
 								</div>
@@ -228,58 +232,33 @@
 							</div>
 						</div>
 					</div>
-					<div id="collapse" class="collapse">
-						<div class="row">
-							<div class="col-xs-12">
-								<div class="box">
-									<div class="box-header with-border">
-										<h3 class="box-title">Bordered Table</h3>
-									</div>
-									<!-- /.box-header -->
-									<div class="box-body">
-										<table class="table table-bordered table-hover">
-											<tr>
-												<th>序号</th>
-												<th>工时类型</th>
-												<th>子类型</th>
-												<th>项目阶段</th>
-												<th>开始时间</th>
-												<th>结束时间</th>
-												<th>时间</th>
-												<th>备注</th>
-											</tr>
-											<tr>
-												<td>1.</td>
-												<td>项目</td>
-												<td>I-STAR_現物取引</td>
-												<td>内部设计</td>
-												<td>2017-05-18 08:30</td>
-												<td>2017-05-18 08:30</td>
-												<td>8时0分</td>
-												<td>12314212</td>
-											</tr>
-										</table>
-									</div>
-									<!-- /.box-body -->
-									<div class="box-footer">
-										<button type="submit" class="btn btn-info margin pull-right"
-											formaction="submit">提交</button>
-										<button type="submit" class="btn btn-info margin pull-right">下班</button>
-										<button type="submit" class="btn btn-info margin pull-right">删除</button>
-										<button type="submit" class="btn btn-info margin pull-right">修改</button>
-									</div>
-									<!-- /.box-footer -->
-								</div>
-								<!-- /.box -->
-							</div>
-						</div>
-					</div>
+
 				</form:form>
 			</section>
 			<!-- /.content -->
 		</div>
 		<!-- /.content-wrapper -->
 
+		<div class="modal" id="exampleModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel">
+			<div class="modal-dialog modal-md" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+					</div>
+					<div class="modal-body">...</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" id="saveChanges"
+							data-dismiss="modal">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
 		<%@ include file="../include/footer.jsp"%>
 
 	</div>
@@ -304,18 +283,20 @@
 			}
 		});
 
-		$(".has-error").each(function() {
-			$(this).closest(".form-group").addClass("has-error");
-			$(this).closest(".form-group").append("<span class=\"help-block\"></span>");
-			$(".help-block").text($("#errorMessage").text());
-		});
+		$(".has-error").each(
+				function() {
+					$(this).closest(".form-group").addClass("has-error");
+					$(this).closest(".form-group").append(
+							"<span class=\"help-block\"></span>");
+					$(".help-block").text($("#errorMessage").text());
+				});
 	});
 
 	$(function() {
 		//Money Euro
 		$("[data-mask]").inputmask();
-		//Date picker
 
+		// Date picker
 		$(".date").each(function() {
 			$(this).datepicker({
 				format : "yyyy/mm/dd",
@@ -325,31 +306,13 @@
 				autoclose : true
 			});
 		});
-
+		// app.js 实装TODO
+		$('#exampleModal').on('shown.bs.modal', function(e) {
+			$("#saveChanges").focus();
+			$("#saveChanges").click(function() {
+				$.post("submit");
+			});
+		});
 	});
-
-	function confirmajax() {
-		$
-				.ajax({
-					url : "confirmajax", //发送请求地址
-					type : "POST", //请求方式
-					data : JSON.stringify({ //发送给数据库的数据
-						comment : $("#comment").val()
-					}),
-					dataType : "json",
-					contentType : "application/json;charset=UTF-8",
-					error : function() {
-						// 联系管理员
-						window.location
-								.href("../system/RglE00001_SessionTimeoutError");
-						return;
-					},
-					//请求成功后的回调函数有两个参数
-					success : function(data, textStatus) {
-						$('#collapse').collapse();
-					}
-				});
-
-	}
 </script>
 </html>

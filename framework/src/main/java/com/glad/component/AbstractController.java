@@ -49,16 +49,16 @@ public abstract class AbstractController {
 		ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		String servletPath = requestAttributes.getRequest().getServletPath();
 
-		// /top/
+		// /Dashboard/
 		if (servletPath.endsWith("/")) {
 			return servletPath.substring(0, servletPath.indexOf("/", servletPath.indexOf("/") + 1));
 		}
-		// /top/init
+		// /Dashboard/init
 		if (servletPath.substring(1).contains("/")) {
 			// replace 'init' 'submit'
 			return servletPath.replaceAll("\\/\\w+$", "");
 		}
-		// /top
+		// /Dashboard
 		return servletPath;
 	}
 
@@ -72,16 +72,16 @@ public abstract class AbstractController {
 		ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		String servletPath = requestAttributes.getRequest().getServletPath();
 
-		// /top/
+		// /Dashboard/
 		if (servletPath.endsWith("/")) {
 			return servletPath.substring(0, servletPath.indexOf("/", servletPath.indexOf("/") + 1));
 		}
-		// /top/init
+		// /Dashboard/init
 		if (servletPath.endsWith("/init") || servletPath.endsWith("/index")) {
 			// replace 'init'
 			return servletPath.replaceAll("\\/\\w+$", "");
 		}
-		// /top
+		// /Dashboard
 		return servletPath;
 	}
 

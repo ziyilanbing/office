@@ -78,7 +78,6 @@ public class WorkhoursController extends BaseController<WorkhoursModel> {
 		workhoursModel.setWktmStarthm("");
 		workhoursModel.setWktmEndhm("");
 		workhoursModel.setComment("");
-		workhoursModel.setOdhWktmManageChecked(null);
 
 		return "workhours/register";
 	}

@@ -19,7 +19,7 @@ import com.glad.collections.MySession;
 import com.glad.exp.AppWarnException;
 import com.glad.exp.OfficeException;
 import com.glad.menu.MenuTree;
-import com.glad.model.TopModel;
+import com.glad.model.DashboardModel;
 import com.glad.service.MenuService;
 import com.glad.util.Constant;
 
@@ -28,15 +28,15 @@ import com.glad.util.Constant;
  * @date 2017年3月9日
  */
 @Controller
-@RequestMapping("/top")
-@ScreenId("glad.office.Top")
-public class TopController extends BaseController<TopModel> {
+@RequestMapping("/dashboard")
+@ScreenId("glad.office.Dashboard")
+public class DashboardController extends BaseController<DashboardModel> {
 
 	@Autowired
 	private MenuService menuService;
 
 	@Override
-	public void doInit(ModelMap model, TopModel commandForm) throws OfficeException {
+	public void doInit(ModelMap model, DashboardModel commandForm) throws OfficeException {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String userName = principal instanceof UserDetails ? ((UserDetails) principal).getUsername() : principal.toString();
 		MySession.LoginUserId.value(userName);
@@ -58,7 +58,7 @@ public class TopController extends BaseController<TopModel> {
 	}
 
 	@RequestMapping(value = "/exception", method = RequestMethod.GET)
-	public String exceptionTest(ModelMap model, @ModelAttribute TopModel commandForm, BindingResult result) throws Exception {
+	public String exceptionTest(ModelMap model, @ModelAttribute DashboardModel commandForm, BindingResult result) throws Exception {
 		try {
 
 			throw new AppWarnException("OFE0001MW", new String[]{"parm1", "parm2"}, Constant.TEST);
