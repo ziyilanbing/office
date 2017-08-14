@@ -18,6 +18,10 @@
 	<http pattern="/static/**" security="none" />
 
 	<http auto-config="true" create-session="always" use-expressions="true">
+		<!-- response header : X-Frame-Options disabled -->
+		<headers>
+			<frame-options disabled="true" />
+		</headers>
 		<!-- 配置登录页面 -->
 		<form-login login-page="/login" default-target-url="/dashboard/init"
 			login-processing-url="/login/submit" authentication-failure-url="/login/authenticationFailure"
@@ -70,5 +74,5 @@
 	<beans:bean id="customSecurityMetadataSource"
 		class="com.glad.security.CustomInvocationSecurityMetadataSource">
 	</beans:bean>
-	
+
 </beans:beans>
