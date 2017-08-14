@@ -1,12 +1,7 @@
 <%@ include file="../include/head.jsp"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<body class="hold-transition skin-blue sidebar-mini">
-	<div class="wrapper">
+<body class="hold-transition skin-blue sidebar-mini" style="background-color:#ecf0f5;">
 
-		<%@ include file="../include/header.jsp"%>
-
-		<!-- Content Wrapper. Contains page content -->
-		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>Dashboard</h1>
@@ -118,14 +113,6 @@
 				</form:form>
 			</section>
 			<!-- /.content -->
-		</div>
-		<!-- /.content-wrapper -->
-
-		<%@ include file="../include/footer.jsp"%>
-
-	</div>
-	<!-- ./wrapper -->
-
 </body>
 
 <!-- InputMask -->
