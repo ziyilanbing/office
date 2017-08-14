@@ -1,4 +1,4 @@
-<%@ include file="./include/head.jsp"%>
+<jsp:include page="./include/head.jsp" flush="true"/>
 
 <body>
 	<div id="wrapper">

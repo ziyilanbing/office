@@ -131,15 +131,15 @@
 												<th>项目阶段</th>
 												<th>时间</th>
 											</tr>
-											<c:forEach var="a" items="${ }">
-												<tr>
-													<td>${a.recNo }.</td>
-													<td>${a.wktmType }</td>
-													<td>${a.wktmSubtype }</td>
-													<td>${a.projectStage }</td>
-													<td>${a.wktmTimes }</td>
-												</tr>
-											</c:forEach>
+<%-- 											<c:forEach var="a" items="${ }"> --%>
+<!-- 												<tr> -->
+<%-- 													<td>${a.recNo }.</td> --%>
+<%-- 													<td>${a.wktmType }</td> --%>
+<%-- 													<td>${a.wktmSubtype }</td> --%>
+<%-- 													<td>${a.projectStage }</td> --%>
+<%-- 													<td>${a.wktmTimes }</td> --%>
+<!-- 												</tr> -->
+<%-- 											</c:forEach> --%>
 										</table>
 									</div>
 								</div>

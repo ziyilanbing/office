@@ -1,5 +1,5 @@
 <%@ taglib prefix="office" uri="http://www.com.glad.office/tags"%>
-<%@ include file="./include/head.jsp"%>
+<jsp:include page="./include/head.jsp" flush="true"/>
 
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
