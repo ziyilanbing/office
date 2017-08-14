@@ -1,4 +1,4 @@
-<%@ include file="./include/head.jsp"%>
+<jsp:include page="./include/head.jsp" flush="true"/>
 
 <body class="hold-transition login-page">
 	<div class="login-box">

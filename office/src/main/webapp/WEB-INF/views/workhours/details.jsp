@@ -87,14 +87,14 @@
 									<div class="box-body">
 										<table class="table table-bordered table-hover">
 											<tr>
-												<th>序号</th>
-												<th>工时类型</th>
-												<th>子类型</th>
-												<th>项目阶段</th>
-												<th>开始时间</th>
-												<th>结束时间</th>
-												<th>时间</th>
-												<th>备注</th>
+												<th class="col-md-1">序号</th>
+												<th class="col-md-1">工时类型</th>
+												<th class="col-md-1">子类型</th>
+												<th class="col-md-1">项目阶段</th>
+												<th class="col-md-2">开始时间</th>
+												<th class="col-md-2">结束时间</th>
+												<th class="col-md-1">时间</th>
+												<th class="col-md-3">备注</th>
 											</tr>
 											<c:forEach var="a" items="${OdhWktmManageList }">
 												<tr>
