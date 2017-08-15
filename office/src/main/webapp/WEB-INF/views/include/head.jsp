@@ -33,6 +33,8 @@
 
 <!-- jQuery -->
 <script src="<c:url value='/static/vendor/jquery/jquery.min.js'/>"></script>
+<!-- jQuery Pjax -->
+<script src="<c:url value='/static/vendor/jquery/jquery.pjax.js'/>"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script

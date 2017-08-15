@@ -131,9 +131,9 @@ public class MenuTag extends HtmlEscapeTag {
 		// liHtml.append(((SysMenu) treeNode.getData()).getMenuUrl());
 		liHtml.append(((OdhModlInfo) treeNode.getData()).getModelUrl());
 		if (treeNode.hasChild()) {
-			liHtml.append("\" target=\"mainFrame\"><i class=\"fa fa-sitemap\"></i>");
+			liHtml.append("\"><i class=\"fa fa-sitemap\"></i>");
 		} else {
-			liHtml.append("\" target=\"mainFrame\">");
+			liHtml.append("\">");
 		}
 		// liHtml.append(((SysMenu) treeNode.getData()).getMenuName());
 		if (!treeNode.hasChild()) {

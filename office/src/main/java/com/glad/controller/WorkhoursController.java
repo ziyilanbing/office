@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -107,13 +108,14 @@ public class WorkhoursController extends BaseController<WorkhoursModel> {
 	}
 
 	@RequestMapping(value = {"/search"}, method = {RequestMethod.GET, RequestMethod.POST})
-	public String search(ModelMap model, @ModelAttribute WorkhoursModel workhoursModel, OdhWktmManage odhWktmManage) throws Exception {
+	public String search(ModelMap model, HttpServletRequest request, OdhWktmManage odhWktmManage) throws Exception {
 
 		System.out.println(odhWktmManage.getWktmStartYmdhm());
 		System.out.println(odhWktmManage.getWktmEndYmdhm());
 		List<OdhWktmManage> OdhWktmManageList = workhoursService.selectByTime(odhWktmManage);
 		model.addAttribute("OdhWktmManageList", OdhWktmManageList);
-		return "workhours/details";
+		request.setAttribute("__pageid", "/workhours/details");
+		return "/layout";
 	}
 
 }
