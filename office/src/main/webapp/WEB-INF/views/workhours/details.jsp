@@ -10,7 +10,7 @@
 
 <!-- Main content -->
 <section class="content">
-	<form action="search" method="POST">
+				<form:form action="REPLACEBYSCRIPT" method="POST">
 		<div class="row">
 			<!-- left column -->
 			<div class="col-md-12">
@@ -110,7 +110,7 @@
 				</div>
 			</div>
 		</div>
-	</form>
+	</form:form>
 </section>
 <!-- /.content -->
 <!-- InputMask -->

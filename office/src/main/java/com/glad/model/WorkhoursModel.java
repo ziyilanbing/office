@@ -1,5 +1,7 @@
 package com.glad.model;
 
+import java.util.Date;
+
 import com.glad.component.AbstractModel;
 import com.glad.entity.OdhWktmManage;
 
@@ -32,13 +34,9 @@ public class WorkhoursModel extends AbstractModel {
 
 	private OdhWktmManage odhWktmManageChecked;
 
-	public String getComment() {
-		return comment;
-	}
+	private Date wktmStartYmdhm;
 
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
+	private Date wktmEndYmdhm;
 
 	public String getWktmStartYmd() {
 		return wktmStartYmd;
@@ -96,12 +94,36 @@ public class WorkhoursModel extends AbstractModel {
 		this.projectStage = projectStage;
 	}
 
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
 	public OdhWktmManage getOdhWktmManageChecked() {
 		return odhWktmManageChecked;
 	}
 
 	public void setOdhWktmManageChecked(OdhWktmManage odhWktmManageChecked) {
 		this.odhWktmManageChecked = odhWktmManageChecked;
+	}
+
+	public Date getWktmStartYmdhm() {
+		return wktmStartYmdhm;
+	}
+
+	public void setWktmStartYmdhm(Date wktmStartYmdhm) {
+		this.wktmStartYmdhm = wktmStartYmdhm;
+	}
+
+	public Date getWktmEndYmdhm() {
+		return wktmEndYmdhm;
+	}
+
+	public void setWktmEndYmdhm(Date wktmEndYmdhm) {
+		this.wktmEndYmdhm = wktmEndYmdhm;
 	}
 
 }

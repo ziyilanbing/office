@@ -352,8 +352,21 @@ $(function() {
 						"<span class=\"help-block\"></span>");
 				$(".help-block").text($("#errorMessage").text());
 			});
-});
+	});
 
 	$(document).pjax('a', '#pjax-container');
+	$(document).on('submit', 'form', function(event) {
+		var config = {};
+		var url = $("button[type=submit][formaction]:focus", $(this)).attr("formaction");
+		if (url) {
+			config.url = url;
+			config.data = $(this).serialize();
+			config.contentType = "application/x-www-form-urlencoded; charset=UTF-8";
+			$.pjax.submit(event, '#pjax-container',config);
+		} else {
+			alert("url 不能为空");
+		}
+		//$.pjax.submit(event, '#pjax-container',{ dataType: "json",data: JSON.stringify({comment : "255",a:"256"})});
+	});
 </script>
 </html>
