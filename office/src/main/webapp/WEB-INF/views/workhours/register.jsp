@@ -1,14 +1,5 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<c:if test="${!__pjax}">
-	<jsp:include page="../include/head.jsp" flush="true" />
 
-	<body class="hold-transition skin-blue sidebar-mini">
-		<div class="wrapper">
-			<jsp:include page="../include/header.jsp" flush="true" />
-
-			<!-- Content Wrapper. Contains page content -->
-			<div class="content-wrapper" id="pjax-container">
-</c:if>
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<h1>Dashboard</h1>
@@ -260,46 +251,35 @@
 <script
 	src="<c:url value='/static/vendor/input-mask/jquery.inputmask.date.extensions.js'/>"></script>
 <script>
-	$(function() {
-		//Money Euro
-		$("[data-mask]").inputmask();
+$(function() {
+	$(".has-error").each(
+	function() {
+		$(this).closest(".form-group").addClass("has-error");
+		$(this).closest(".form-group").append(
+				"<span class=\"help-block\"></span>");
+		$(".help-block").text($("#errorMessage").text());
+	});
+});
+$(function() {
+	//Money Euro
+	$("[data-mask]").inputmask();
 
-		// Date picker
-		$(".date").each(function() {
-			$(this).datepicker({
-				format : "yyyy/mm/dd",
-				todayBtn : "linked",
-				language : "zh-CN",
-				orientation : "bottom auto",
-				autoclose : true
-			});
-		});
-		// app.js 实装TODO
-		$('#exampleModal').on('shown.bs.modal', function(e) {
-			$("#saveChanges").focus();
-			$("#saveChanges").click(function() {
-				$.post("submit");
-			});
+	// Date picker
+	$(".date").each(function() {
+		$(this).datepicker({
+			format : "yyyy/mm/dd",
+			todayBtn : "linked",
+			language : "zh-CN",
+			orientation : "bottom auto",
+			autoclose : true
 		});
 	});
-</script>
-<c:if test="${!__pjax}">
-	</div>
-	<!-- /.content-wrapper -->
-	<jsp:include page="../include/footer.jsp" flush="true" />
-	</div>
-	<!-- ./wrapper -->
-
-	</body>
-	<script>
-		$(document).pjax('a', '#pjax-container');
-
-		$(".has-error").each(function() {
-			$(this).closest(".form-group").addClass("has-error");
-			$(this).closest(".form-group").append(
-					"<span class=\"help-block\"></span>");
-			$(".help-block").text($("#errorMessage").text());
+	
+	$('#exampleModal').on('shown.bs.modal', function(e) {
+		$("#saveChanges").focus();
+		$("#saveChanges").click(function() {
+			$.post("submit");
 		});
-	</script>
-	</html>
-</c:if>
+	});
+});
+</script>

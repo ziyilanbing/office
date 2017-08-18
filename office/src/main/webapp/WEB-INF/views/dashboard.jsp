@@ -333,7 +333,6 @@
 
 </body>
 <script>
-
 //app.js 追加
 $(function() {
 	var token = $("meta[name='_csrf']").attr("content");
@@ -344,29 +343,33 @@ $(function() {
 			xhr.setRequestHeader('Content-Type', 'application/json');
 		}
 	});
-
-	$(".has-error").each(
-			function() {
-				$(this).closest(".form-group").addClass("has-error");
-				$(this).closest(".form-group").append(
-						"<span class=\"help-block\"></span>");
-				$(".help-block").text($("#errorMessage").text());
-			});
-	});
-
-	$(document).pjax('a', '#pjax-container');
-	$(document).on('submit', 'form', function(event) {
-		var config = {};
-		var url = $("button[type=submit][formaction]:focus", $(this)).attr("formaction");
-		if (url) {
-			config.url = url;
-			config.data = $(this).serialize();
-			config.contentType = "application/x-www-form-urlencoded; charset=UTF-8";
-			$.pjax.submit(event, '#pjax-container',config);
-		} else {
-			alert("url 不能为空");
-		}
-		//$.pjax.submit(event, '#pjax-container',{ dataType: "json",data: JSON.stringify({comment : "255",a:"256"})});
-	});
+});
+$(document).pjax('a', '#pjax-container');
+$(document).ready(function() {
+	var url = document.location.href;
+	if (url.indexOf("?") != -1) {
+		var strs = url.split("=");
+		$.pjax.reload('#pjax-container', {
+			url : strs[1]
+		});
+	}
+	//分离layout和dashboard
+	//else{
+	//	$.pjax.reload('#pjax-container', {url:"/office/dashboard"});
+	//}
+});
+$(document).on('submit','form',function(event) {
+	var config = {};
+	var url = $("button[type=submit][formaction]:focus",
+			$(this)).attr("formaction");
+	if (url) {
+		config.url = url;
+		config.data = $(this).serialize();
+		config.contentType = "application/x-www-form-urlencoded; charset=UTF-8";
+		$.pjax.submit(event, '#pjax-container', config);
+	} else {
+		alert("url 不能为空");
+	}
+});
 </script>
 </html>

@@ -57,22 +57,7 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 		} catch (Exception e) {
 			handleException(model, result, e);
 		}
-		if (request.getServletPath().contains("login")) {
-			return getIndexView();
-		}
-		if (request.getServletPath().contains("dashboard")) {
-			return getIndexView();
-		}
-		if (request.getQueryString() != null) {
-			if (request.getQueryString().startsWith("_pjax")) {
-				request.setAttribute("__pjax", true);
-				return getIndexView();
-			}
-		}
-		request.setAttribute("__pageid", getIndexView());
-
-		System.out.println(request.getAttribute("__pageid"));
-		return "/layout";
+		return getIndexView();
 	}
 
 	public void setRequest(HttpServletRequest request) throws OfficeException {

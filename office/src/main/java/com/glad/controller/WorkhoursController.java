@@ -61,7 +61,7 @@ public class WorkhoursController extends BaseController<WorkhoursModel> {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = {"/confirm"}, method = {RequestMethod.POST})
+	@RequestMapping(value = {"/confirm"}, method = {RequestMethod.GET, RequestMethod.POST})
 	public String confirm(ModelMap model, @Valid @ModelAttribute WorkhoursModel workhoursModel, BindingResult result, HttpServletRequest request)
 		throws Exception {
 		try {
@@ -69,7 +69,6 @@ public class WorkhoursController extends BaseController<WorkhoursModel> {
 		} catch (Exception e) {
 			handleException(model, result, e);
 		}
-		request.setAttribute("__pjax", false);
 		return "workhours/register";
 	}
 
@@ -109,7 +108,7 @@ public class WorkhoursController extends BaseController<WorkhoursModel> {
 		return rtnmap;
 	}
 
-	@RequestMapping(value = {"/search"}, method = {RequestMethod.POST})
+	@RequestMapping(value = {"/search"}, method = {RequestMethod.GET, RequestMethod.POST})
 	public String search(ModelMap model, OdhWktmManage odhWktmManage, HttpServletRequest request) throws Exception {
 		System.out.println(odhWktmManage.getWktmStartYmdhm());
 		System.out.println(odhWktmManage.getWktmEndYmdhm());
