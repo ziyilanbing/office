@@ -72,15 +72,13 @@ public class WorkhoursController extends BaseController<WorkhoursModel> {
 		return "workhours/register";
 	}
 
-	@RequestMapping(value = {"/submit"}, method = {RequestMethod.POST})
+	@RequestMapping(value = {"/submit"}, method = {RequestMethod.GET})
 	public String submit(ModelMap model, @ModelAttribute WorkhoursModel workhoursModel) throws Exception {
 
 		workhoursService.submit(workhoursModel);
-
 		workhoursModel.setWktmStarthm("");
 		workhoursModel.setWktmEndhm("");
 		workhoursModel.setComment("");
-
 		return "workhours/register";
 	}
 
@@ -112,8 +110,8 @@ public class WorkhoursController extends BaseController<WorkhoursModel> {
 	public String search(ModelMap model, OdhWktmManage odhWktmManage, HttpServletRequest request) throws Exception {
 		System.out.println(odhWktmManage.getWktmStartYmdhm());
 		System.out.println(odhWktmManage.getWktmEndYmdhm());
-		List<OdhWktmManage> OdhWktmManageList = workhoursService.selectByTime(odhWktmManage);
-		model.addAttribute("OdhWktmManageList", OdhWktmManageList);
+		List<OdhWktmManage> odhWktmManageList = workhoursService.selectByTime(odhWktmManage);
+		model.addAttribute("odhWktmManageList", odhWktmManageList);
 		request.setAttribute("__pageid", "/workhours/details");
 		return "workhours/details";
 	}
