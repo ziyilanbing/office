@@ -89,18 +89,18 @@
 									<th class="col-md-1">时间</th>
 									<th class="col-md-3">备注</th>
 								</tr>
-								<c:forEach var="a" items="${OdhWktmManageList }">
+								<c:forEach var="odhWktmManage" items="${odhWktmManageList }">
 									<tr>
-										<td>${a.recNo }.</td>
-										<td>${a.wktmType }</td>
-										<td>${a.wktmSubtype }</td>
-										<td>${a.projectStage }</td>
-										<td><fmt:formatDate value="${a.wktmStartYmdhm}"
+										<td>${odhWktmManage.recNo }.</td>
+										<td>${odhWktmManage.wktmType }</td>
+										<td>${odhWktmManage.wktmSubtype }</td>
+										<td>${odhWktmManage.projectStage }</td>
+										<td><fmt:formatDate value="${odhWktmManage.wktmStartYmdhm}"
 												pattern="yyyy-MM-dd HH:mm" /></td>
-										<td><fmt:formatDate value="${a.wktmEndYmdhm }"
+										<td><fmt:formatDate value="${odhWktmManage.wktmEndYmdhm }"
 												pattern="yyyy-MM-dd HH:mm" /></td>
-										<td>${a.wktmTimes }</td>
-										<td>${a.memo }</td>
+										<td>${odhWktmManage.wktmTimes }</td>
+										<td>${odhWktmManage.memo }</td>
 									</tr>
 								</c:forEach>
 							</table>
