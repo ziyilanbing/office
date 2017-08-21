@@ -70,7 +70,7 @@ public class Application {
 				map.put(attribValue.getAttribVal(), attribValue.getAttribExpla());
 			}
 			servletContext.setAttribute(attribId, map);
-			System.out.println(attribId + " //// " + map.toString());
+			logger.info("Key : " + attribId + " Value : " + map.toString());
 		}
 	}
 
