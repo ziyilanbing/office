@@ -210,7 +210,7 @@
 						<div class="box-footer">
 							<button type="button" class="btn btn-primary margin pull-right"
 								data-toggle="modal" data-target="#exampleModal">提交</button>
-							<button type="submit" class="btn btn-primary margin pull-right">下班</button>
+							<button type="button" id="quit" class="btn btn-primary margin pull-right">下班</button>
 							<button type="submit" class="btn btn-primary margin pull-right">删除</button>
 							<button type="submit" class="btn btn-primary margin pull-right">修改</button>
 						</div>
@@ -245,11 +245,6 @@
 	</div>
 </div>
 
-<!-- InputMask -->
-<script
-	src="<c:url value='/static/vendor/input-mask/jquery.inputmask.js'/>"></script>
-<script
-	src="<c:url value='/static/vendor/input-mask/jquery.inputmask.date.extensions.js'/>"></script>
 <script>
 $(function() {
 	$(".has-error").each(
@@ -278,7 +273,9 @@ $(function() {
 	$('#exampleModal').on('shown.bs.modal', function(e) {
 		$("#saveChanges").focus();
 		$("#saveChanges").click(function() {
-			$.post("submit");
+			$.pjax.reload('#pjax-container', {
+				url : "submit"
+			});
 		});
 	});
 });

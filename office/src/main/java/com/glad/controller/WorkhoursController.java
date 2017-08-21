@@ -52,6 +52,24 @@ public class WorkhoursController extends BaseController<WorkhoursModel> {
 
 	}
 
+	@RequestMapping(value = {"/register"}, method = {RequestMethod.GET})
+	public String register(ModelMap model, @ModelAttribute WorkhoursModel workhoursModel) throws Exception {
+
+		return getIndexView();
+	}
+
+	@RequestMapping(value = {"/details"}, method = {RequestMethod.GET})
+	public String details(ModelMap model, @ModelAttribute WorkhoursModel workhoursModel) throws Exception {
+
+		return getIndexView();
+	}
+
+	@RequestMapping(value = {"/total"}, method = {RequestMethod.GET})
+	public String total(ModelMap model, @ModelAttribute WorkhoursModel workhoursModel) throws Exception {
+
+		return getIndexView();
+	}
+
 	/**
 	 * Post demo
 	 * 

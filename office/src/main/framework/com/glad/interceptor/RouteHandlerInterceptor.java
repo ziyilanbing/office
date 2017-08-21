@@ -5,14 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler;
 
-import com.glad.base.BaseController;
+public class RouteHandlerInterceptor extends HandlerInterceptorAdapter {
 
-public class RouteHandlerInterceptor implements HandlerInterceptor {
-
-	protected Logger logger = LoggerFactory.getLogger(BaseController.class);
+	protected Logger logger = LoggerFactory.getLogger(RouteHandlerInterceptor.class);
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -21,22 +19,13 @@ public class RouteHandlerInterceptor implements HandlerInterceptor {
 			logger.info("Request X-PJAX");
 			return true;
 		}
+		// 找不到对应的HandlerMapping / 静态资源
+		if (handler instanceof DefaultServletHttpRequestHandler) {
+			return true;
+		}
 		String contextPath = request.getContextPath();
 		response.sendRedirect(contextPath + "/dashboard/init?redirectby=" + request.getRequestURI());
 		logger.info("Redirect : " + request.getRequestURI());
-		return false;
+		return true;
 	}
-
-	@Override
-	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-
 }
