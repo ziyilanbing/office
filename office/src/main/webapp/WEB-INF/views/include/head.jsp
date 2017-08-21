@@ -46,6 +46,12 @@
 	src="<c:url value='/static/vendor/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js'/>"
 	charset="UTF-8"></script>
 
+<!-- InputMask -->
+<script
+	src="<c:url value='/static/vendor/input-mask/jquery.inputmask.js'/>"></script>
+<script
+	src="<c:url value='/static/vendor/input-mask/jquery.inputmask.date.extensions.js'/>"></script>
+
 <!-- Custom Theme JavaScript -->
 <script src="<c:url value='/static/js/app.js'/>"></script>
 
