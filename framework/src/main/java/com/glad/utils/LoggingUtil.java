@@ -3,10 +3,10 @@
  */
 package com.glad.utils;
 
-import org.apache.commons.logging.Log;
+import org.slf4j.Logger;
 
 public class LoggingUtil {
-	public static void writeLog(Log logger, String messageId, String message, Exception cause) {
+	public static void writeLog(Logger logger, String messageId, String message, Exception cause) {
 		if (messageId != null && !messageId.isEmpty()) {
 			if (messageId.endsWith("I")) {
 				logger.info(message);

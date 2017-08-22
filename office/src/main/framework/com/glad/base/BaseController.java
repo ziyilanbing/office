@@ -55,7 +55,7 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 			setRequest(request);
 
 		} catch (Exception e) {
-			handleException(model, result, e);
+			handleException(logger, model, result, e);
 		}
 		return getIndexView();
 	}

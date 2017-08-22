@@ -25,18 +25,18 @@ public class OfficeException extends Exception {
 		this.args = args;
 	}
 
-	private String getKey() {
+	public String getKey() {
 		return key;
 	}
 
-	private Object[] getArgs() {
+	public Object[] getArgs() {
 		return args;
 	}
 
 	public String getLocalizedMessage() {
 
-		ResourceBundle bundle = ResourceBundle.getBundle(BUNDLENAME, Locale.CHINA,
-				ResourceBundle.Control.getNoFallbackControl(ResourceBundle.Control.FORMAT_DEFAULT));
+		ResourceBundle bundle = ResourceBundle.getBundle(	BUNDLENAME, Locale.CHINA,
+															ResourceBundle.Control.getNoFallbackControl(ResourceBundle.Control.FORMAT_DEFAULT));
 
 		MessageFormat format = new MessageFormat(bundle.getString(getKey()));
 

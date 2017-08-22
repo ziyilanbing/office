@@ -16,7 +16,6 @@ import com.glad.exp.OfficeException;
 import com.glad.model.FormsModel;
 
 /**
- * 
  * @author zhongqs
  * @date 2017年3月9日
  */
@@ -45,15 +44,14 @@ public class FormsController extends BaseController<FormsModel> {
 
 	}
 
-	@RequestMapping(value = "/input", method = { RequestMethod.GET, RequestMethod.POST })
-	public String exceptionTest(ModelMap model, @Valid @ModelAttribute FormsModel formsModel, BindingResult result)
-			throws Exception {
+	@RequestMapping(value = "/input", method = {RequestMethod.GET, RequestMethod.POST})
+	public String exceptionTest(ModelMap model, @Valid @ModelAttribute FormsModel formsModel, BindingResult result) throws Exception {
 
 		try {
 			// 業務處理
 
 		} catch (Exception e) {
-			handleException(model, result, e);
+			handleException(logger, model, result, e);
 		}
 		return this.getDefaultView();
 	}

@@ -7,21 +7,16 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.glad.Constants;
 import com.glad.annotation.ScreenId;
 import com.glad.base.BaseController;
 import com.glad.collections.MySession;
-import com.glad.exp.AppWarnException;
 import com.glad.exp.OfficeException;
 import com.glad.menu.MenuTree;
 import com.glad.model.DashboardModel;
 import com.glad.service.MenuService;
-import com.glad.util.Constant;
 
 /**
  * @author zhongqs
@@ -55,17 +50,5 @@ public class DashboardController extends BaseController<DashboardModel> {
 		// Set Login Ip
 		MySession.LoginIp.value(request.getRemoteAddr());
 		super.setRequest(request);
-	}
-
-	@RequestMapping(value = "/exception", method = RequestMethod.GET)
-	public String exceptionTest(ModelMap model, @ModelAttribute DashboardModel commandForm, BindingResult result) throws Exception {
-		try {
-
-			throw new AppWarnException("OFE0001MW", new String[]{"parm1", "parm2"}, Constant.TEST);
-
-		} catch (Exception e) {
-			handleException(model, result, e);
-		}
-		return this.getDefaultView();
 	}
 }

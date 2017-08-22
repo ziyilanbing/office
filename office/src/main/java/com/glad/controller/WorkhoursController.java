@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.glad.annotation.ScreenId;
 import com.glad.base.BaseController;
 import com.glad.entity.OdhWktmManage;
+import com.glad.exp.AppWarnException;
 import com.glad.exp.OfficeException;
 import com.glad.model.WorkhoursModel;
 import com.glad.service.WorkhoursService;
@@ -65,8 +66,12 @@ public class WorkhoursController extends BaseController<WorkhoursModel> {
 	}
 
 	@RequestMapping(value = {"/total"}, method = {RequestMethod.GET})
-	public String total(ModelMap model, @ModelAttribute WorkhoursModel workhoursModel) throws Exception {
-
+	public String total(ModelMap model, @ModelAttribute WorkhoursModel workhoursModel, BindingResult result) throws Exception {
+		try {
+			throw new AppWarnException("OFE0001MW", new String[]{"1", "2"}, "wktmStarthm");
+		} catch (OfficeException e) {
+			handleException(logger, model, result, e);
+		}
 		return getIndexView();
 	}
 
@@ -84,8 +89,8 @@ public class WorkhoursController extends BaseController<WorkhoursModel> {
 		throws Exception {
 		try {
 			workhoursService.confirm(workhoursModel);
-		} catch (Exception e) {
-			handleException(model, result, e);
+		} catch (OfficeException e) {
+			handleException(logger, model, result, e);
 		}
 		return "workhours/register";
 	}
