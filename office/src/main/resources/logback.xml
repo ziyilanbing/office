@@ -13,7 +13,7 @@
 	<appender name="logfile"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<Encoding>UTF-8</Encoding>
-		<File>${log.base}_office.log</File>
+		<File>${logbase}office.log</File>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<FileNamePattern>${logbase}.%d{yyyy-MM-dd}_office.log.zip
 			</FileNamePattern>
@@ -31,11 +31,11 @@
 		<appender-ref ref="stdout" />
 	</root>
 
-	<root level="debug">
+	<root level="info">
 		<appender-ref ref="logfile" />
 	</root>
 
-	<logger name="org.springframework" level="debug" additivity="false">
+	<logger name="org.springframework" level="info" additivity="false">
 		<appender-ref ref="logfile" />
 	</logger>
 
