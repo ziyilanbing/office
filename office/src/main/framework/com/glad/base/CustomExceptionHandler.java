@@ -3,20 +3,23 @@ package com.glad.base;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.glad.exp.AppWarnException;
+import com.glad.exp.AppErrorException;
+import com.glad.exp.AppFailedException;
 import com.glad.model.LoginModel;
 
 @ControllerAdvice
 public class CustomExceptionHandler {
+
+	protected Logger logger = LoggerFactory.getLogger(CustomExceptionHandler.class);
 
 	@ModelAttribute
 	public LoginModel newUser() {
@@ -24,15 +27,21 @@ public class CustomExceptionHandler {
 		return new LoginModel();
 	}
 
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		System.out.println("============应用到所有@RequestMapping注解方法，在其执行之前初始化数据绑定器");
+	@ExceptionHandler(AppErrorException.class)
+	@ResponseStatus(HttpStatus.OK)
+	public ModelAndView processAppErrorException(HttpServletRequest request, HttpServletResponse response, Object handler, AppErrorException e) {
+		System.out.println(request.toString());
+		System.out.println(response.toString());
+		System.out.println(handler.toString());
+		System.out.println(e.toString());
+		// 返回一个逻辑视图名
+		// .replace("office/", "")
+		return new ModelAndView(request.getRequestURI());
 	}
 
-	@ExceptionHandler(AppWarnException.class)
+	@ExceptionHandler(AppFailedException.class)
 	@ResponseStatus(HttpStatus.OK)
-	public ModelAndView processAppWarnException(HttpServletRequest request, HttpServletResponse response, Object handler, AppWarnException e) {
-		System.out.println("===========应用到所有@RequestMapping注解的方法，在其抛出UnauthenticatedException异常时执行");
+	public ModelAndView processAppFailedException(HttpServletRequest request, HttpServletResponse response, Object handler, AppFailedException e) {
 		System.out.println(request.toString());
 		System.out.println(response.toString());
 		System.out.println(handler.toString());
