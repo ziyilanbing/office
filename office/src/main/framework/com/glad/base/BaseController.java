@@ -63,6 +63,6 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 	public void setRequest(HttpServletRequest request) throws OfficeException {
 	}
 
-	public abstract void doInit(ModelMap model, T commandForm) throws OfficeException;
-
+	public void doInit(ModelMap model, T commandForm) throws OfficeException {
+	}
 }
