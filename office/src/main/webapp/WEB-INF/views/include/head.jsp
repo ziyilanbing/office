@@ -23,7 +23,7 @@
 	rel="stylesheet" type="text/css">
 
 <!-- DataTables -->
-<link href="<c:url value='/static/vendor/datatables/css/dataTables.bootstrap.css'/>"
+<link href="<c:url value='/static/vendor/datatables/datatables.min.css'/>"
 	rel="stylesheet" type="text/css">
 <!-- Theme style -->
 <link rel="stylesheet" href="<c:url value='/static/css/AdminLTE.min.css'/>">
@@ -46,6 +46,8 @@
 <script src="<c:url value='/static/vendor/input-mask/jquery.inputmask.date.extensions.js'/>"></script>
 <!-- SlimScroll -->
 <script src="<c:url value='/static/vendor/slimScroll/jquery.slimscroll.min.js'/>"></script>
+<!-- DataTables -->
+<script src="<c:url value='/static/vendor/datatables/datatables.min.js'/>"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="<c:url value='/static/js/app.js'/>"></script>
