@@ -20,6 +20,7 @@ body {
 }
 body {
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
   font-weight: 400;
   overflow-x: hidden;
   overflow-y: auto;
@@ -332,7 +333,7 @@ a:focus {
   position: absolute;
   top: 15px;
   right: 10px;
-  border-radius: 2px;
+  border-radius: 0px;
 }
 .content-header > .breadcrumb > li > a {
   color: #444;
@@ -1348,7 +1349,7 @@ a:focus {
 .progress > .progress-bar,
 .progress .progress-bar,
 .progress > .progress-bar .progress-bar {
-  border-radius: 1px;
+  border-radius: 0px;
 }
 /* size variation */
 .progress.sm,
@@ -1359,7 +1360,7 @@ a:focus {
 .progress-sm,
 .progress.sm .progress-bar,
 .progress-sm .progress-bar {
-  border-radius: 1px;
+  border-radius: 0px;
 }
 .progress.xs,
 .progress-xs {
@@ -1369,7 +1370,7 @@ a:focus {
 .progress-xs,
 .progress.xs .progress-bar,
 .progress-xs .progress-bar {
-  border-radius: 1px;
+  border-radius: 0px;
 }
 .progress.xxs,
 .progress-xxs {
@@ -1379,7 +1380,7 @@ a:focus {
 .progress-xxs,
 .progress.xxs .progress-bar,
 .progress-xxs .progress-bar {
-  border-radius: 1px;
+  border-radius: 0px;
 }
 /* Vertical bars */
 .progress.vertical {
@@ -1550,7 +1551,7 @@ a:focus {
  */
 .box {
   position: relative;
-  border-radius: 3px;
+  border-radius: 0px;
   background: #ffffff;
   border-top: 3px solid #d2d6de;
   margin-bottom: 20px;
@@ -1709,7 +1710,7 @@ a:focus {
 .overlay-wrapper .overlay {
   z-index: 50;
   background: rgba(255, 255, 255, 0.7);
-  border-radius: 3px;
+  border-radius: 0px;
 }
 .box .overlay > .fa,
 .overlay-wrapper .overlay > .fa {
@@ -1796,13 +1797,13 @@ a:focus {
 .box-body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
   padding: 10px;
 }
 .no-header .box-body {
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
 }
 .box-body > .table {
   margin-bottom: 0;
@@ -1820,19 +1821,19 @@ a:focus {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 0px;
 }
 .box-body .box-pane-right {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0;
 }
 .box-footer {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
   border-top: 1px solid #f4f4f4;
   padding: 10px;
   background-color: #ffffff;
@@ -1993,7 +1994,7 @@ a:focus {
   font-weight: 600;
 }
 .chat .item > .attachment {
-  border-radius: 3px;
+  border-radius: 0px;
   background: #f4f4f4;
   margin-left: 65px;
   margin-right: 15px;
@@ -2035,7 +2036,7 @@ a:focus {
   background: #fff;
   width: 100%;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 2px;
+  border-radius: 0px;
   margin-bottom: 15px;
 }
 .info-box small {
@@ -2054,10 +2055,10 @@ a:focus {
   background: #fff;
 }
 .info-box-icon {
-  border-top-left-radius: 2px;
+  border-top-left-radius: 0px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  border-bottom-left-radius: 2px;
+  border-bottom-left-radius: 0px;
   display: block;
   float: left;
   height: 90px;
@@ -2133,7 +2134,7 @@ a:focus {
 .timeline > li > .timeline-item {
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
+  border-radius: 0px;
   margin-top: 0;
   background: #fff;
   color: #444;
@@ -2199,7 +2200,7 @@ a:focus {
  * -----------------
  */
 .btn {
-  border-radius: 3px;
+  border-radius: 0px;
   -webkit-box-shadow: none;
   box-shadow: none;
   border: 1px solid transparent;
@@ -2397,7 +2398,7 @@ a:focus {
  * ----------------
  */
 .alert {
-  border-radius: 3px;
+  border-radius: 0px;
 }
 .alert h4 {
   font-weight: 600;
@@ -2486,13 +2487,13 @@ a:focus {
   margin-bottom: 20px;
   background: #fff;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
+  border-radius: 0px;
 }
 .nav-tabs-custom > .nav-tabs {
   margin: 0;
   border-bottom-color: #f4f4f4;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
 }
 .nav-tabs-custom > .nav-tabs > li {
   border-top: 3px solid transparent;
@@ -2568,8 +2569,8 @@ a:focus {
 .nav-tabs-custom > .tab-content {
   background: #fff;
   padding: 10px;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 .nav-tabs-custom .dropdown.open > a:active,
 .nav-tabs-custom .dropdown.open > a:focus {
@@ -2612,7 +2613,7 @@ a:focus {
   padding: 0;
 }
 .products-list > .item {
-  border-radius: 3px;
+  border-radius: 0px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   padding: 10px 0;
@@ -2705,6 +2706,7 @@ table.text-center th {
 .table.align td {
   text-align: right;
 }
+/* 2017 - 8 - 23 by zhongqs */
 /* TABLES */
 .table-bordered {
   border: 1px solid #EBEBEB;
@@ -2753,6 +2755,9 @@ table.dataTable thead .sorting_desc_disabled {
 }
 .dataTables_filter label {
   margin-right: 5px;
+}
+.dataTables_wrapper > div[class*="dataTables_"] {
+  font-size: 13px;
 }
 .html5buttons {
   float: right;
@@ -3175,6 +3180,9 @@ div.dt-button-info {
 .modal-danger .modal-footer {
   border-color: #c23321;
 }
+.modal-center {
+  margin: 180px auto;
+}
 /*
  * Component: Social Widgets
  * -------------------------
@@ -3186,8 +3194,8 @@ div.dt-button-info {
 .widget-user .widget-user-header {
   padding: 20px;
   height: 120px;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
 }
 .widget-user .widget-user-username {
   margin-top: 0;
@@ -3215,8 +3223,8 @@ div.dt-button-info {
 }
 .widget-user-2 .widget-user-header {
   padding: 20px;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
 }
 .widget-user-2 .widget-user-username {
   margin-top: 5px;
@@ -4353,7 +4361,7 @@ div.dt-button-info {
   margin-bottom: 4px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
+  border-radius: 0px;
   cursor: move;
 }
 .external-event:hover {
