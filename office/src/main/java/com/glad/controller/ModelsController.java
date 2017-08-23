@@ -14,14 +14,14 @@ import com.glad.dao.OdhModlInfoMapper;
  * Created by CodeGenerator on 2017/07/28.
  */
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/admin/models")
 @ScreenId("glad.office.models")
 public class ModelsController extends BaseController {
 
 	@Autowired
 	private OdhModlInfoMapper odhModlInfoDao;
 
-	@RequestMapping(value = {"/models"}, method = {RequestMethod.GET})
+	@RequestMapping(method = {RequestMethod.GET})
 	public String details(ModelMap model) throws Exception {
 
 		System.out.println(odhModlInfoDao.selectAll().toString());
