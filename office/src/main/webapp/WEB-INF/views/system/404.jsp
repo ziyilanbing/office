@@ -1,43 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>404</title>
+<sec:csrfMetaTags /><!-- Bootstrap Core CSS -->
+<link href="<c:url value="/static/vendor/bootstrap/css/bootstrap.min.css"/>"
+	rel="stylesheet" type="text/css">
+<!-- Custom Fonts -->
+<link href="<c:url value='/static/vendor/font-awesome/css/font-awesome.min.css'/>"
+	rel="stylesheet" type="text/css">
+<!-- date picker -->
+<link href="<c:url value='/static/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'/>"
+	rel="stylesheet" type="text/css">
 
-    <title>INSPINIA | 404 Error</title>
+<!-- DataTables -->
+<link href="<c:url value='/static/vendor/datatables/datatables.min.css'/>"
+	rel="stylesheet" type="text/css">
+<!-- Theme style -->
+<link rel="stylesheet" href="<c:url value='/static/css/AdminLTE.min.css'/>">
+<link rel="stylesheet" href="<c:url value='/static/css/skin-blue.min.css'/>">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+<!-- jQuery -->
+<script src="<c:url value='/static/vendor/jquery/jquery.min.js'/>"></script>
+<!-- jQuery Pjax -->
+<script src="<c:url value='/static/vendor/jquery/jquery.pjax.js'/>"></script>
 
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+<!-- Bootstrap Core JavaScript -->
+<script src="<c:url value='/static/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
+
+<!-- date picker -->
+<script src="<c:url value='/static/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js'/>"></script>
+<script src="<c:url value='/static/vendor/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js'/>"
+	charset="UTF-8"></script>
+<!-- InputMask -->
+<script src="<c:url value='/static/vendor/input-mask/jquery.inputmask.js'/>"></script>
+<script src="<c:url value='/static/vendor/input-mask/jquery.inputmask.date.extensions.js'/>"></script>
+<!-- SlimScroll -->
+<script src="<c:url value='/static/vendor/slimScroll/jquery.slimscroll.min.js'/>"></script>
+<!-- DataTables -->
+<script src="<c:url value='/static/vendor/datatables/datatables.min.js'/>"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="<c:url value='/static/js/app.js'/>"></script>
 
 </head>
+<body class="hold-transition" style="background-color: #ecf0f5;">
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper"
+		style="margin-left: 0px; margin-top: 200px;">
+		<!-- Main content -->
+		<section class="content">
+			<div class="error-page">
+				<h2 class="headline text-yellow">404</h2>
+				<div class="error-content">
+					<h3>
+						<i class="fa fa-warning text-yellow"></i> Oops! Page not found.
+					</h3>
+					<p>
+						We could not find the page you were looking for. Meanwhile, you
+						may <a href="../../index.html">return to dashboard</a> or try
+						using the search form.
+					</p>
+					<form class="search-form">
+						<div class="input-group">
+							<input type="text" name="search" class="form-control"
+								placeholder="Search">
 
-<body class="gray-bg">
-
-
-    <div class="middle-box text-center animated fadeInDown">
-        <h1>404</h1>
-        <h3 class="font-bold">Page Not Found</h3>
-
-        <div class="error-desc">
-            Sorry, but the page you are looking for has note been found. Try checking the URL for error, then hit the refresh button on your browser or try found something else in our app.
-            <form class="form-inline m-t" role="form">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search for page">
-                </div>
-                <button type="submit" class="btn btn-primary">Search</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Mainly scripts -->
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
+							<div class="input-group-btn">
+								<button type="submit" name="submit"
+									class="btn btn-warning btn-flat">
+									<i class="fa fa-search"></i>
+								</button>
+							</div>
+						</div>
+						<!-- /.input-group -->
+					</form>
+				</div>
+				<!-- /.error-content -->
+			</div>
+			<!-- /.error-page -->
+		</section>
+		<!-- /.content -->
+	</div>
 </body>
 
 </html>
