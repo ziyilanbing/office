@@ -3,6 +3,9 @@ package com.glad.startup;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.glad.exp.OfficeException;
 
 /**
@@ -10,9 +13,11 @@ import com.glad.exp.OfficeException;
  */
 public class AppContextListener implements ServletContextListener {
 
+	protected Logger logger = LoggerFactory.getLogger(AppContextListener.class);
+
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		System.out.println("AppContextListener contextInitialized ");
+		logger.info("AppContextListener contextInitialized ");
 		try {
 			Application.init(event);
 		} catch (OfficeException e) {
@@ -26,6 +31,6 @@ public class AppContextListener implements ServletContextListener {
 	@Override
 	public void contextDestroyed(ServletContextEvent event) {
 		Application.destroy();
-		System.out.println("AppContextListener contextDestroyed ");
+		logger.info("AppContextListener contextDestroyed ");
 	}
 }
