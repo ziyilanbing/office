@@ -26,6 +26,6 @@ public class RouteHandlerInterceptor extends HandlerInterceptorAdapter {
 		String contextPath = request.getContextPath();
 		response.sendRedirect(contextPath + "/dashboard/init?redirectby=" + request.getRequestURI());
 		logger.info("Redirect : " + request.getRequestURI());
-		return true;
+		return false;
 	}
 }
