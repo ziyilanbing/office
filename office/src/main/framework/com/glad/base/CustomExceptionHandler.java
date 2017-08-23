@@ -8,24 +8,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.glad.exp.AppErrorException;
 import com.glad.exp.AppFailedException;
-import com.glad.model.LoginModel;
 
 @ControllerAdvice
 public class CustomExceptionHandler {
 
 	protected Logger logger = LoggerFactory.getLogger(CustomExceptionHandler.class);
-
-	@ModelAttribute
-	public LoginModel newUser() {
-		System.out.println("============应用到所有@RequestMapping注解方法，在其执行之前把返回值放入Model");
-		return new LoginModel();
-	}
 
 	@ExceptionHandler(AppErrorException.class)
 	@ResponseStatus(HttpStatus.OK)
