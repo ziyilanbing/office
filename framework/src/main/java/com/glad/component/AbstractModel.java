@@ -1,5 +1,10 @@
 package com.glad.component;
 
+/**
+ * Abstract Model
+ * 
+ * @author zhongqs
+ */
 public abstract class AbstractModel {
 
 	/**
