@@ -52,6 +52,14 @@ public class WorkhoursController extends BaseController<WorkhoursModel> {
 
 	}
 
+	/**
+	 * if you need Initialize the default page, so you need add this method
+	 * 
+	 * @param model
+	 * @param workhoursModel
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value = {"/register"}, method = {RequestMethod.GET})
 	public String register(ModelMap model, @ModelAttribute WorkhoursModel workhoursModel) throws Exception {
 
