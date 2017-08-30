@@ -2,7 +2,8 @@
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
-	<h1>Dashboard</h1>
+	<h1>
+							<spring:message code="${title}" htmlEscape="false" /></h1>
 	<h1>${COMPANY_TYPE.get('00')}</h1>
 	<ol class="breadcrumb">
 		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -20,7 +21,7 @@
 				<div class="box box-info">
 					<div class="box-header with-border">
 						<h3 class="box-title">
-							<spring:message code="${title}" htmlEscape="false" />
+							<spring:message code="glad.office.workhours.register" htmlEscape="false" />
 						</h3>
 					</div>
 					<!-- /.box-header -->
