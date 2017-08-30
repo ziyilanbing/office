@@ -30,13 +30,6 @@ public class LoginController extends BaseController<LoginModel> {
 		return loginModel;
 	}
 
-	@Override
-	public void doInit(ModelMap model, LoginModel loginModel) {
-		System.out.println(loginModel.getScreenId());
-		System.out.println(loginModel.getUsername());
-
-	}
-
 	/**
 	 * login Failure
 	 * 
