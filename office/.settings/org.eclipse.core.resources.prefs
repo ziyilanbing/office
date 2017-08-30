@@ -1,2 +1,10 @@
 eclipse.preferences.version=1
+encoding//src/main/resources/i18n/Name_zh_CN.properties=UTF-8
+encoding//src/main/webapp/WEB-INF/views/admin/models.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/admin/user.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/dashboard.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/login.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/workhours/details.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/workhours/register.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/workhours/total.jsp=UTF-8
 encoding/<project>=UTF-8
