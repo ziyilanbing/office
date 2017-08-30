@@ -4,22 +4,21 @@ import java.util.Date;
 
 /**
  * @author zhongqs
- * @date 2017.8.8
  */
 public class AbstractDto {
 
 	/**
-	 * Create Time
+	 * LOGIN_NO 登录者工号
 	 */
 	private String loginNo;
 
 	/**
-	 * Create By
+	 * LOGIN_IP 登录者IP
 	 */
 	private String loginIp;
 
 	/**
-	 * Update Time
+	 * REC_INSERT_TIME 登录时间
 	 */
 	private Date recInsertTime;
 
