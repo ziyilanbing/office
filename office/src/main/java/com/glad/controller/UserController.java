@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.glad.annotation.ScreenId;
 import com.glad.base.BaseController;
+import com.glad.model.DefaultModel;
 
 /**
  * Created by CodeGenerator on 2017/07/28.
@@ -14,7 +15,7 @@ import com.glad.base.BaseController;
 @Controller
 @RequestMapping("/admin/user")
 @ScreenId("glad.office.user")
-public class UserController extends BaseController {
+public class UserController extends BaseController<DefaultModel> {
 
 	@RequestMapping(method = {RequestMethod.GET})
 	public String details(ModelMap model) throws Exception {
