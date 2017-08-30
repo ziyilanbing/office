@@ -38,22 +38,36 @@ public abstract class BaseController<T extends AbstractModel> extends AbstractCo
 	}
 
 	/**
-	 * init page
+	 * initialize
 	 * 
 	 * @param model
-	 * @param loginModel
+	 * @param commandForm
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = {"/*"}, method = {RequestMethod.GET})
+	public String view(ModelMap model, @ModelAttribute T commandForm) throws Exception {
+		setScreenInfo(model, commandForm);
+		logger.info("View : " + getIndexView() + ".jsp");
+		return getIndexView();
+	}
+
+	/**
+	 * /pageid/init
+	 * 
+	 * @param model
+	 * @param commandForm
+	 * @param result
 	 * @param request
-	 * @return Redirect Screen Id
+	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping(value = {"/init"}, method = {RequestMethod.GET})
 	public String init(ModelMap model, @ModelAttribute T commandForm, BindingResult result, HttpServletRequest request) throws Exception {
 		try {
 			setScreenInfo(model, commandForm);
-
 			doInit(model, commandForm);
 			setRequest(request);
-
 		} catch (Exception e) {
 			handleException(logger, model, result, e);
 		}
