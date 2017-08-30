@@ -4,6 +4,11 @@ import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ * OfficeException
+ * 
+ * @author zhongqs
+ */
 public class OfficeException extends Exception {
 
 	private String key;
