@@ -16,9 +16,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
+import org.springframework.stereotype.Service;
 
 import com.glad.aspect.TraceAdvice;
 
+@Service
 public class CustomInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
 	/**
