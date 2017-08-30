@@ -1,16 +1,18 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!-- Content Header (Page header) -->
 <section class="content-header">
-	<h1>Dashboard</h1>
+	<h1>
+		<spring:message code="${title}" htmlEscape="false" />
+	</h1>
 	<ol class="breadcrumb">
 		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-		<li class="active">Dashboard</li>
+		<li class="active"><spring:message code="${title}" htmlEscape="false" /></li>
 	</ol>
 </section>
 
 <!-- Main content -->
 <section class="content">
-				<form:form action="REPLACEBYSCRIPT" method="POST">
+	<form:form action="REPLACEBYSCRIPT" method="POST">
 		<div class="row">
 			<!-- left column -->
 			<div class="col-md-12">
@@ -18,7 +20,7 @@
 				<div class="box box-info">
 					<div class="box-header with-border">
 						<h3 class="box-title">
-							<spring:message code="${title}" htmlEscape="false" />
+							<spring:message code="glad.office.workhours.details" htmlEscape="false" />
 						</h3>
 					</div>
 					<!-- /.box-header -->
@@ -95,9 +97,11 @@
 										<td>${odhWktmManage.wktmType }</td>
 										<td>${odhWktmManage.wktmSubtype }</td>
 										<td>${odhWktmManage.projectStage }</td>
-										<td><fmt:formatDate value="${odhWktmManage.wktmStartYmdhm}"
+										<td><fmt:formatDate
+												value="${odhWktmManage.wktmStartYmdhm}"
 												pattern="yyyy-MM-dd HH:mm" /></td>
-										<td><fmt:formatDate value="${odhWktmManage.wktmEndYmdhm }"
+										<td><fmt:formatDate
+												value="${odhWktmManage.wktmEndYmdhm }"
 												pattern="yyyy-MM-dd HH:mm" /></td>
 										<td>${odhWktmManage.wktmTimes }</td>
 										<td>${odhWktmManage.memo }</td>
