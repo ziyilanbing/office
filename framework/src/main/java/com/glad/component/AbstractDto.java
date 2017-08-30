@@ -3,6 +3,8 @@ package com.glad.component;
 import java.util.Date;
 
 /**
+ * Abstract Dto
+ * 
  * @author zhongqs
  */
 public class AbstractDto {
