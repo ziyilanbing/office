@@ -48,6 +48,7 @@
 <script src="<c:url value='/static/vendor/slimScroll/jquery.slimscroll.min.js'/>"></script>
 <!-- DataTables -->
 <script src="<c:url value='/static/vendor/datatables/datatables.min.js'/>"></script>
+<%-- <script src="<c:url value='/static/vendor/datatables-responsive/dataTables.responsive.js'/>"></script> --%>
 
 <!-- Custom Theme JavaScript -->
 <script src="<c:url value='/static/js/app.js'/>"></script>
