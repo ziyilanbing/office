@@ -26,8 +26,9 @@
 <link href="<c:url value='/static/vendor/datatables/datatables.min.css'/>"
 	rel="stylesheet" type="text/css">
 <!-- Theme style -->
-<link rel="stylesheet" href="<c:url value='/static/css/AdminLTE.min.css'/>">
-<link rel="stylesheet" href="<c:url value='/static/css/skin-blue.min.css'/>">
+<link rel="stylesheet" href="<c:url value='/static/css/AdminLTE.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/static/css/skin-blue.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/static/vendor/jstree/themes/default/style.css'/>" type="text/css">
 
 <!-- jQuery -->
 <script src="<c:url value='/static/vendor/jquery/jquery.min.js'/>"></script>
