@@ -30,7 +30,8 @@
 								class="pull-right">1,322</b></a></li>
 					</ul>
 
-					<a href="#" class="btn btn-primary btn-block" data-target="#exampleModal" data-toggle="modal"><b>添加新角色</b></a>
+					<a href="#" class="btn btn-primary btn-block"
+						data-target="#exampleModal" data-toggle="modal"><b>添加新角色</b></a>
 				</div>
 				<!-- /.box-body -->
 			</div>
@@ -58,44 +59,44 @@
 								</tr>
 							</thead>
 							<tbody>
-<%-- 								<c:forEach var="odhModlInfo" items="${odhModlInfoList}"> --%>
-									<tr>
-										<td>1${odhModlInfo.modelId }</td>
-										<td>2${odhModlInfo.parentModelId }</td>
-										<td>3${odhModlInfo.modelUrl }</td>
-										<td>4${odhModlInfo.modelName }</td>
-										<td>5${odhModlInfo.modelInfo }</td>
-										<td>6${odhModlInfo.layerNo }</td>
-										<td>7${odhModlInfo.displayOrder }</td>
-									</tr>
-									<tr>
-										<td>1${odhModlInfo.modelId }</td>
-										<td>2${odhModlInfo.parentModelId }</td>
-										<td>3${odhModlInfo.modelUrl }</td>
-										<td>4${odhModlInfo.modelName }</td>
-										<td>5${odhModlInfo.modelInfo }</td>
-										<td>6${odhModlInfo.layerNo }</td>
-										<td>7${odhModlInfo.displayOrder }</td>
-									</tr>
-									<tr>
-										<td>1${odhModlInfo.modelId }</td>
-										<td>2${odhModlInfo.parentModelId }</td>
-										<td>3${odhModlInfo.modelUrl }</td>
-										<td>4${odhModlInfo.modelName }</td>
-										<td>5${odhModlInfo.modelInfo }</td>
-										<td>6${odhModlInfo.layerNo }</td>
-										<td>7${odhModlInfo.displayOrder }</td>
-									</tr>
-									<tr>
-										<td>1${odhModlInfo.modelId }</td>
-										<td>2${odhModlInfo.parentModelId }</td>
-										<td>3${odhModlInfo.modelUrl }</td>
-										<td>4${odhModlInfo.modelName }</td>
-										<td>5${odhModlInfo.modelInfo }</td>
-										<td>6${odhModlInfo.layerNo }</td>
-										<td>7${odhModlInfo.displayOrder }</td>
-									</tr>
-<%-- 								</c:forEach> --%>
+								<%-- 								<c:forEach var="odhModlInfo" items="${odhModlInfoList}"> --%>
+								<tr>
+									<td>1${odhModlInfo.modelId }</td>
+									<td>2${odhModlInfo.parentModelId }</td>
+									<td>3${odhModlInfo.modelUrl }</td>
+									<td>4${odhModlInfo.modelName }</td>
+									<td>5${odhModlInfo.modelInfo }</td>
+									<td>6${odhModlInfo.layerNo }</td>
+									<td>7${odhModlInfo.displayOrder }</td>
+								</tr>
+								<tr>
+									<td>1${odhModlInfo.modelId }</td>
+									<td>2${odhModlInfo.parentModelId }</td>
+									<td>3${odhModlInfo.modelUrl }</td>
+									<td>4${odhModlInfo.modelName }</td>
+									<td>5${odhModlInfo.modelInfo }</td>
+									<td>6${odhModlInfo.layerNo }</td>
+									<td>7${odhModlInfo.displayOrder }</td>
+								</tr>
+								<tr>
+									<td>1${odhModlInfo.modelId }</td>
+									<td>2${odhModlInfo.parentModelId }</td>
+									<td>3${odhModlInfo.modelUrl }</td>
+									<td>4${odhModlInfo.modelName }</td>
+									<td>5${odhModlInfo.modelInfo }</td>
+									<td>6${odhModlInfo.layerNo }</td>
+									<td>7${odhModlInfo.displayOrder }</td>
+								</tr>
+								<tr>
+									<td>1${odhModlInfo.modelId }</td>
+									<td>2${odhModlInfo.parentModelId }</td>
+									<td>3${odhModlInfo.modelUrl }</td>
+									<td>4${odhModlInfo.modelName }</td>
+									<td>5${odhModlInfo.modelInfo }</td>
+									<td>6${odhModlInfo.layerNo }</td>
+									<td>7${odhModlInfo.displayOrder }</td>
+								</tr>
+								<%-- 								</c:forEach> --%>
 							</tbody>
 						</table>
 					</div>
@@ -139,18 +140,47 @@
 				<h4 class="modal-title" id="myModalLabel">角色信息</h4>
 			</div>
 			<div class="modal-body">
-				<div class="form-group has-feedback">
-					<label class="control-label">角色名称：</label> <input type="text"
-						class="form-control" name="roleName" ><i
-						class="form-control-feedback" data-fv-icon-for="roleName"
-						style="display: none;"></i> <small class="help-block"
-						data-fv-validator="notEmpty" data-fv-for="roleName"
-						data-fv-result="NOT_VALIDATED" style="display: none;">请填写角色名称</small>
-				</div>
-				<div class="form-group has-feedback">
-					<label class="control-label">权限分配：</label>
-				</div>
-			
+				<form action="">
+					<div class="form-group">
+						<label class="control-label">角色名称：</label> <input type="text"
+							class="form-control" name="roleName"><i
+							class="form-control-feedback" data-fv-icon-for="roleName"
+							style="display: none;"></i> <small class="help-block"
+							data-fv-validator="notEmpty" data-fv-for="roleName"
+							data-fv-result="NOT_VALIDATED" style="display: none;">请填写角色名称</small>
+					</div>
+					<div class="form-group">
+						<label class="control-label">权限分配：</label>
+						<div class="treeview-box">
+							<div class="treeview-tools clearfix">
+								<div class="btn-group btn-group-sm pull-right" role="group">
+									<button type="button" id="deselectall">
+										DESELECT
+									</button>
+									<button type="button" id="selectall">
+										SELECT
+									</button>
+									<button type="button" id="openall">
+										OPENALL
+									</button>
+									<button type="button" id="closeall">
+										CLOSEALL
+									</button>
+								</div>
+								<div class="pull-left">
+									<div class="input-search">
+										<input type="text" class="form-control input-sm empty"
+											id="jstree_search" placeholder="快速查找...">
+									</div>
+								</div>
+							</div>
+							<div class="pagetree"></div>
+
+							<input type="hidden" name="roleId"> <input type="hidden"
+								name="roleAuth">
+						</div>
+					</div>
+				</form>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">保存</button>
@@ -161,15 +191,51 @@
 	</div>
 </div>
 
+<script src=""></script>
 <script>
-$(function() {
-	$('#exampleModal').on('shown.bs.modal', function(e) {
-		$("#saveChanges").focus();
-		$("#saveChanges").click(function() {
-			$.pjax.reload('#pjax-container', {
-				url : "submit"
+	$(function() {
+		$('#exampleModal').on('shown.bs.modal', function(e) {
+			$("#saveChanges").focus();
+			$("#saveChanges").click(function() {
+				$.pjax.reload('#pjax-container', {
+					url : "submit"
+				});
 			});
 		});
+
+		var treedata;
+		$.getScript("/office/static/vendor/jstree/jstree.min.js").done(function() {+
+			$.ajax({
+				url : "/user/listjson",
+				type : "GET",
+				dataType : "json",
+				success : function(data) {
+					alert(data);
+				}
+			});
+			
+			$('.pagetree').jstree({
+				'core' : {
+			        "data" : treedata
+				},
+				"plugins" : [ "checkbox","search" ]
+			});
+			$(".pagetree").slimScroll();
+		});
+		$("#jstree_search").blur(function(e) {
+			$(".pagetree").jstree(true).search($("#jstree_search").val());
+		});
+		$("#deselectall").on("click", function () {
+			$('.pagetree').jstree(true).deselect_all();
+		});
+		$("#selectall").on("click", function () {
+		    $('.pagetree').jstree(true).select_all();
+		});
+		$("#openall").on("click", function () {
+			$(".pagetree").jstree("open_all");
+		});
+		$("#closeall").on("click", function () {
+			$(".pagetree").jstree("close_all");
+		});
 	});
-});
 </script>
