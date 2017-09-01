@@ -195,33 +195,21 @@
 <script>
 	$(function() {
 		$('#exampleModal').on('shown.bs.modal', function(e) {
-			$("#saveChanges").focus();
-			$("#saveChanges").click(function() {
-				$.pjax.reload('#pjax-container', {
-					url : "submit"
-				});
+			$.ajax({
+				url : "/office/admin/user/listjson",
+				type : "GET", 
+				success : function(result) {
+					$('.pagetree').jstree({
+						'core' : {
+					        "data" : result.data
+						},
+						"plugins" : [ "checkbox","search" ]
+					});
+					$(".pagetree").slimScroll();
+				}
 			});
 		});
 
-		var treedata;
-		$.getScript("/office/static/vendor/jstree/jstree.min.js").done(function() {+
-			$.ajax({
-				url : "/user/listjson",
-				type : "GET",
-				dataType : "json",
-				success : function(data) {
-					alert(data);
-				}
-			});
-			
-			$('.pagetree').jstree({
-				'core' : {
-			        "data" : treedata
-				},
-				"plugins" : [ "checkbox","search" ]
-			});
-			$(".pagetree").slimScroll();
-		});
 		$("#jstree_search").blur(function(e) {
 			$(".pagetree").jstree(true).search($("#jstree_search").val());
 		});

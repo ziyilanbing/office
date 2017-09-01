@@ -3,6 +3,7 @@ package com.glad.controller;
 import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -34,15 +35,18 @@ public class UserController extends BaseController<DefaultModel> {
 
 	@ResponseBody
 	@RequestMapping(value = "/listjson", method = {RequestMethod.GET})
-	public String listjson(ModelMap model, HttpServletRequest request) throws Exception {
+	public String listjson(ModelMap model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		response.setContentType("text/plain; charset=UTF-8");
 		MenuTree menuTree = (MenuTree) request.getSession().getAttribute(Constants.USER_MENU_TREE);
 		System.out.println(menuToJson(menuTree.getRoot()));
 		return menuToJson(menuTree.getRoot());
 	}
 
 	private String menuToJson(TreeNode node) {
-		StringBuilder jsonsb = new StringBuilder("[");
 		Iterator childIterator = node.getChildIterator();
+		if (!childIterator.hasNext())
+			return "null";
+		StringBuilder jsonsb = new StringBuilder("[");
 		while (childIterator.hasNext()) {
 			TreeNode treeNode = (TreeNode) childIterator.next();
 			jsonsb.append("{layer:\"" + ((OdhModlInfo) treeNode.getData()).getModelId() + "\"");
@@ -51,7 +55,9 @@ public class UserController extends BaseController<DefaultModel> {
 			jsonsb.append(",icon:\"fa fa-sitemap\"");
 			jsonsb.append(",children:");
 			jsonsb.append(menuToJson(treeNode));
-			jsonsb.append("},");
+			jsonsb.append("}");
+			if (childIterator.hasNext())
+				jsonsb.append(",");
 		}
 		jsonsb.append("]");
 		return jsonsb.toString();
