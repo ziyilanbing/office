@@ -19,6 +19,11 @@ public class RouteHandlerInterceptor extends HandlerInterceptorAdapter {
 			logger.info("Request X-PJAX");
 			return true;
 		}
+		// AJAX
+		if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
+			logger.info("Request AJAX");
+			return true;
+		}
 		// 找不到对应的HandlerMapping / 静态资源
 		if (handler instanceof DefaultServletHttpRequestHandler) {
 			return true;
