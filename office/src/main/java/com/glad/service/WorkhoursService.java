@@ -28,7 +28,7 @@ public class WorkhoursService extends AbstractService<OdhWktmManage> {
 	@Autowired
 	private OdhWktmManageMapper odhWktmManageDao;
 
-	public List<OdhWktmManage> selectAll(OdhWktmManage odhWktmManage) {
+	public List<OdhWktmManage> selectAll() {
 		return odhWktmManageDao.selectAll();
 	}
 
