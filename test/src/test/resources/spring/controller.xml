@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        ">
+
+	<bean id="requestAroundAdvice" class="com.glad.aspect.RequestAroundAdvice" />
+
+	<bean id="requestAroundAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<constructor-arg name="pointcut" ref="requestAroundPointcut"></constructor-arg>
+		<constructor-arg name="advice" ref="requestAroundAdvice"></constructor-arg>
+	</bean>
+
+	<aop:config>
+		<aop:aspect ref="requestAroundAdvisor">
+			<aop:pointcut
+				expression="@annotation(org.springframework.web.bind.annotation.RequestMapping)"
+				id="requestAroundPointcut" />
+		</aop:aspect>
+	</aop:config>
+
+</beans>

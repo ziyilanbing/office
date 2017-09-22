@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="  
+        http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/aop	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+    ">
+
+	<!-- Logging - Bean setting -->
+	<bean id="traceAdvice" class="com.glad.aspect.TraceAdvice" />
+
+	<bean id="traceAdvisor" class="com.glad.aspectj.GenericAdvisor">
+		<constructor-arg name="advice" ref="traceAdvice"></constructor-arg>
+	</bean>
+
+	<!-- Logging - Pointcut setting -->
+	<aop:config>
+		<aop:aspect ref="traceAdvisor">
+			<aop:pointcut id="controllerTypePointcut" expression="within(com.glad.controller..*)" />
+			<aop:before method="before" pointcut-ref="controllerTypePointcut" />
+			<aop:after-returning method="afterReturning"
+				pointcut-ref="controllerTypePointcut" returning="result" />
+			<aop:after-throwing method="afterThrowing"
+				pointcut-ref="controllerTypePointcut" throwing="ex" />
+
+			<aop:pointcut id="modelTypePointcut" expression="within(com.glad.model..*)" />
+			<aop:before method="before" pointcut-ref="modelTypePointcut" />
+			<aop:after-returning method="afterReturning"
+				pointcut-ref="modelTypePointcut" returning="result" />
+			<aop:after-throwing method="afterThrowing"
+				pointcut-ref="modelTypePointcut" throwing="ex" />
+
+			<aop:pointcut id="serviceTypePointcut" expression="within(com.glad.service..*)" />
+			<aop:before method="before" pointcut-ref="serviceTypePointcut" />
+			<aop:after-returning method="afterReturning"
+				pointcut-ref="serviceTypePointcut" returning="result" />
+			<aop:after-throwing method="afterThrowing"
+				pointcut-ref="serviceTypePointcut" throwing="ex" />
+
+			<aop:pointcut id="daoTypePointcut" expression="within(com.glad.dao..*)" />
+			<aop:before method="before" pointcut-ref="daoTypePointcut" />
+			<aop:after-returning method="afterReturning"
+				pointcut-ref="daoTypePointcut" returning="result" />
+			<aop:after-throwing method="afterThrowing"
+				pointcut-ref="daoTypePointcut" throwing="ex" />
+		</aop:aspect>
+	</aop:config>
+</beans>

@@ -9,7 +9,7 @@
 	<name>office Webapp</name>
 
 	<properties>
-		<org.springframework-version>4.3.6.RELEASE</org.springframework-version>
+		<org.springframework-version>4.3.10.RELEASE</org.springframework-version>
 		<spring-security.version>4.2.2.RELEASE</spring-security.version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 		<logback.version>1.1.3</logback.version>

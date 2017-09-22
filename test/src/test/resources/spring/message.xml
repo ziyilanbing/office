@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        ">
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:i18n/Message</value>
+				<value>classpath:i18n/Name</value>
+			</list>
+		</property>
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+
+	<bean id="localResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
+
+	<bean id="localChangeInterceptor"
+		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+
+	<bean id="locale" class="java.util.Locale">
+		<constructor-arg type="java.lang.String" value="${local.language}" />
+		<constructor-arg type="java.lang.String" value="${local.country}" />
+	</bean>
+
+	<bean class="com.glad.message.LocalizeMessageSource">
+		<constructor-arg name="source" ref="messageSource"></constructor-arg>
+		<constructor-arg name="locale" ref="locale"></constructor-arg>
+	</bean>
+	
+</beans>
